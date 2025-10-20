@@ -2,7 +2,7 @@
 
 ## Author(s)
 - Clara Dias (67215)
-- Ricardo Batisto (68509)
+- Ricardo Batista (68509)
 
 ## Reviewer(s)
 
@@ -11,16 +11,16 @@
 
 ### User story
 
-Como jogador do midustry sinto falta de niveis de eficiencia nas maquinas. Assim que as adquirimos não existe forma de as melhorarmos, se existisse esta opção, o jogo, seria mais desafiante e completo
+Como jogador do mindustry sinto falta de níveis de eficiência nas máquinas. Assim que as adquirimos não existe forma de serem melhoradas. Se existisse esta opção o jogo seria mais desafiante e completo.
 
 
 #### Notes
 
-*(Please add any notes about this user story here.)*
+Para existirem estes níveis, o jogador teria de ter como base de avanço conquistas no jogo.
 
 ### Review
 *(Please add your review here. Identify the reviewer’s Name and List of comments to be addressed / points to be corrected / suggestions.)*
 
 #### Change Log
 
-*(date: change description)*
+20/10/2025: Initial User story and Note created
