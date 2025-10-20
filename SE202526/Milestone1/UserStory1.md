@@ -1,9 +1,8 @@
 # User story 1
 
 ## Author(s)
-
-- name surname (number)
-- name surname (number)
+- Clara Dias (67215)
+- Ricardo Batisto (68509)
 
 ## Reviewer(s)
 
@@ -12,7 +11,8 @@
 
 ### User story
 
-*( please write up the User story here.)*
+Como jogador do midustry sinto falta de niveis de eficiencia nas maquinas. Assim que as adquirimos não existe forma de as melhorarmos, se existisse esta opção, o jogo, seria mais desafiante e completo
+
 
 #### Notes
 
