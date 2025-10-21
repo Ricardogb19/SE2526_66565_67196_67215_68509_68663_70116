@@ -20,7 +20,7 @@ Para existirem estes níveis, o jogador teria de ter como base de avanço conqui
 
 ### Review
 Uma excelente adição às mecânicas do jogo, o aumento de eficiência das máquinas através de conquistas realizadas no jogo acaba por recompensar o jogador em questão pela dedicação.
-
+Um ponto a ser discutido será se estes novos níveis de eficiência serão user bound (transitam de partida para partida) ou save bound (apenas disponíveis na partida em que foram desbloqueadas)
 #### Change Log
 
 20/10/2025: Initial User story and Note created
