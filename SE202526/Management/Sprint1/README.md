@@ -29,11 +29,11 @@ meeting decisions:
 
 ### Scrum Board at the beginning of the sprint
 
-![alt text](image.png)
+![beginning of sprint](StartOfSprint.png)
 
 ### Scrum Board in the middle of the sprint
 
-Please add the scrumboard picture here.
+![midle of sprint](midleOfSprint.png)
 
 ### Scrum Board at the end of the sprint
 
