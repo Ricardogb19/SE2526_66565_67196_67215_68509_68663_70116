@@ -2,8 +2,8 @@
 
 ## Author(s)
 
+- Afonso Rodriguez (66565)
 - Rafael Soares (70116)
-- name surname (number)
 
 ## Reviewer(s)
 
@@ -12,7 +12,7 @@
 
 ### User story
 
-*( please write up the User story here.)*
+Como um jogador veterano, gostaria de construir uma nova defesa que desativa as capacidades aéreas destas unidades, para que eu possa lidar com elas numa maneira estratégica, forçando-as a lutar no chão.
 
 #### Notes
 
