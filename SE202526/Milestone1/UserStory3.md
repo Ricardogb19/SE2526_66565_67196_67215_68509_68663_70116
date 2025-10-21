@@ -2,7 +2,7 @@
 
 ## Author(s)
 
-- name surname (number)
+- Rafael Soares (70116)
 - name surname (number)
 
 ## Reviewer(s)
@@ -16,7 +16,7 @@
 
 #### Notes
 
-*(Please add any notes about this user story here.)*
+Após investigar a wiki do jogo, observámos que existem algumas defesas que apenas atacam unidades terrestres. Havendo unidades aéreas inimigas, a implementação de uma unidade de defesa que as força para o chão seria uma maneira de promover uma estratégia defensiva mais criativa
 
 ### Review
 *(Please add your review here)*
