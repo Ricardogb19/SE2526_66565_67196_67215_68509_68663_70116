@@ -16,7 +16,7 @@ Como jogador do jogo que gosta de manter informação da situação em tempo rea
 
 #### Notes
 
-*(Please add any notes about this user story here.)*
+O jogo apenas avisa de forma sonora o utilizador e através do bloqueio dos itens no conveyor. Segundo pesquisas que realizámos, os utilizadores, principalmente principiantes, sentem falta de avisos mais chamativos ou de algum tipo de explicação sobre o motivo da paragem do(s) conveyor(s).
 
 ### Review
 *(Please add your review here)*
