@@ -6,7 +6,7 @@
 
 ## Reviewer(s)
 
-- name surname (number)
+- Afonso Rodriguez (66565)
 - name surname (number)
 
 ### User story
@@ -19,7 +19,7 @@ Como jogador do mindustry sinto falta de níveis de eficiência nas máquinas. A
 Para existirem estes níveis, o jogador teria de ter como base de avanço conquistas no jogo.
 
 ### Review
-*(Please add your review here. Identify the reviewer’s Name and List of comments to be addressed / points to be corrected / suggestions.)*
+Uma excelente adição às mecânicas do jogo, o aumento de eficiência das máquinas através de conquistas realizadas no jogo acaba por recompensar o jogador em questão pela dedicação.
 
 #### Change Log
 
