@@ -7,8 +7,8 @@
 
 ## Reviewer(s)
 
-- name surname (number)
-- name surname (number)
+- Raksana Udagedara (67196)
+- Guilherme Neto (68663)
 
 ### User story
 
@@ -19,7 +19,8 @@ Como um jogador veterano, gostaria de construir uma nova defesa que desativa as 
 Após investigar a wiki do jogo, observámos que existem algumas defesas que apenas atacam unidades terrestres. Havendo unidades aéreas inimigas, a implementação de uma unidade de defesa que as força para o chão seria uma maneira de promover uma estratégia defensiva mais criativa
 
 ### Review
-*(Please add your review here)*
+A user story contribui para a componente estratégica do jogo, propondo uma funcionalidade criativa para equilibrar e melhorar a defesa em possíveis combates, alinhando-se com a lógica do jogo.
+
 
 
 #### Change Log
