@@ -12,7 +12,7 @@
 
 ### User story
 
-Como jogador do jogo que gosta de manter informação da situação em tempo real, sinto falta de avisos mais chamativos quando o conveyor não tem destino, fica bloqueado ou está mal montado.
+Como jogador do jogo, gostaria de ter avisos mais chamativos quando o conveyor não tem destino, fica bloqueado ou está mal montado, para que eu possa manter informação em tempo real do estado do jogo.
 
 #### Notes
 
@@ -23,4 +23,5 @@ O jogo apenas avisa de forma sonora o utilizador e através do bloqueio dos iten
 
 #### Change Log
 
-*(date: change description)*
+21/10/2025 - User story and note added.
+22/10/2025 - correction of the user story template.
