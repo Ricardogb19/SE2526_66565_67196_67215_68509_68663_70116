@@ -20,8 +20,8 @@ Após investigar a wiki do jogo, observámos que existem algumas defesas que ape
 
 ### Review
 A user story contribui para a componente estratégica do jogo, propondo uma funcionalidade criativa para equilibrar e melhorar a defesa em possíveis combates, alinhando-se com a lógica do jogo.
-Este conceito é bastante criativo e bem pensado, permitindo alterações a estratégias existentes e até à criação de novas táticas. Promove a divisibilidade no gameplay e um maior "skill ceiling" para os jogadores mais avançados.
-
+Este conceito é bastante "fora da caixa" e bem pensado, permitindo alterações a estratégias existentes e até à criação de novas táticas. Promove a diversidade no gameplay e um maior "skill ceiling" para os jogadores mais avançados.
+No entanto, esta user story pode ser mais clara no conceito de "jogador veterano": é difícil de dizer se é um jogador que joga o jogo há bastante tempo, ou um jogador que atingiu uma dada milestone/nº de recursos.
 
 #### Change Log
 
