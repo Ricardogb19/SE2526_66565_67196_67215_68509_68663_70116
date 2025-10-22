@@ -2,7 +2,7 @@
 
 ## Dates
 
-2025-10-08 - 2025-10-19
+2025-10-14 - 2025-10-22
 
 ## Scrum master
 
@@ -20,10 +20,13 @@ meeting decisions:
 
 
 ### Sprint Review Meeting: 
-*(Held at the end of the sprint, this meeting is attended by all stakeholders to demo the completed work and validate if the sprint goal has been met.)*
+
+The group was able to acomplish every assigned goal for the sprint.
 
 ### Sprint Retrospective Meeting: 
-*(This meeting happens after the sprint review and before the next sprint planning meeting. The team reflects on what went well, what needs improvement, and how to enhance their processes for future sprints.)*
+Time management can be improved.
+Every goal was achieved within the expected time window, the good team communication was a big part of being able to do so.
+
 
 ## Relevant resources
 
@@ -37,12 +40,13 @@ meeting decisions:
 
 ### Scrum Board at the end of the sprint
 
-Please add the scrumboard picture here.
+![end of sprint](EndOfSprint.png)
 
 ### Burndown Chart for the sprint
 
-Please add the burndown chart here.
+![Burndown Chart- Gráfico](GraficoBurdownChart.png)
+![Burndown Chart- tabela](TabelaBurndownChart.png)
 
 ### Gantt Chart
 
-Please add the Gantt chart here
+![GanttChart](GanttChart.png)
