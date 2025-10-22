@@ -7,7 +7,7 @@
 
 ## Reviewer(s)
 
-- name surname (number)
+- Clara Dias (67215)
 - name surname (number)
 
 ### User story
@@ -19,7 +19,7 @@ Como jogador do jogo, gostaria de ter avisos mais chamativos quando o conveyor n
 O jogo apenas avisa de forma sonora o utilizador e através do bloqueio dos itens no conveyor. Segundo pesquisas que realizámos, os utilizadores, principalmente principiantes, sentem falta de avisos mais chamativos ou de algum tipo de explicação sobre o motivo da paragem do(s) conveyor(s).
 
 ### Review
-*(Please add your review here)*
+Esta adição tem um excelente potêncial, dado que principalemente para novos jogadores pode não ser muito óbvio, a principio, estes bloqueios e más montagens. É necessário ter cuidado para a interface do jogo não ficar sobrecarregada, com demasiada informação. 
 
 #### Change Log
 

@@ -45,4 +45,4 @@ Please add the burndown chart here.
 
 ### Gantt Chart
 
-Please add the Gantt chart here.
+Please add the Gantt chart here
