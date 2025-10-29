@@ -2,41 +2,44 @@
 
 ## Dates
 
-2025-10-20 - 2025-10-26
+2025-10-22 - 2025-10-29
 
 ## Scrum master
 
-Student name and number
+Rafael Soares 70116
 
 ## Management info
 ### Sprint Planning Meeting: 
-*(This meeting is held at the beginning of the sprint to define the primary purpose and goal of the sprint. The Scrum team, comprising the product manager, development team, and Scrum Master, selects and commits to a set of product backlog items (PBIs) referred to as the sprint backlog. You can use this section to log what happened during this meeting. A few bullet points should be enough.)*
+ >#### Sprint Goals :
+> * Look into the game's codebase
+> * Find Code Smells present in the code
+> * Creation of use case diagrams 
+  
+> #### Meeting decisions:
+> * Workload distribution for the week
 
 ### Sprint Review Meeting: 
-*(Held at the end of the sprint, this meeting is attended by all stakeholders to demo the completed work and validate if the sprint goal has been met.)*
-
+> Since the team was only able to look into the codeBase during this sprint, there was nothing tangible to verify or validate
 ### Sprint Retrospective Meeting: 
-*(This meeting happens after the sprint review and before the next sprint planning meeting. The team reflects on what went well, what needs improvement, and how to enhance their processes for future sprints.)*
+> Due to a tight academic schedule our team wasn't able to successfully finish this sprint, nevertheless we noticed a significant improvement on our communication as a team compared to the last sprint, however, it is of utmost importance that we improve our time management capabilities.
 
 ## Relevant resources
 
 ### Scrum Board at the beginning of the sprint
 
-Please add the scrumboard picture here.
-
+![beginning of sprint](startOfSprint.png)
 ### Scrum Board in the middle of the sprint
 
-Please add the scrumboard picture here.
+![middle of sprint](middleOfSprint.png)
 
 ### Scrum Board at the end of the sprint
 
-Please add the scrumboard picture here.
+![end of sprint](endOfSprint.png)
 
 ### Burndown Chart for the sprint
 
-Please add the burndown chart here.
+![burndown Chart](burndownChart.png)
 
 ### Gantt Chart
 
-Please add the Gantt chart here.
-
+![gantt chart](ganttChart.png)
