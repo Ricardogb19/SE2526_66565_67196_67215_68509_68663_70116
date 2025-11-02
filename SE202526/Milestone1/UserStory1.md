@@ -7,7 +7,7 @@
 ## Reviewer(s)
 
 - Afonso Rodriguez (66565)
-- name surname (number)
+- Rafael Soares (70116)
 
 ### User story
 

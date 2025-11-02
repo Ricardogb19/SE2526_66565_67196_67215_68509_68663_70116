@@ -12,11 +12,11 @@
 
 ### User story
 
-Como um jogador veterano, gostaria de construir uma nova defesa que desativa as capacidades aéreas destas unidades, para que eu possa lidar com elas numa maneira estratégica, forçando-as a lutar no chão.
+**As a** veteran player, **I want to** orchestrate a new defensive strategy by pulling enemy air units to the ground, **so that I can** play the game in a more creative way.
 
 #### Notes
 
-Após investigar a wiki do jogo, observámos que existem algumas defesas que apenas atacam unidades terrestres. Havendo unidades aéreas inimigas, a implementação de uma unidade de defesa que as força para o chão seria uma maneira de promover uma estratégia defensiva mais criativa
+After looking into the game wiki, we've observed that some defense turrets can only attack ground units. Since the enemy waves are composed of mostly air units, implementing a defense turret that forces them to be grounded (and take more damage from ground-only turrets) would incentivize veteran players to come up with new creative defensive strategies.
 
 ### Review
 A user story contribui para a componente estratégica do jogo, propondo uma funcionalidade criativa para equilibrar e melhorar a defesa em possíveis combates, alinhando-se com a lógica do jogo.
