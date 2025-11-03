@@ -21,10 +21,10 @@ Para existirem estes níveis, o jogador teria de ter como base de avanço conqui
 
 ### Review
 
-Uma excelente adição às mecânicas do jogo, o aumento de eficiência das máquinas através de conquistas realizadas no jogo acaba por recompensar o jogador em questão pela dedicação.
-Um ponto a ser discutido será se estes novos níveis de eficiência serão user bound (transitam de partida para partida) ou save bound (apenas disponíveis na partida em que foram desbloqueadas)
-
+A great addition to the game's mechanics, upgrading the machine's efficiency through in-game milestones rewards commited players for their effort and dedication.
+A topic of discussion is if these new efficiency levels will be user bound (as in they transit from save to save) or if they are save bound (only available in the save where those milestones were unlocked).
 
 #### Change Log
 - 20/10/2025: Initial User story and Note created - Clara Dias (67215), Ricardo Batista (68509)
 - 03/11/2025: User Story refined - Ricardo Batista (68509)
+- 03/11/2025: Translated review - Rafael Soares (70116)

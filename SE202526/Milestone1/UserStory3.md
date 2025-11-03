@@ -25,4 +25,4 @@ No entanto, esta user story pode ser mais clara no conceito de "jogador veterano
 
 #### Change Log
 
-*(date: change description)*
+- 02/11/2025: translated and made minor tweaks to user story - Rafael Soares (70116)
