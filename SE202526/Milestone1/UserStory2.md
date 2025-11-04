@@ -18,11 +18,14 @@ The game only notifies the player by interrupting the conveyor's audio, which ca
 If we find this too simple to implement, we will also add a log of all warnings.
 
 ### Review
-Esta adição tem um excelente potêncial principalemente para novos jogadores uma vez que estes bloqueios e más montagens podem não ser muito óbvios numa fase de iniciante. É necessário ter cuidado para a interface do jogo não ficar sobrecarregada, com demasiada informação. 
+
+This addition has great potencial mainly because, for new players, the misplacements of conveyors and bad assemblies may not be obvious at first. It's necessary to be careful in order for the game's interface not to become too cramped, with too much info.
+ 
 
 #### Change Log
 
-21/10/2025 - User story and note added.
-22/10/2025 - correction of the user story template.
-22/10/2025 - Review
-4/11/2025 - Refinement of our user story and its notes. Guilherme Neto (68663)
+- 21/10/2025 - User story and note added.
+- 22/10/2025 - correction of the user story template.
+- 22/10/2025 - Review
+- 04/11/2025 - Refinement of our user story and its notes - Guilherme Neto (68663)
+- 04/11/2025 - Review - Ricardo Batista (68509)
