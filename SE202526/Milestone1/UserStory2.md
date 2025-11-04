@@ -14,7 +14,8 @@
 **As a** player that likes to keep track of everything, **I want to** receive a text warning everytime I misplace a conveyor for whatever reason and obtain possible fixes, **so that** I can have everything under my watch and build solid structures quickly.
 
 #### Notes
-
+The game only notifies the player by interrupting the conveyor's audio, which can be underwhelming for players who prefer to play on mute, or are always moving around the map. Our feature would inform the player with text warnings and suggest possible solucions to make unaware players understand more specifically what went wrong, as well as promoting adaptacion towards the previously mentioned types of players.
+If we find this too simple to implement, we will also add a log of all warnings.
 
 ### Review
 Esta adição tem um excelente potêncial principalemente para novos jogadores uma vez que estes bloqueios e más montagens podem não ser muito óbvios numa fase de iniciante. É necessário ter cuidado para a interface do jogo não ficar sobrecarregada, com demasiada informação. 
@@ -24,3 +25,4 @@ Esta adição tem um excelente potêncial principalemente para novos jogadores u
 21/10/2025 - User story and note added.
 22/10/2025 - correction of the user story template.
 22/10/2025 - Review
+4/11/2025 - Refinement of our user story and its notes. Guilherme Neto (68663)

@@ -19,10 +19,11 @@
 After looking into the game wiki, we've observed that some defense turrets can only attack ground units. Since the enemy waves are composed of mostly air units, implementing a defense turret that forces them to be grounded (and take more damage from ground-only turrets) would incentivize veteran players to come up with new creative defensive strategies.
 
 ### Review
-A user story contribui para a componente estratégica do jogo, propondo uma funcionalidade criativa para equilibrar e melhorar a defesa em possíveis combates, alinhando-se com a lógica do jogo.
-Este conceito é bastante "fora da caixa" e bem pensado, permitindo alterações a estratégias existentes e até à criação de novas táticas. Promove a diversidade no gameplay e um maior "skill ceiling" para os jogadores mais avançados.
-No entanto, esta user story pode ser mais clara no conceito de "jogador veterano": é difícil de dizer se é um jogador que joga o jogo há bastante tempo, ou um jogador que atingiu uma dada milestone/nº de recursos.
+The user story contributes to the strategic component of the game, proposing a creative feature to balance and improve defense in possible combat situations, aligning with the logic of the game.
+This concept is quite outside the box and well thought out, allowing for changes to existing strategies and even the creation of new tactics. It promotes diversity in gameplay and a higher skill ceiling for more advanced players.
+However, this user story could be clearer in the concept of veteran player: it is difficult to say whether it is a player who has been playing the game for a long time, or a player who has reached a certain level/milestone in the game.
 
 #### Change Log
 
 - 02/11/2025: translated and made minor tweaks to user story - Rafael Soares (70116)
+- 04/11/202: translated our review of this user story, which still holds up - Guilherme Neto (68663)
