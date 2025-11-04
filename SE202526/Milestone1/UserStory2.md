@@ -11,12 +11,10 @@
 - Ricardo Batista (68509)
 
 ### User story
-
-Como jogador do jogo, gostaria de ter avisos mais chamativos quando o conveyor não tem destino, fica bloqueado ou está mal montado, para que eu possa manter informação em tempo real do estado do jogo.
+**As a** player that likes to keep track of everything, **I want to** receive a text warning everytime I misplace a conveyor for whatever reason and obtain possible fixes, **so that** I can have everything under my watch and build solid structures quickly.
 
 #### Notes
 
-O jogo apenas avisa de forma sonora o utilizador e através do bloqueio dos itens no conveyor. Segundo pesquisas que realizámos, os utilizadores, principalmente principiantes, sentem falta de avisos mais chamativos ou de algum tipo de explicação sobre o motivo da paragem do(s) conveyor(s).
 
 ### Review
 Esta adição tem um excelente potêncial principalemente para novos jogadores uma vez que estes bloqueios e más montagens podem não ser muito óbvios numa fase de iniciante. É necessário ter cuidado para a interface do jogo não ficar sobrecarregada, com demasiada informação. 
