@@ -1,0 +1,102 @@
+@startuml BackupRestoreServer
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Server Admin" as Admin
+actor "Scheduler" as Scheduler
+actor "File Storage" as Storage
+actor "Monitoring" as Monitoring
+actor "Player" as Player
+
+rectangle "Backup & Restore" {
+  usecase "Initiate Backup" as UC_Backup
+  usecase "Upload Backup" as UC_Upload
+  usecase "Record Audit Entry" as UC_Audit
+  usecase "Notify Stakeholders" as UC_Notify
+  usecase "Initiate Restore" as UC_Restore
+  usecase "Verify & Migrate Backup" as UC_Verify
+  usecase "Rollback on Failure" as UC_Rollback
+  usecase "Manage Retention" as UC_Retention
+
+  ' optional/alternative flows
+  usecase "Incremental Backup" as UC_Incremental
+  usecase "Dry-run Restore (staging)" as UC_DryRun
+}
+
+Admin --> UC_Backup : manual
+Scheduler --> UC_Backup : scheduled
+UC_Backup --> UC_Upload
+UC_Upload --> Storage
+UC_Upload --> UC_Audit
+UC_Audit --> Monitoring
+UC_Audit --> Admin
+UC_Upload --> UC_Notify
+Admin --> UC_Restore
+UC_Restore --> UC_Verify
+UC_Verify --> UC_Rollback : on failure
+UC_Restore --> UC_Notify
+UC_Retention ..> UC_Upload : <<include>>
+UC_Retention ..> Storage : <<use>>
+
+' alternative links
+UC_Backup ..> UC_Incremental : <<include>>
+UC_Restore ..> UC_DryRun : <<extend>>
+
+' Error/alt flows as usecases
+rectangle "Error / Recovery Flows" {
+  usecase "Network Failure / Retry" as E_Net
+  usecase "Storage Quota Exceeded" as E_Quota
+  usecase "Checksum Mismatch / Corrupt" as E_Corrupt
+  usecase "Version Incompatibility" as E_Version
+  usecase "Concurrent Restore Conflict" as E_Conflict
+  usecase "Partial Restore Failure" as E_Partial
+}
+
+UC_Upload ..> E_Net : handles
+UC_Upload ..> E_Quota : may cause
+UC_Verify ..> E_Corrupt : may detect
+UC_Verify ..> E_Version : may detect
+UC_Restore ..> E_Conflict : may detect
+UC_Restore ..> E_Partial : may cause
+E_Partial ..> UC_Rollback : triggers
+
+note top of UC_Backup
+Preconditions:
+- Admin authenticated
+- Server accessible & read permissions available
+- Storage reachable & quota available
+- Backup format compatible
+end note
+
+note left of UC_Backup
+Backup success (README):
+- Backup stored, indexed, retrievable, audit logged
+end note
+
+note bottom of UC_Restore
+Postconditions (success):
+- Server state restored and validated
+Postconditions (failure):
+- No production data loss (rollback) or Admin notified
+end note
+
+note right of E_Net
+Recovery:
+- Retry with backoff
+- Provide resumable upload
+- Notify Admin if persistent
+end note
+
+note right of E_Corrupt
+Recovery:
+- Reject & request re-upload
+- Attempt restore from previous backup
+end note
+
+note right of E_Version
+Recovery:
+- Attempt migration tool
+- If impossible, abort and list required steps
+end note
+
+@enduml

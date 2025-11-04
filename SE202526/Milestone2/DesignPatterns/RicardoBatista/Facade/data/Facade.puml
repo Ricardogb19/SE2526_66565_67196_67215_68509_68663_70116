@@ -1,0 +1,110 @@
+@startuml Facade
+skinparam classAttributeIconSize 0
+
+class Vars <<Facade>> {
+  +static FileTree tree
+  +static Net net
+  +static ContentLoader content
+  +static GameState state
+  +static EntityCollisions collisions
+  +static Waves waves
+  +static Platform platform
+  +static Mods mods
+  +static Schematics schematics
+  +static BeControl becontrol
+  +static AsyncCore asyncCore
+  +static BaseRegistry bases
+  +static GlobalVars logicVars
+  +static MapEditor editor
+  +static AvoidanceProcess avoidance
+  +static GameService service
+  +static Universe universe
+  +static World world
+  +static Maps maps
+  +static WaveSpawner spawner
+  +static BlockIndexer indexer
+  +static Pathfinder pathfinder
+  +static ControlPathfinder controlPath
+  +static FogControl fogControl
+  +static Control control
+  +static Logic logic
+  +static Renderer renderer
+  +static UI ui
+  +static NetServer netServer
+  +static NetClient netClient
+  +static Player player
+  +static void init()
+  +static void loadAsync()
+}
+
+' subsystem classes (declared as empty boxes for clarity)
+class FileTree <<Subsystem>> {}
+class ContentLoader <<Subsystem>> {}
+class GameState <<Subsystem>> {}
+class EntityCollisions <<Subsystem>> {}
+class Waves <<Subsystem>> {}
+class Platform <<Subsystem>> {}
+class Mods <<Subsystem>> {}
+class Schematics <<Subsystem>> {}
+class BeControl <<Subsystem>> {}
+class AsyncCore <<Subsystem>> {}
+class BaseRegistry <<Subsystem>> {}
+class GlobalVars <<Subsystem>> {}
+class MapEditor <<Subsystem>> {}
+class AvoidanceProcess <<Subsystem>> {}
+class GameService <<Subsystem>> {}
+class Universe <<Subsystem>> {}
+class World <<Subsystem>> {}
+class Maps <<Subsystem>> {}
+class WaveSpawner <<Subsystem>> {}
+class BlockIndexer <<Subsystem>> {}
+class Pathfinder <<Subsystem>> {}
+class ControlPathfinder <<Subsystem>> {}
+class FogControl <<Subsystem>> {}
+class Control <<Subsystem>> {}
+class Logic <<Subsystem>> {}
+class Renderer <<Subsystem>> {}
+class UI <<Subsystem>> {}
+class NetServer <<Subsystem>> {}
+class NetClient <<Subsystem>> {}
+class Player <<Subsystem>> {}
+
+' associations
+Vars --> FileTree
+Vars --> Net
+Vars --> ContentLoader
+Vars --> GameState
+Vars --> EntityCollisions
+Vars --> Waves
+Vars --> Platform
+Vars --> Mods
+Vars --> Schematics
+Vars --> BeControl
+Vars --> AsyncCore
+Vars --> BaseRegistry
+Vars --> GlobalVars
+Vars --> MapEditor
+Vars --> AvoidanceProcess
+Vars --> GameService
+Vars --> Universe
+Vars --> World
+Vars --> Maps
+Vars --> WaveSpawner
+Vars --> BlockIndexer
+Vars --> Pathfinder
+Vars --> ControlPathfinder
+Vars --> FogControl
+Vars --> Control
+Vars --> Logic
+Vars --> Renderer
+Vars --> UI
+Vars --> NetServer
+Vars --> NetClient
+Vars --> Player
+
+note right of Vars
+Location:
+core/src/mindustry/Vars.java
+This diagram lists the static subsystems actually declared/instantiated in Vars.
+end note
+@enduml

@@ -1,0 +1,55 @@
+@startuml Iterator
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+
+package "core/src/mindustry/world" {
+  class World {
+    - tiles : arc.struct.Seq<Tile>
+    - entities : arc.struct.Seq<Entity>
+    + iteratorTiles() : java.util.Iterator<Tile>
+    + iteratorEntities() : java.util.Iterator<Entity>
+    + forEachTile(action)
+    + forEachEntity(action)
+  }
+
+  class Tile
+  class Entity
+  class Unit
+  class Building
+}
+
+package "clients" {
+  class Renderer
+  class AI
+}
+
+' collections / iterator (note: use java.util.Iterator and arc.struct.Seq in code)
+class "arc.struct.Seq<T>" as Seq {
+  +iterator(): java.util.Iterator<T>
+}
+interface "java.util.Iterator<T>" {
+  +hasNext():boolean
+  +next():T
+}
+
+' relationships
+World "1" --> "0..*" Tile : contains
+World "1" --> "0..*" Entity : contains
+Tile ..|> Entity
+Unit ..|> Entity
+Building ..|> Entity
+
+World --> Seq : "holds"
+World ..> "java.util.Iterator" : "provides"
+
+Renderer ..> World : "iterates tiles/entities to draw"
+AI ..> World : "iterates entities to update"
+
+note right of World
+Concrete locations (examples):
+- core/src/mindustry/world/World.java
+- core/src/mindustry/world/Tile.java
+- core/src/mindustry/entities/Unit.java
+Use forEach* helpers to avoid exposing mutable collections.
+end note
+@enduml
