@@ -16,8 +16,7 @@
 
 #### Notes
 
-Para existirem estes níveis, o jogador teria de ter como base de avanço conquistas no jogo.
-
+These upgrades would be based on the game's achievements. When we talk about efficiency, we mean the machines producing more in the same amount of time, or the same quantity in less time.
 
 ### Review
 
@@ -28,3 +27,4 @@ A topic of discussion is if these new efficiency levels will be user bound (as i
 - 20/10/2025: Initial User story and Note created - Clara Dias (67215), Ricardo Batista (68509)
 - 03/11/2025: User Story refined - Ricardo Batista (68509)
 - 03/11/2025: Translated review - Rafael Soares (70116)
+- 4/11/2025: notesde added

@@ -19,7 +19,7 @@ If we find this too simple to implement, we will also add a log of all warnings.
 
 ### Review
 
-This addition has great potencial mainly because, for new players, the misplacements of conveyors and bad assemblies may not be obvious at first. It's necessary to be careful in order for the game's interface not to become too cramped, with too much info.
+This addition has great potential, mainly because for new players, conveyor misplacements and poor assemblies may not be obvious at first. It’s important to be careful so that the game’s interface doesn’t become too cluttered with excessive information.
  
 
 #### Change Log
@@ -29,3 +29,4 @@ This addition has great potencial mainly because, for new players, the misplacem
 - 22/10/2025 - Review
 - 04/11/2025 - Refinement of our user story and its notes - Guilherme Neto (68663)
 - 04/11/2025 - Review - Ricardo Batista (68509)
+- 04/11/2025 - Review - Clara Dias (67215)
