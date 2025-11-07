@@ -51,6 +51,9 @@ Post-conditions: The player is now in the game's main menu.
 
 Alternative Flows: None
 
+### Use Case Diagram for the Use Cases above:
+![alt text](image-2.png)
+
 ## Use Case: Choose Sector
 ID:UC8
 
@@ -162,4 +165,5 @@ Alternative Flow:
 
 Post-conditions: The player is unable to browse for any mods.
 
-
+### Use Case Diagram for the last 3 Use Cases:
+### ![alt text](image-1.png)
