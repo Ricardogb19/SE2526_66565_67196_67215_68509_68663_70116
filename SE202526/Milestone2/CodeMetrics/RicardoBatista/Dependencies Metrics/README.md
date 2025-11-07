@@ -1,33 +1,34 @@
 # Code Metrics Review — Dependencies
 
-## Overview
-This report reviews a static sweep of the codebase for Dependencies revealing pervasive coupling and package cycles. 
-The metrics indicate widespread cyclic dependencies and high coupling across core subsystems, increasing maintenance 
-cost and fragility.
+## Metrics
+![Metrics](Metrics.png)
 
-## Key Findings
-- Wide-spread cyclic dependency indicator: many packages show the same high "Cyclic" value.
-- Large PDcy / PDpt counts across core packages — strong evidence of entangled package graphs.
-- High coupling and size concentrated in: `mindustry.world`, `mindustry.world.blocks`, `mindustry.core`,
-`mindustry.content`, `mindustry.type`, `mindustry.ui.dialogs`, `mindustry.ui.fragments`, `mindustry.entities`,
-`mindustry.game`, `mindustry.io`, `mindustry.logic`, `mindustry.maps`.
+## Analysis Summary
+- Overall, the numbers show low coupling but weak encapsulation and heavy inheritance.
 
-## Hotspots (high risk)
-- `mindustry.world` and `mindustry.world.blocks` (many large classes and high method/field counts)
-- `mindustry.core`, `mindustry.content`, `mindustry.type`
-- UI dialogs / fragments: `mindustry.ui.dialogs`, `mindustry.ui.fragments`
-- `mindustry.entities`, `mindustry.game`, `mindustry.io`, `mindustry.logic`, `mindustry.maps`
+## Key signals
+- Coupling Factor: 0.2529% — very low static coupling (few references between classes/packages).
+- Attribute Hiding Factor: 24.1960%, Method Hiding Factor: 21.5465% — most members are not hidden 
+(many public/protected), so encapsulation is weak.
+- Attribute Inheritance Factor: 95.4369%, Method Inheritance Factor: 93.0969% — heavy use of inheritance; many members 
+come from superclasses.
+- Polymorphism Factor: 1.8413% — little override/late-binding use.
+- Reusability high but Understandability: -11.2302 and Maintainability Index: 0.0 — suggests reuse via inheritance but 
+low readability/maintainability.
 
-## Why this matters
-- Cycles and high coupling cause:
-    - Change ripple effects across unrelated modules
-    - Fragile refactors and longer build/test cycles
-    - Harder to write focused unit tests
-    - Increased cognitive load and bug surface
+## What this means for dependencies
+- Low coupling metric alone suggests few explicit links, but low hiding + many public members means components can still
+be tightly dependent on internals (implicit coupling).
+- Heavy inheritance creates tight compile‑time and design dependencies on base classes.
+- Low polymorphism implies limited use of interface-based or abstract substitution; dependencies are likely concrete 
+class links rather than abstractions.
 
-## Poor Separation of Concerns (SoC)
-- Goal of SoC: each module/class has a single responsibility or reason to change.
-- Signs of poor SoC: large classes doing many things, frequent inter-package dependencies, duplicated logic.
-- Metrics mapping:
-    - High LOC and many methods → likely multi-responsibility classes
-    - High coupling and cyclic counts → entangled modules preventing independent evolution
+## Practical checks and actions
+- Inspect class/package-level coupling and cycle counts (afferent/efferent coupling, cyclic dependencies).
+- Reduce public fields/methods: increase private/protected where possible to improve encapsulation.
+- Prefer composition/interfaces over deep inheritance to decouple modules.
+- Add unit tests around public API and refactor large base classes.
+
+
+## Conclusion
+- The project shows few explicit links but risky design (low hiding, deep inheritance).
