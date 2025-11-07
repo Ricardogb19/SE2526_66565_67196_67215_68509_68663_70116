@@ -145,3 +145,72 @@ public class ParticleWeather extends Weather {
 ```
 ![Template](template.png)
 
+## **Design Pattern 3: Command**
+
+### Location: 
+`core/src/mindustry/editor/MapEditorDialog.java`
+
+### Analysis:
+    - Even though the developer did not create methods for each of the editing commands, we can build an argument that it resembles this design pattern as we are allowed to undo and redo these.
+
+### Code Snippet:
+```java
+public class MapEditorDialog extends Dialog implements Disposable {
+    private void doInput() {
+
+        if (Core.input.ctrl()) {
+            //alt mode select
+            for (int i = 0; i < view.getTool().altModes.length; i++) {
+                if (i + 1 < KeyCode.numbers.length && Core.input.keyTap(KeyCode.numbers[i + 1])) {
+                    view.getTool().mode = i;
+                }
+            }
+        } else {
+            for (EditorTool tool : EditorTool.all) {
+                if (Core.input.keyTap(tool.key)) {
+                    view.setTool(tool);
+                    break;
+                }
+            }
+        }
+        //rest of code...
+    }
+}
+public enum EditorTool{}
+
+public class MapEditor{
+    public void clearOp(){
+        stack.clear();
+    }
+
+    public void undo(){
+        if(stack.canUndo()){
+            stack.undo();
+        }
+    }
+
+    public void redo(){
+        if(stack.canRedo()){
+            stack.redo();
+        }
+    }
+
+}
+public class OperationStack {
+    public void undo() {
+        if (!canUndo()) return;
+
+        stack.get(stack.size - 1 + index).undo();
+        index--;
+    }
+
+    public void redo() {
+        if (!canRedo()) return;
+
+        index++;
+        stack.get(stack.size - 1 + index).redo();
+
+    }
+}
+```
+![command](command.png)
