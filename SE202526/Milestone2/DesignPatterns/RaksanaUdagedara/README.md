@@ -37,7 +37,7 @@ public class BlockRenderer {
 }
 ````
 
-![alt text](Observer-1.png)
+![alt text](Observer.png)
 
 ## *Factory Method*
 ### Location: `core\src\mindustry\world\blocks\payloads\BlockProducer.java`
