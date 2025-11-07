@@ -30,7 +30,7 @@ public void complete(){
     }
 
 ```
-
+![Observer](observer.png)
 
 ## *Facade*
 ### Location: `core/src/mindustry/net/BecControl`
@@ -47,4 +47,4 @@ public void showUpdateDialog(){
             ui.showCustomConfirm(Core.bundle.format("be.update", "") + " " + updateBuild, "@be.update.confirm", "@ok", "@be.ignore", () -> {}
             ...
 }
-```
+````
