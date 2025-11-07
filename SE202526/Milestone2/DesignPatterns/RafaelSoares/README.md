@@ -85,6 +85,63 @@ public class OperationStack{
 
 ![Memento](memento.png)
 
-## **Design Pattern 2: Command**
+## **Design Pattern 2: Template**
 
-### Location: ``
+### Location: `core/src/mindustry/type/Weather.java`
+
+### Analysis:
+    - Weather class is used as a base for RainWeather and ParticleWeather, meaning that these do not need to reimplement other methods, only those where its algorithm differs
+
+### Code Snippet:
+```java
+public class Weather extends UnlockableContent{
+    public void drawOver(WeatherState state){
+
+    }
+}
+public class RainWeather extends Weather {
+    public void drawOver(WeatherState state) {
+        drawRain(sizeMin, sizeMax, xspeed, yspeed, density, state.intensity, stroke, color);
+    }
+
+public class ParticleWeather extends Weather {
+    public void drawOver(WeatherState state){
+
+            float windx, windy;
+            if(useWindVector){
+                float speed = baseSpeed * state.intensity;
+                windx = state.windVector.x * speed;
+                windy = state.windVector.y * speed;
+            }else{
+                windx = this.xspeed;
+                windy = this.yspeed;
+            }
+
+            if(drawNoise){
+                if(noise == null){
+                    noise = Core.assets.get("sprites/" + noisePath + ".png", Texture.class);
+                    noise.setWrap(TextureWrap.repeat);
+                    noise.setFilter(TextureFilter.linear);
+                }
+
+                float sspeed = 1f, sscl = 1f, salpha = 1f, offset = 0f;
+                Color col = Tmp.c1.set(noiseColor);
+                for(int i = 0; i < noiseLayers; i++){
+                    drawNoise(noise, noiseColor, noiseScale * sscl, state.opacity * salpha * opacityMultiplier, sspeed * (useWindVector ? 1f : baseSpeed), state.intensity, windx, windy, offset);
+                    sspeed *= noiseLayerSpeedM;
+                    salpha *= noiseLayerAlphaM;
+                    sscl *= noiseLayerSclM;
+                    offset += 0.29f;
+                    col.mul(noiseLayerColorM);
+                }
+            }
+
+            if(drawParticles){
+                drawParticles(region, color, sizeMin, sizeMax, density, state.intensity, state.opacity, windx, windy, minAlpha, maxAlpha, sinSclMin, sinSclMax, sinMagMin, sinMagMax, randomParticleRotation);
+            }
+        }
+    }
+}
+```
+![Template](template.png)
+
