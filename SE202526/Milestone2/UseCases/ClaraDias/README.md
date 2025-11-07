@@ -45,6 +45,7 @@ Post conditions: The player’s catalog is updated, and the map reflects the cha
 
 Alternative Flows: None.
 
+![UCDiagram1](UCDiagram1.png)
 
 ## Use case: Change planet
 ID:UC13
@@ -127,3 +128,5 @@ Postconditions:
 Increased available energy.
 
 Alternative Flows: None.
+
+![UCDiagram2](UCDiagram2.png)
