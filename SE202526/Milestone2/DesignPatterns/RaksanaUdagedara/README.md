@@ -5,25 +5,29 @@
 `core/src/mindustry/graphics/BlockRenderer.java`
 
 ### Analysis:
-Class Tile uses Events.fire() - this notifies changes (TileFloorChangeEvenet e.g);
-Events have a list (Cons<Tile>) that are the observers.
+Class Tile uses Events.fire() - this notifies changes (TileFloorChangeEvenet);
 Each observer uses Events.on. When a fire() is called there is an update in the design pattern.
 
 ### Code snippet:
-core\src\mindustry\world\Tile.java
+
+`core\src\mindustry\world\Tile.java`
 
 ```java
-public void setFloor(Floor type){
-if(this.floor == type) return;
-    var prev = this.floor;
-    this.floor = type;
-    if(!world.isGenerating()){
-        Events.fire(floorChange.set(this, prev, type)); // <-- notify
+    public void setFloor(Floor type){
+        if(this.floor == type) return;
+
+        var prev = this.floor;
+        this.floor = type;
+
+        (...)
+
+        if(!world.isGenerating()){
+            Events.fire(floorChange.set(this, prev, type)); 
+        }
     }
-}
 ````
 
-core/src/mindustry/graphics/BlockRenderer.java
+`core/src/mindustry/graphics/BlockRenderer.java`
 
 ```java
 public class BlockRenderer {
@@ -33,7 +37,7 @@ public class BlockRenderer {
 }
 ````
 
-![img.png](Observer.png)
+![alt text](Observer-1.png)
 
 ## *Factory Method*
 ### Location: `core\src\mindustry\world\blocks\payloads\BlockProducer.java`
@@ -50,7 +54,7 @@ public class BlockRenderer {
 
 
 ### Code snippet:
-core\src\mindustry\world\blocks\payloads\BlockProducer.java
+`core\src\mindustry\world\blocks\payloads\BlockProducer.java`
 
 ```java
 public abstract class BlockProducer extends PayloadBlock{
@@ -66,7 +70,7 @@ public abstract class BlockProducer extends PayloadBlock{
 }
 ````
 
-core\src\mindustry\world\blocks\payloads\Constructor.java
+`core\src\mindustry\world\blocks\payloads\Constructor.java`
 
 ```java
 public class Constructor extends BlockProducer {
@@ -78,7 +82,7 @@ public class Constructor extends BlockProducer {
 }
 ````
 
-core\src\mindustry\world\Block.java
+`core\src\mindustry\world\Block.java`
 
 ```java
 public class Block extends UnlockableContent implements Senseable {
@@ -103,14 +107,20 @@ public class MassDriver extends Block { ... }
 ### Location: `core\src\mindustry\world\draw\DrawBlock.java`
 `core\src\mindustry\world\blocks\defense\RegenProjector.java`
 `core\src\mindustry\world\blocks\defense\turrets\Turret.java`
+`core\src\mindustry\world\draw\DrawBlurSpin.java`
 
 ### Analysis:
+The method finalIcons is the template method, marked with final. The subclasses override this method, not having specific implementations of it.
 
 
 ### Code snippet:
 
-```java
 `core\src\mindustry\world\draw\DrawBlock.java`
+```java
+
+public TextureRegion[] icons(Block block){
+    return new TextureRegion[]{};
+}
 
 public final TextureRegion[] finalIcons(Block block){
     if(iconOverride != null){
@@ -123,19 +133,34 @@ public final TextureRegion[] finalIcons(Block block){
     TextureRegion[] icons = icons(block);
     return icons.length == 0 ? new TextureRegion[]{Core.atlas.find("error")} : icons;
 }
+````
 
 `core\src\mindustry\world\blocks\defense\RegenProjector.java`
-
-public TextureRegion[] icons(){
-    return drawer.finalIcons(this);
-}
-
-`core\src\mindustry\world\blocks\defense\turrets\Turret.java`
-
+```java
 public TextureRegion[] icons(){
     return drawer.finalIcons(this);
 }
 ````
+
+`core\src\mindustry\world\blocks\defense\turrets\Turret.java`
+```java
+public TextureRegion[] icons(){
+    return drawer.finalIcons(this);
+}
+````
+
+`core\src\mindustry\world\draw\DrawBlurSpin.java`
+
+```java
+public TextureRegion[] icons(Block block){
+    return new TextureRegion[]{region};
+}
+
+````
+
+![alt text](TemplateMethod.png)
+
+
 
 
 
