@@ -61,6 +61,42 @@ if(state.getPlanet().campaignRules.legacyLaunchPads){ ... }
 if(campRules().legacyLaunchPads){ ... }
 ````
 
+## *Speculative Generality*
+
+### Location: `core\src\mindustry\world\blocks\payloads\PayloadBlock.java`
+
+### Description: 
+The class has methods that are not used. 
+
+### Analysis:
+In this class, there are some methods that are never used. This may be due to anticipated future features that were never implemented. However, keeping such methods can make the code harder to understand and maintain.
+
+### Ideal minimal refactoring:
+Remove the unused methods. Implement only what is currently needed (apply the Just-In-Time design principle).
+
+```java
+
+
+public void drawTeamTop(){
+    carried = false;
+}
+
+ 
+public Payload takePayload(){
+    T t = payload;
+    payload = null;
+    return t;
+}
+
+
+public void onDestroyed(){
+    if(payload != null) payload.destroyed();
+    super.onDestroyed();
+}
+
+````
+
+
 
 
 
