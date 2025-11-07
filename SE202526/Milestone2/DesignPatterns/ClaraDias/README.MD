@@ -8,7 +8,7 @@
 Achievement is an enum that allows to encapsulate an operation as an object, allowing it to be triggered in a decoupled manner.
 
 
-
+![command](command.png)
 
 ## *Obeserver*
 ### Location: `core/src/mindustry/service/achievement`
