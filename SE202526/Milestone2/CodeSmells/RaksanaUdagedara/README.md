@@ -76,7 +76,7 @@ Remove the unused methods. Implement only what is currently needed (apply the Ju
 
 ```java
 
-
+//unused methods examples
 public void drawTeamTop(){
     carried = false;
 }
