@@ -1,23 +1,24 @@
-# Use case: Backup & Restore Server State (Admin / Server) (UC 05)
+# Use case: Backup & Restore Server State (Admin / Server) 
+## ID:UC 05
 
-## Actors
+### Description:
+Admin triggers or schedules backups of server state (maps, world, players, config). Backups are stored and can be restored to recover from errors or migrate servers.
+
+### Actors:
 - Primary: Server Admin  
 - Secondary: File Storage (cloud), Scheduler, Monitoring, Players (notifications)
 
-## Summary
-Admin triggers or schedules backups of server state (maps, world, players, config). Backups are stored and can be restored to recover from errors or migrate servers.
-
-## Preconditions
+### Pre-conditions
 - Admin authenticated.  
 - Server accessible and has read permissions.  
 - Storage reachable and has space.  
 - Backup format compatible or migration tool available.
 
-## Trigger
+### Trigger:
 - Manual: Admin selects "Backup Now" or "Restore".  
 - Automatic: Scheduler runs periodic backup.
 
-## Main success scenario
+### Main Flow:
 1. Admin/scheduler starts backup.  
 2. Server creates a consistent snapshot or flushes state.  
 3. System computes checksum and (optionally) encrypts backup.  
@@ -26,13 +27,18 @@ Admin triggers or schedules backups of server state (maps, world, players, confi
 6. Monitoring and Admin are notified.  
 7. For restore: Admin selects backup → system verifies, downloads, stops server, restores files, migrates if needed, restarts and verifies.
 
-## Alternatives / extensions
+### Post-conditions:
+- Success (backup): backup stored, indexed, retrievable, audit logged.
+- Success (restore): server restored and validated.
+- Failure: no change to production (or rollback); Admin notified.
+
+### Alternative Flows:
 - Incremental backups (store diffs).  
 - Snapshot vs quiesce (live snapshot if supported).  
 - Retention policies prune old backups.  
 - Dry-run restore on staging.
 
-## Errors & recovery (common)
+### Common Errors & Recovery:
 - Network/upload failure → retry or resume upload.  
 - Storage quota exceeded → abort and notify Admin.  
 - Corrupted backup (checksum mismatch) → reject and retry or use older backup.  
@@ -40,19 +46,14 @@ Admin triggers or schedules backups of server state (maps, world, players, confi
 - Concurrent restore → queue or require confirmation.  
 - Partial restore failure → rollback to pre-restore snapshot if available.
 
-## Postconditions
-- Success (backup): backup stored, indexed, retrievable, audit logged.  
-- Success (restore): server restored and validated.  
-- Failure: no change to production (or rollback); Admin notified.
-
-## Non-functional highlights
+### Non-functional highlights:
 - Atomic operations or rollback support.  
 - Encryption in transit and at rest.  
 - Replication and retention for durability.  
 - Minimal downtime (use incremental/snapshot).  
 - Logs/alerts for observability.
 
-## Acceptance (examples)
+### Acceptance Examples:
 - Manual backup completes and is retrievable within SLA.  
 - Restore succeeds on staging with verification.  
 - Errors give clear, actionable messages.
