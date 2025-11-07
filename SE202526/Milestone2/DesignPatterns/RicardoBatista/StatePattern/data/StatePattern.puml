@@ -1,82 +1,52 @@
 @startuml StatePattern
-' clean rendering
-skinparam classAttributeIconSize 0
-skinparam shadowing false
-skinparam linetype ortho
+title State Pattern \- Unit Stance (simplified)
 
-package "core/src/mindustry/game" {
-  interface State {
-    +enter()
-    +exit()
-    +update(dt: float)
-    +draw()
-    +handleInput(event)
-  }
-
-  class GameState {
-    - current: State
-    + setState(s: State): void
-    + update(dt: float): void
-    + draw(): void
-    + handleInput(event): void
-  }
-
-  class PlayState {
-    + enter()
-    + exit()
-    + update(dt: float)
-    + draw()
-    + handleInput(event)
-  }
-
-  class MenuState {
-    + enter()
-    + exit()
-    + update(dt: float)
-    + draw()
-    + handleInput(event)
-  }
-
-  class EditorState {
-    + enter()
-    + exit()
-    + update(dt: float)
-    + draw()
-    + handleInput(event)
-  }
-
-  class LoadingState {
-    + enter()
-    + exit()
-    + update(dt: float)
-    + draw()
-    + handleInput(event)
-  }
+interface UnitStance {
+  +update(unit : Unit)
+  +onDamage(unit : Unit, amount : float)
 }
 
-' relationships: GameState delegates to current State
-GameState --> State : "holds & delegates to"
-PlayState ..|> State
-MenuState ..|> State
-EditorState ..|> State
-LoadingState ..|> State
+class AttackStance {
+  +update(unit : Unit)
+  +onDamage(unit : Unit, amount : float)
+}
 
-' example of state transition sequence (behavior)
-note right of GameState
-  Typical setState sequence:
-  1) if(current != null) current.exit()
-  2) current = newState
-  3) current.enter()
+class BuildStance {
+  +update(unit : Unit)
+  +onDamage(unit : Unit, amount : float)
+}
+
+class Stances {
+  +defaultStance() : UnitStance
+  +attack : UnitStance
+  +build : UnitStance
+}
+
+class Unit {
+  +stance : UnitStance
+  +update()
+  +damage(amount : float)
+}
+
+class RtsAI {
+  +evaluate(unit : Unit)
+}
+
+class BaseBuilderAI {
+  +evaluate(unit : Unit)
+}
+
+UnitStance <|.. AttackStance
+UnitStance <|.. BuildStance
+Unit --> "1" UnitStance : currentStance
+RtsAI ..> Unit : "assigns stance"
+BaseBuilderAI ..> Unit : "assigns stance"
+Stances ..> UnitStance : "preset instances"
+
+note right of Unit
+Unit delegates per\-tick and event handling
+to its current UnitStance (update, onDamage).
+AI classes change the Unit's stance at runtime.
 end note
 
-' file location notes
-note left of State
-  State interface and implementations:
-  core/src/mindustry/game/states/   (PlayState, MenuState, EditorState, ...)
-end note
-
-note left of GameState
-  Context manager:
-  core/src/mindustry/game/GameState.java
-end note
 @enduml

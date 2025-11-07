@@ -143,23 +143,24 @@ Host hostObj = new Host(info);
 ## *Shotgun Surgery*
 
 ### Location: 
-- `/core/src/mindustry/content/UnitTypes.java`
-- `/core/src/mindustry/content/Weapons.java`
+- `/core/src/mindustry/type/UnitType.java`
+- `/core/src/mindustry/type/Weapons.java`
 - `/core/src/mindustry/content/Blocks.java`
 
 ### Description:
-
-These methods are tightly coupled and content is duplicated, so a single change forces modifications in many files. For example, changing a weapon field name requires coordinated edits across many unit, weapon and block definitions.
+Many content definitions duplicate the same weapon/bullet/property assignments. A single conceptual change 
+(e.g. rename or default change) forces edits in many files.
 
 ### Analysis:
-
-- It's very hard to further develop features or fix bugs
-- Content duplication 
+- High coupling across content definitions.
+- Content duplication increases maintenance cost and risk of inconsistent changes.
 
 ### Ideal minimal refactoring:
 
-Introduce small presets for common elements (bullets, weapon defaults, effect ids). Update content files to reference presets rather that repeating values in different places.
-Do this incrementally: add a preset and migrate a few definitions to avoid breaking the program, as the coupling is very tight.
+- Introduce small presets for common elements (bullets, weapon defaults, effect ids). Update content files to reference
+presets rather that repeating values in different places.
+- Do this incrementally: add a preset and migrate a few definitions to avoid breaking the program, as the coupling is 
+very tight.
 
 ##### Minimal example of implementation:
 ```java

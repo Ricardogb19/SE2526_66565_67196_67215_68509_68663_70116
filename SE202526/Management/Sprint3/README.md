@@ -2,7 +2,7 @@
 
 ## Dates
 
-2025-10-27 - 2025-11-02
+2025-10-30 - 2025-11-07
 
 ## Scrum master
 
@@ -20,7 +20,7 @@ Ricardo Batista 68509
   
 #### Meeting decisions:
 - Tasks were distributed according to the Milestone 2 objective:
-    - Each member has to identify 3 code smells, 3 design patterns and create 1 use case diagram.
+    - Each member has to identify 3 code smells, 3 design patterns and create 5 use cases and 1 use case diagram.
 
 ### Sprint Review Meeting: 
 
