@@ -28,5 +28,5 @@ Admin or scheduler triggers backups of server state (maps, world, players, confi
 ### Alternative Flows:
 Upload fails: system aborts;
 
-Diagram: see `data/Admin_Server.puml` (and PNG `data/Admin_Server_puml.png`).
-![Use Case (Server Admin)](data/Admin_Server_puml.png)
+Diagram: see `data/ServerAdmin.puml` (and PNG `data/ServerAdmin_puml.png`).
+![Use Case (Server Admin)](data/ServerAdmin_puml.png)
