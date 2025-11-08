@@ -1,0 +1,3 @@
+### Review Metrics - Raksana Udagedara 67196
+The amount of classes chosen seems to be a good representation of the evaluated metrics.
+The conclusion associated with the three classes (LoadoutDialog, BlockProducer and MassDriver) highlights the essential to consider. In my opinion the conclusions could include the all classes considered at the beggining (but this could create replication of conclusions). The analysis explains the relationship between ATFD and CBO as well as the  associated result correlation with CMI.

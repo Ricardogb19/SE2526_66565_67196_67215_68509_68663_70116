@@ -1,0 +1,2 @@
+### Review Design Pattern  - Template Method - Raksana Udagedara
+The design pattern seems correctly identified, and the code snippet illustrates it as well as the diagram class associated with it. Nothing else do add.
