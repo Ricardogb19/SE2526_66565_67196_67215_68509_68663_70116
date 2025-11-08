@@ -22,12 +22,20 @@ Ricardo Batista 68509
 - Tasks were distributed according to the Milestone 2 objective:
     - Each member has to identify 3 code smells, 3 design patterns and create 5 use cases and 1 use case diagram.
 
-### Sprint Review Meeting: 
+### Sprint Review Meeting:
+- The sprint goals were achieved successfully.
 
 
 
-### Sprint Retrospective Meeting: 
+### Sprint Retrospective Meeting:
+#### Good points:
+- All tasks were completed within the sprint timeline.
+- All team members contributed equally to the tasks.
 
+#### Bad points:
+- A lot of work was left for the last days of the sprint.
+- The reviews were very confusing to manage and should be better organized in the future.
+- Some team members had difficulties understanding what was expected of them.
 
 ## Relevant resources
 
