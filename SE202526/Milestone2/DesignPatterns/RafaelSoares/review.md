@@ -11,10 +11,3 @@ The design patterns seems correctly identified, the diagram class illustrates th
 # Reviwer: Clara Dias 67215
 ## Design Pattern: Command
 ### Review: The pattern is well identified, the UML diagram is also in agreement with the implementation. The arguments in the analysis are well developed and the chosen code snippet was great for it's understandment.
-
-
-## Design Pattern: Observer
-
-### Clear understanding of the concept, with a solid UML diagram. However, its presentation could have been a bit clearer, as it left me what `SStat` and `GameService` exactly are, and what they then do with the received update/information. 
-
-Reviewer: Guilherme Neto 68663
