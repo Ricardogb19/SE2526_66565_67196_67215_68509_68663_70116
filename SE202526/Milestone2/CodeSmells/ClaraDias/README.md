@@ -31,11 +31,27 @@ The best refactoring it's to extract 5 methods and call them in the main method,
 Minimal sketch:
 
 ```java
-private void loadMapData(Sector sector) {}
-private void clearSpawnOverlays(Tiles tiles) {}
-private boolean placeCoreWithOverride(Tiles tiles, Block coreTypeToUse, WorldParams params) {}
-private boolean placeDefaultCore(Tiles tiles, Block coreTypeToUse) {}
-private void placeCoreOrLoadout(Tile tile, Block coreTypeToUse) {}
+private void laux1(Sector sector) { world.setGenerating(false);
+        SaveIO.load(map.file, world.new FilterContext(map){
+            @Override
+            public Sector getSector(){
+                return sector;
+            }...}
+private boolean aux2(Tiles tiles, Block coreTypeToUse) {if(params.corePositionOverride != 0 && sector != null){
+                if(tile.pos() == params.corePositionOverride){
+                  ...}
+                  ...}
+                }
+private boolean aux3(Tiles tiles, Block coreTypeToUse, WorldParams params) {
+  /*else*/ if(tile.isCenter() && tile.block() instanceof CoreBlock && tile.team() == state.rules.defaultTeam && !anyCores){
+                if(sector != null && sector.allowLaunchLoadout()){
+                    Schematics.placeLaunchLoadout(tile.x, tile.y);
+                }
+                anyCores = true;
+  }...
+}
+
+
 
 ```
 
