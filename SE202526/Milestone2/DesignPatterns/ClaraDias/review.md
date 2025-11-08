@@ -1,6 +1,16 @@
 ### Design patterns - Command - Raksana Udagedara
 The analysis clearly explains the design as well as the class diagram. It is concise and easy to understand.
 
+------
+## Design Pattern - Observer
+
+- The pattern is well identified and justified.
+- The UML diagram is clear and corresponds to the implementation.
+
+Reviewer: Ricardo Batista 68509
+
+------
+
 ## Design Pattern: Facade
 
 ### Clear understanding of the pattern, and proper justification. However, the code snippet could have had some ilustrating comments (added by Clara), and the "dependencies" mentioned could have been, even if very superficially, slightly explored.

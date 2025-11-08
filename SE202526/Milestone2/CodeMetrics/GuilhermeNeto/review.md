@@ -1,4 +1,4 @@
-# Review of Code Metrics Report by Guilherme Neto
+# Review of Guilherme's Code Metrics Report
 ### `Reviewed by Ricardo Batista 68509`
 
 ## Summary
