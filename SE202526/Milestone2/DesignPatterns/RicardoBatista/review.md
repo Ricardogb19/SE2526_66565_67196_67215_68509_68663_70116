@@ -9,4 +9,4 @@ Reviewer: Afonso Rodriguez 66565
 
 ### Solid understanding and explanation of the Iterator pattern, and a clear transmition of the rationale behind the choice. However, the UML diagram had too much information; it could have been slightly simplified.
 
-Reviewer: Afonso Rodriguez 66565
+Reviewer: Guilherme Neto 68663
