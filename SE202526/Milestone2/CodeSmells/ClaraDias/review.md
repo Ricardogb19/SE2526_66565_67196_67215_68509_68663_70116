@@ -15,3 +15,15 @@ Reviewer: Afonso Rodriguez 66565
 
 ### Review: Long method - Raksana Udagedara 67196
 Code smell correctly identified in my opinion. It details the extension of the method allowing the review to be made using LOC metric. The proposed refactor is the correct choice and well-founded.
+
+-----
+
+## Code Smell: Message Chain
+
+### Key Strengths:
+- The code smell is well identified and justified.
+- A code snippet is provided to illustrate the problem.
+- The analysis is clear and concise.
+- The proposed refactoring is appropriate and well-explained.
+
+Reviewer: Ricardo Batista 68509 
