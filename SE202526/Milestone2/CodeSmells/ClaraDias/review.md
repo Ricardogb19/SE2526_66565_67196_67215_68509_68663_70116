@@ -12,3 +12,6 @@ Reviewer: Afonso Rodriguez 66565
 ### Concise, clear, direct. Nothing to add.
 
 ### Review by Guilherme Neto 68663
+
+### Review: Long method - Raksana Udagedara 67196
+Code smell correctly identified in my opinion. It details the extension of the method allowing the review to be made using LOC metric. The proposed refactor is the correct choice and well-founded.
