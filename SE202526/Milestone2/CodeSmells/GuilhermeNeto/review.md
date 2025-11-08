@@ -1,6 +1,13 @@
 ### Review: Speculative Generality - Raksana Udagedara
 I think this code smell has been correctly identified. The explanation is clear, complete, and well-founded. The refactoring aligns with what is expected.
 
+### Code smell: Primitive Obsession
+
+Although what was referred in the analysis is in fact a code smell, it does not appear to be a primitive obsession smell, but in fact, a data class smell.
+Having that in mind, both the explanation and the refactoring proposal seem reasonable.
+
+Reviewer: Rafael Soares 70116
+
 ------
 
 ### Review: Duplicated Code - Ricardo Batista 68509
