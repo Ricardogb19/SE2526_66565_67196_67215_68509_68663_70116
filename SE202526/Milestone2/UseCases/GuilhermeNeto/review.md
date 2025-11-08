@@ -1,0 +1,2 @@
+# Reviwer: Clara Sousa Dias 67215
+## Review: O UC diagram from (image-2) it' correct and in agrément with the use cases i wold just switch the id of the UC for coesion. O UC diagram from (image-1), it´s also correct I woul just change the name of the png files for better understanding.
