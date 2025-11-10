@@ -2,11 +2,11 @@
 
 ## Dates
 
-2025-11-03 - 2025-10-09
+2025-11-10 - 2025-10-09
 
 ## Scrum master
 
-Student name and number
+Afonso Rodriguez 66565
 
 ## Management info
 ### Sprint Planning Meeting: 
