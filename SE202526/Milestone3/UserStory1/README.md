@@ -1,13 +1,16 @@
 # User story 1
 (*Please add a user story short title here*)
 ## Author(s)
-(*Please add the user story author(s) here, one in each line, providing the authors' name and surname, along with their student number*)
+- Clara Dias (67215)
+- Ricardo Batista (68509)
 ## Reviewer(s)
-(*Please add the user story reviewer(s) here, one in each line, providing the authors' name and surname, along with their student number. In the reviews presented in this document, add the corresponding reviewers.*)
+- Afonso Rodriguez (66565)
+- Rafael Soares (70116)
 ## User Story:
-(*Please add your User Story here.*)
+As a Mindustry player, I want to upgrade machines with efficiency levels, so that I can create more resources per time unit in case of drills and other resource generators, and have better defenses in case of weapons.
 ### Review
-*(Please add your user story review here)*
+A great addition to the game's mechanics, upgrading the machine's efficiency through in-game milestones rewards commited players for their effort and dedication.
+A topic of discussion is if these new efficiency levels will be user bound (as in they transit from save to save) or if they are save bound (only available in the save where those milestones were unlocked).
 ## Use case diagram
 (*Please add the use case diagram here.*)
 ## Use case textual description

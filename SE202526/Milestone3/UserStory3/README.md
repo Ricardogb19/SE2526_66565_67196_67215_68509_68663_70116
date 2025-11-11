@@ -1,13 +1,17 @@
 # User story 3
 (*Please add a user story short title here*)
 ## Author(s)
-(*Please add the user story author(s) here, one in each line, providing the authors' name and surname, along with their student number*)
+- Afonso Rodriguez (66565)
+- Rafael Soares (70116)
 ## Reviewer(s)
-(*Please add the user story reviewer(s) here, one in each line, providing the authors' name and surname, along with their student number. In the reviews presented in this document, add the corresponding reviewers.*)
+- Raksana Udagedara (67196)
+- Guilherme Neto (68663)
 ## User Story:
-(*Please add your User Story here.*)
+**As a** veteran player, **I want to** orchestrate a new defensive strategy by pulling enemy air units to the ground, **so that I can** play the game in a more creative way.
 ### Review
-*(Please add your user story review here)*
+The user story contributes to the strategic component of the game, proposing a creative feature to balance and improve defense in possible combat situations, aligning with the logic of the game.
+This concept is quite outside the box and well thought out, allowing for changes to existing strategies and even the creation of new tactics. It promotes diversity in gameplay and a higher skill ceiling for more advanced players.
+However, this user story could be clearer in the concept of veteran player: it is difficult to say
 ## Use case diagram
 (*Please add the use case diagram here.*)
 ## Use case textual description

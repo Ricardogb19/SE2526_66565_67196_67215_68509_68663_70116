@@ -1,13 +1,15 @@
 # User story 2
 (*Please add a user story short title here*)
 ## Author(s)
-(*Please add the user story author(s) here, one in each line, providing the authors' name and surname, along with their student number*)
+- Raksana Udagedara (67196)
+- Guilherme Neto (68663)
 ## Reviewer(s)
-(*Please add the user story reviewer(s) here, one in each line, providing the authors' name and surname, along with their student number. In the reviews presented in this document, add the corresponding reviewers.*)
+- Clara Dias (67215)
+- Ricardo Batista (68509)
 ## User Story:
-(*Please add your User Story here.*)
+**As a** player that likes to keep track of everything, **I want to** receive a text warning everytime I misplace a conveyor for whatever reason and obtain possible fixes, **so that** I can have everything under my watch and build solid structures quickly.
 ### Review
-*(Please add your user story review here)*
+This addition has great potential, mainly because for new players, conveyor misplacements and poor assemblies may not be obvious at first. It’s important to be careful so that the game’s interface doesn’t become too cluttered with excessive information.
 ## Use case diagram
 (*Please add the use case diagram here.*)
 ## Use case textual description

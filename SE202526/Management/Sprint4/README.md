@@ -2,7 +2,7 @@
 
 ## Dates
 
-2025-11-10 - 2025-10-09
+2025-11-10 - 2025-11-17
 
 ## Scrum master
 
@@ -10,7 +10,10 @@ Afonso Rodriguez 66565
 
 ## Management info
 ### Sprint Planning Meeting: 
-*(This meeting is held at the beginning of the sprint to define the primary purpose and goal of the sprint. The Scrum team, comprising the product manager, development team, and Scrum Master, selects and commits to a set of product backlog items (PBIs) referred to as the sprint backlog. You can use this section to log what happened during this meeting. A few bullet points should be enough.)*
+In this meeting we decided to split into 2 teams of 3 members, in order to focus on the first 2 US. Each team was given the task of deep diving their US's code base, looking for potential classes and methods needed for the implementation.
+>#### Sprint Goals :
+> * Deliver initial implementation of the first two User Stories.
+> * Establish a shared understanding between both teams to reduce rework in later sprints.
 
 ### Sprint Review Meeting: 
 *(Held at the end of the sprint, this meeting is attended by all stakeholders to demo the completed work and validate if the sprint goal has been met.)*
@@ -22,7 +25,7 @@ Afonso Rodriguez 66565
 
 ### Scrum Board at the beginning of the sprint
 
-Please add the scrumboard picture here.
+![beginning of sprint](startOfSprint.png)
 
 ### Scrum Board in the middle of the sprint
 
