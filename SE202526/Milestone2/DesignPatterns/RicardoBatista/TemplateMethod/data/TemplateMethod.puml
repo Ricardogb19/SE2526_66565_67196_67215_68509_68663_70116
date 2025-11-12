@@ -1,0 +1,35 @@
+@startuml
+title InputHandler - Template Method (class diagram)
+
+' Abstract Template
+abstract class InputHandler <<abstract>> {
+  // fields (selected)
+  + update() : void
+  + buildUI(group) : void
+  + buildPlacementUI(table) : void
+  + drawTop() : void
+  + drawBottom() : void
+}
+
+class DesktopInput {
+  + update() : void
+  + buildUI(group) : void
+  + buildPlacementUI(table) : void
+  + drawTop() : void
+  + drawBottom() : void
+}
+
+class MobileInput {
+  + update() : void
+  + buildUI(group) : void
+  + buildPlacementUI(table) : void
+  + drawTop() : void
+  + drawBottom() : void
+}
+
+' relationships
+
+DesktopInput --|> InputHandler
+MobileInput --|> InputHandler
+
+@enduml

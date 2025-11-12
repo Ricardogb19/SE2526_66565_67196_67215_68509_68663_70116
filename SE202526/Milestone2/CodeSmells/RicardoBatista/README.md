@@ -172,34 +172,11 @@ public final class ContentPresets {
     private ContentPresets(){}
 
     public static Weapon simpleMount(String name, float reload, float x, float y){
-        Weapon w = new Weapon(name);
-        w.reload = reload;
-        w.x = x;
-        w.y = y;
-        w.ejectEffectId = "casing1"; // use id resolver pattern if desired
-        return w;
+        (...)
     }
 
     public static BasicBulletType defaultSmallBullet(float speed, float damage){
-        BasicBulletType b = new BasicBulletType(speed, damage);
-        b.width = 6f;
-        b.height = 8f;
-        b.lifetime = 30f;
-        b.shootEffectId = "shootSmall";
-        return b;
+        (...)
     }
 }
 ```
-
-Usage patch (one small change in UnitTypes.load):
-
-```Java
-weapons.add(
-    ContentPresets.simpleMount()
-);
-```
-
-# Review
-
-- Reviewer: (name) - (date)
-  - Comments:

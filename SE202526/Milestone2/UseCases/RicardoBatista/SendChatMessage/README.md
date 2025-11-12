@@ -18,7 +18,7 @@
 - Other players receive and see the message in their chat UI. 
 
 ### Post-conditions:
-- The message is visible to participants according to chat scope (team, global, private).
+- The message is visible to participants.
 
 ### Alternative Flows: 
-- Message blocked (rate limit, muted player) — system notifies the player and discards the message.
+- Message blocked — system notifies the player and discards the message.

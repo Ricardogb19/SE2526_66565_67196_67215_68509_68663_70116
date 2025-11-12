@@ -18,18 +18,7 @@ Scheduler --> UC_Backup : scheduled
 UC_Backup --> UC_Upload
 UC_Upload --> Storage
 UC_Upload --> UC_Audit
-
-' Error/alt flows as usecases
-rectangle "Error / Recovery Flows" {
-  usecase "Network Failure" as E_Net
-  usecase "Storage Quota Exceeded" as E_Quota
-}
-
-UC_Backup ..> E_Net : no connectivity
-UC_Backup ..> E_Quota : may cause
 UC_Upload --> Admin : notifies
-E_Net --> UC_Rollback
-E_Quota --> UC_Rollback
 
 note top of UC_Backup
 Preconditions:

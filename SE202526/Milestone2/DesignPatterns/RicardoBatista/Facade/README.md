@@ -10,30 +10,32 @@ Figure: Simplified class diagram showing Vars as the Facade coordinating subsyst
 public class Vars implements Loadable{
     // global subsystems / content holders (public statics used across the app)
     public static ContentLoader content;
+    public static EntityCollisions collisions;
     public static World world;
+    public static Universe universe;
+    public static BeControl becontrol;
+    public static AsyncCore asyncCore;
     public static Maps maps;
-    public static UI ui;
-    public static Net net;
     public static Mods mods;
-    // ...many other static subsystems...
 
+    (...)
+    
     // Facade-style orchestration: exposes simple init/loader methods that
     // hide the complexity of initializing many subsystems in the right order.
     public static void init(){
         // simplified illustration — actual file contains more steps and fields
         content = new ContentLoader();
-        maps = new Maps();
+        collisions = new EntityCollisions();
         world = new World();
-        ui = new UI();
-        mods = new Mods();
-        net = new Net();
+        universe = new Universe();
+        becontrol = new BeControl();
+        asyncCore = new AsyncCore();
 
+        (...)
+        
         // orchestrate subsystem setup (assets, content, UI, networking)
-        content.load();
-        maps.load();
         mods.load();
-        ui.setup();
-        net.start();
+        maps.load();
     }
 }
 ```
