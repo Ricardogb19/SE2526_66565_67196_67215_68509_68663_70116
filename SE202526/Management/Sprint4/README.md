@@ -29,7 +29,7 @@ In this meeting we decided to split into 2 teams of 3 members, in order to focus
 
 ### Scrum Board in the middle of the sprint
 
-Please add the scrumboard picture here.
+![middle of sprint](middleOfSprint.png)
 
 ### Scrum Board at the end of the sprint
 
