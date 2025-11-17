@@ -16,11 +16,9 @@ In this meeting we decided to split into 2 teams of 3 members, in order to focus
 > * Establish a shared understanding between both teams to reduce rework in later sprints.
 
 ### Sprint Review Meeting: 
-*(Held at the end of the sprint, this meeting is attended by all stakeholders to demo the completed work and validate if the sprint goal has been met.)*
-
+This sprint's goals were not all achieved.
 ### Sprint Retrospective Meeting: 
-*(This meeting happens after the sprint review and before the next sprint planning meeting. The team reflects on what went well, what needs improvement, and how to enhance their processes for future sprints.)*
-
+Due to a tight academic schedule our team wasn't able to produce as much work as expected in the planning meeting, something that definitely needs work for sprints to come.
 ## Relevant resources
 
 ### Scrum Board at the beginning of the sprint
@@ -33,12 +31,12 @@ In this meeting we decided to split into 2 teams of 3 members, in order to focus
 
 ### Scrum Board at the end of the sprint
 
-Please add the scrumboard picture here.
+![end of sprint](endOfSprint.png)
 
 ### Burndown Chart for the sprint
 
-Please add the burndown chart here.
+![burndown](burndownChart.png)
 
 ### Gantt Chart
 
-Please add the Gantt chart here.
+![gantt](ganttChart.png)
