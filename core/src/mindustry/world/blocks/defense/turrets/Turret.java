@@ -32,8 +32,14 @@ import mindustry.world.meta.*;
 
 import static mindustry.Vars.*;
 
-public class Turret extends ReloadTurret{
+public class Turret extends ReloadTurret implements Upgradable {
     //after being logic-controlled and this amount of time passes, the turret will resume normal AI
+
+    public final static int MAX_LEVEL = 5;
+
+    public int level = 1;
+
+
     public final static float logicControlCooldown = 60 * 2;
 
     public final int timerTarget = timers++;
@@ -248,6 +254,29 @@ public class Turret extends ReloadTurret{
         if(drawMinRange){
             Drawf.dashCircle(x * tilesize + offset, y * tilesize + offset, minRange, Pal.placing);
         }
+    }
+
+    @Override
+    public void upgrade() {
+        if (getLevel() < maxLevel()) {
+            maxAmmo+=5;
+            level++;
+        }
+    }
+
+    @Override
+    public int upgradeCost() {
+        return 0;
+    }
+
+    @Override
+    public int getLevel() {
+        return level;
+    }
+
+    @Override
+    public int maxLevel() {
+        return MAX_LEVEL;
     }
 
     public static abstract class AmmoEntry{

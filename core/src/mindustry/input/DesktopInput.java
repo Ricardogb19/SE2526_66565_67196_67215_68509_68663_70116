@@ -22,6 +22,7 @@ import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.ui.*;
 import mindustry.world.*;
+import mindustry.world.blocks.defense.turrets.Turret;
 
 import static arc.Core.*;
 import static mindustry.Vars.*;

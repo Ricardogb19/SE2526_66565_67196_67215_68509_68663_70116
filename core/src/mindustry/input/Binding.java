@@ -12,6 +12,8 @@ public class Binding{
     mouseMove = KeyBind.add("mouse_move", KeyCode.mouseBack),
     pan = KeyBind.add("pan", KeyCode.mouseForward),
 
+    upgrade = KeyBind.add("upgrade", KeyCode.u),
+
     boost = KeyBind.add("boost", KeyCode.shiftLeft),
     respawn = KeyBind.add("respawn", KeyCode.v),
     control = KeyBind.add("control", KeyCode.controlLeft),
