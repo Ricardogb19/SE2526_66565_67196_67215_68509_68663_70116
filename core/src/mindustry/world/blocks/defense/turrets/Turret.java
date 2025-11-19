@@ -257,9 +257,24 @@ public class Turret extends ReloadTurret implements Upgradable {
     }
 
     @Override
-    public void upgrade() {
-        if (getLevel() < maxLevel()) {
-            maxAmmo+=5;
+    public int getLevel() {
+        return level;
+    }
+
+    @Override
+    public int maxLevel() {
+        return MAX_LEVEL;
+    }
+
+    @Override
+    public void upgrade() { //only alpha version of upgrades (can change after)
+        if(level < MAX_LEVEL) {
+            switch (level) {
+                case 1 -> maxAmmo+=5;
+                case 2 -> ammoPerShot+=2;
+                case 3 -> maxAmmo+=3;
+                case 4 -> ammoPerShot+=1;
+            }
             level++;
             upgradeCost();
         }
@@ -270,16 +285,6 @@ public class Turret extends ReloadTurret implements Upgradable {
         int cost = 2 + 10 * level / maxLevel();
         consumeItem(Items.copper, cost);;
         return cost;
-    }
-
-    @Override
-    public int getLevel() {
-        return level;
-    }
-
-    @Override
-    public int maxLevel() {
-        return MAX_LEVEL;
     }
 
     public static abstract class AmmoEntry{
