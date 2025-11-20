@@ -27,6 +27,7 @@ import mindustry.type.*;
 import mindustry.ui.*;
 import mindustry.world.*;
 import mindustry.world.blocks.*;
+import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 
@@ -295,7 +296,8 @@ public class Turret extends ReloadTurret implements Upgradable {
 
     //TODO: how to check the players mats?
     private boolean hasEnoughMaterials() {
-        return player.materials - upgradeCost() > 0;
+        return true;
+        //return player.materials - upgradeCost() > 0;
     }
 
     @Override
@@ -305,7 +307,9 @@ public class Turret extends ReloadTurret implements Upgradable {
 
     @Override
     public void consumeMaterials(int cost) {
-        consumeItem(Items.copper, cost);
+        CoreBlock.CoreBuild core = player.core();
+        if(core != null && core.items.has(Items.copper, cost))
+            core.items.remove(Items.copper, cost);
     }
 
     public static abstract class AmmoEntry{
