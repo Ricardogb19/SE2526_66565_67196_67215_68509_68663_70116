@@ -36,10 +36,10 @@ import static mindustry.Vars.*;
 public class Turret extends ReloadTurret implements Upgradable {
     //after being logic-controlled and this amount of time passes, the turret will resume normal AI
 
+    /** This turret's max level. */
     public final static int MAX_LEVEL = 5;
-
-    public static int level = 1;
-
+    /** This turret's current level. */
+    public int level = 1;
 
     public final static float logicControlCooldown = 60 * 2;
 
@@ -258,16 +258,10 @@ public class Turret extends ReloadTurret implements Upgradable {
     }
 
     @Override
-    public int getLevel() {
-        return level;
+    public int upgradeCost() {
+        return 2 + 10 * level / MAX_LEVEL;
     }
 
-    @Override
-    public int maxLevel() {
-        return MAX_LEVEL;
-    }
-
-    //TODO: Both Popup prints are using magic numbers that could be changed (maybe put them top of the screen, above or below)
     @Override
     public void upgrade() { //only alpha version of upgrades (can change after)
         if(level < MAX_LEVEL) {
@@ -277,15 +271,15 @@ public class Turret extends ReloadTurret implements Upgradable {
                 case 3 -> maxAmmo+=3;
                 case 4 -> ammoPerShot+=1;
             }
-
-            if (hasEnoughMaterials()) {
+            int materialsNeededForUpgrade = upgradeCost();
+            if (hasEnoughMaterials(materialsNeededForUpgrade)) {
                 level++;
-                consumeMaterials(upgradeCost());
-                ui.showInfoFade("Upgraded this turret to level " + level + ".", 3);
+                consumeMaterials(materialsNeededForUpgrade);
+                ui.showInfoFade("Upgraded this turret to level " + level + ".", 4);
                 if (level == 2 || level == 4)
-                    ui.showInfoPopup("Increased max ammo to " + maxAmmo + ".", 3, 5, 500, 500, 500, 500);
+                    ui.showInfoPopup("Increased max ammo to " + maxAmmo + ".", 3, Align.top, 30, 0, 0, 0);
                 else
-                    ui.showInfoPopup("Increased fire rate to " + ammoPerShot + ".", 3, 5, 500, 500, 500, 500);
+                    ui.showInfoPopup("Increased fire rate to " + ammoPerShot + ".", 3, Align.top, 30, 0, 0, 0);
             }
             else
                 ui.showInfoFade("Insufficient materials.");
@@ -294,15 +288,15 @@ public class Turret extends ReloadTurret implements Upgradable {
             ui.showInfoFade("Already on max level.", 3);
     }
 
-    //TODO: how to check the players mats?
-    private boolean hasEnoughMaterials() {
-        return true;
-        //return player.materials - upgradeCost() > 0;
-    }
-
-    @Override
-    public int upgradeCost() {
-        return 2 + 10 * level / maxLevel();
+    /**
+     * This method checks weather or not the player has enough copper to upgrade this turret.
+     * @param materialsNeeded - The amount of copper needed for this upgrade.
+     * @return True if the player has enough copper, False otherwise.
+     */
+    private boolean hasEnoughMaterials(int materialsNeeded) {
+        CoreBlock.CoreBuild core = player.core();
+        int coreCopper = core.items.get(Items.copper);
+        return coreCopper >= materialsNeeded;
     }
 
     @Override

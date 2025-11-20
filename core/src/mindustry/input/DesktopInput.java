@@ -434,8 +434,9 @@ public class DesktopInput extends InputHandler{
 
         if(state.isGame() && !scene.hasDialog() && !scene.hasField()) {
 
-            /*
-            THIS BLOCK IS FOR THE UPGRADE
+            /**
+             * This block of code (441-450) implements the keybind to upgrade turrets.
+             * TODO: needs fixing, currently upgrades every turret, and not only an instance.
              */
             Tile selected = world.tileWorld(input.mouseWorldX(), input.mouseWorldY());
 
@@ -444,13 +445,8 @@ public class DesktopInput extends InputHandler{
             Block block = selected.block();
 
             if(block instanceof Turret t) {
-                if (Core.input.keyTap(Binding.upgrade)) {
+                if (Core.input.keyTap(Binding.upgrade))
                     t.upgrade();
-                    System.out.println("ze");
-                    System.out.println(t.getLevel());
-                    System.out.println(t.maxAmmo);
-                    System.out.println(t.ammoPerShot);
-                }
             }
 
             if(Core.input.keyTap(Binding.minimap)) ui.minimapfrag.toggle();
