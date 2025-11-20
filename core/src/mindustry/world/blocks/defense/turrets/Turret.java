@@ -266,6 +266,7 @@ public class Turret extends ReloadTurret implements Upgradable {
         return MAX_LEVEL;
     }
 
+    //TODO: Both Popup prints are using magic numbers that could be changed (maybe put them top of the screen, above or below)
     @Override
     public void upgrade() { //only alpha version of upgrades (can change after)
         if(level < MAX_LEVEL) {
@@ -275,11 +276,26 @@ public class Turret extends ReloadTurret implements Upgradable {
                 case 3 -> maxAmmo+=3;
                 case 4 -> ammoPerShot+=1;
             }
-            level++;
-            upgradeCost();
+
+            if (hasEnoughMaterials()) {
+                level++;
+                upgradeCost();
+                ui.showInfoFade("Upgraded this turret to level " + level + ".", 3);
+                if (level == 2 || level == 4)
+                    ui.showInfoPopup("Increased max ammo to " + maxAmmo + ".", 3, 5, 500, 500, 500, 500);
+                else
+                    ui.showInfoPopup("Increased fire rate to " + ammoPerShot + ".", 3, 5, 500, 500, 500, 500);
+            }
+            else
+                ui.showInfoFade("Insufficient materials.");
         }
         else
-            ui.showInfo("Already on max level");
+            ui.showInfoFade("Already on max level.", 3);
+    }
+
+    //TODO: this method should calculate if the player has enough materials for the upgrade, i.e. materials - upgradeCost() > 0
+    private boolean hasEnoughMaterials() {
+        return true;
     }
 
     @Override

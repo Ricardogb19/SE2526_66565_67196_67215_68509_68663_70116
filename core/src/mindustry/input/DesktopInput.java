@@ -22,9 +22,7 @@ import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.ui.*;
 import mindustry.world.*;
-import mindustry.world.blocks.defense.turrets.BaseTurret;
 import mindustry.world.blocks.defense.turrets.Turret;
-
 import static arc.Core.*;
 import static mindustry.Vars.*;
 import static mindustry.input.PlaceMode.*;
@@ -1027,33 +1025,4 @@ public class DesktopInput extends InputHandler{
             }
         }
     }
-
-    /*
-    private void applyGlobalTurretUpgrade(){
-        if (Vars.turretUpgradeLevel < Turret.MAX_LEVEL) {
-            Vars.turretUpgradeLevel++;
-        } else {
-            Log.info("Maximum turret upgrade level reached: @", Vars.turretUpgradeLevel);
-            Vars.ui.showInfoFade("Maximum turret upgrade level reached: " + Vars.turretUpgradeLevel, 5f);
-            return;
-        }
-
-        int count = 0;
-        // itera sobre todas as definições de blocos e aplica upgrade nas turrets
-        for(var block : Vars.content.blocks()){
-            if(block instanceof Turret turret){
-                // chama upgrade na definição da turret (altera stats base)
-                turret.upgrade();
-                count++;
-            }
-        }
-
-        Log.info("Global turret upgrade applied: level=@, turrets=@", Vars.turretUpgradeLevel, count);
-
-        // feedback UI para o jogador
-        if(!Vars.headless && Vars.ui != null){
-            Vars.ui.showInfo("Global turret upgrade applied: level= "+ turretUpgradeLevel + ", turrets= " + count);
-        }
-    }
-*/
 }
