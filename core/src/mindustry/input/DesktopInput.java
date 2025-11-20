@@ -435,7 +435,7 @@ public class DesktopInput extends InputHandler{
         if(state.isGame() && !scene.hasDialog() && !scene.hasField()) {
 
             /**
-             * This block of code (441-450) implements the keybind to upgrade turrets.
+             * This block of code (440-449) implements the keybind to upgrade turrets.
              */
             Tile selected = world.tileWorld(input.mouseWorldX(), input.mouseWorldY());
 
@@ -443,7 +443,7 @@ public class DesktopInput extends InputHandler{
 
             Building build = selected.build;
 
-            if(build instanceof Turret.TurretBuild t) {
+            if (build instanceof Turret.TurretBuild t) {
                 if (Core.input.keyTap(Binding.upgrade))
                     t.upgrade();
             }

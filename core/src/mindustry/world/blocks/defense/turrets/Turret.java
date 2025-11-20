@@ -305,7 +305,7 @@ public class Turret extends ReloadTurret {
 
         @Override
         public void upgrade() {
-            if(level < MAX_LEVEL) {
+            if (level < MAX_LEVEL) {
                 switch (level) {
                     case 1 -> maxAmmunition+=5;
                     case 2 -> maxAmmunition+=4;
@@ -339,9 +339,11 @@ public class Turret extends ReloadTurret {
 
         @Override
         public void consumeMaterials(int cost) {
-            CoreBlock.CoreBuild core = player.core();
-            if(core != null && core.items.has(Items.copper, cost))
-                core.items.remove(Items.copper, cost);
+            if (state.rules.mode() != Gamemode.sandbox) {
+                CoreBlock.CoreBuild core = player.core();
+                if (core != null && core.items.has(Items.copper, cost))
+                    core.items.remove(Items.copper, cost);
+            }
         }
 
         @Override
