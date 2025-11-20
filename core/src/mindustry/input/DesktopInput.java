@@ -22,6 +22,7 @@ import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.ui.*;
 import mindustry.world.*;
+import mindustry.world.blocks.defense.turrets.BaseTurret;
 import mindustry.world.blocks.defense.turrets.Turret;
 
 import static arc.Core.*;
@@ -433,7 +434,27 @@ public class DesktopInput extends InputHandler{
             }
         }
 
-        if(state.isGame() && !scene.hasDialog() && !scene.hasField()){
+        if(state.isGame() && !scene.hasDialog() && !scene.hasField()) {
+
+            /*
+            THIS BLOCK IS FOR THE UPGRADE
+             */
+            Tile selected = world.tileWorld(input.mouseWorldX(), input.mouseWorldY());
+
+            if (selected == null) return;
+
+            Block block = selected.block();
+
+            if(block instanceof Turret t) {
+                if (Core.input.keyTap(Binding.upgrade)) {
+                    t.upgrade();
+                    System.out.println("ze");
+                    System.out.println(t.getLevel());
+                    System.out.println(t.maxAmmo);
+                    System.out.println(t.ammoPerShot);
+                }
+            }
+
             if(Core.input.keyTap(Binding.minimap)) ui.minimapfrag.toggle();
             if(Core.input.keyTap(Binding.planetMap) && state.isCampaign()) ui.planet.toggle();
             if(Core.input.keyTap(Binding.research) && state.isCampaign()) ui.research.toggle();
@@ -495,9 +516,6 @@ public class DesktopInput extends InputHandler{
                 graphics.cursor(SystemCursor.arrow);
                 changedCursor = false;
             }
-        }
-        if(Core.input.keyDown(Binding.upgrade)) {
-            applyGlobalTurretUpgrade();
         }
     }
 
@@ -1010,6 +1028,7 @@ public class DesktopInput extends InputHandler{
         }
     }
 
+    /*
     private void applyGlobalTurretUpgrade(){
         if (Vars.turretUpgradeLevel < Turret.MAX_LEVEL) {
             Vars.turretUpgradeLevel++;
@@ -1036,4 +1055,5 @@ public class DesktopInput extends InputHandler{
             Vars.ui.showInfo("Global turret upgrade applied: level= "+ turretUpgradeLevel + ", turrets= " + count);
         }
     }
+*/
 }

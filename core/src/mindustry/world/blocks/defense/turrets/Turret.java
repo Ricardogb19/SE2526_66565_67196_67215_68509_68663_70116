@@ -37,7 +37,7 @@ public class Turret extends ReloadTurret implements Upgradable {
 
     public final static int MAX_LEVEL = 5;
 
-    public int level = 1;
+    public static int level = 1;
 
 
     public final static float logicControlCooldown = 60 * 2;
@@ -278,13 +278,14 @@ public class Turret extends ReloadTurret implements Upgradable {
             level++;
             upgradeCost();
         }
+        else
+            ui.showInfo("Already on max level");
     }
 
     @Override
-    public int upgradeCost() {
+    public void upgradeCost() {
         int cost = 2 + 10 * level / maxLevel();
-        consumeItem(Items.copper, cost);;
-        return cost;
+        consumeItem(Items.copper, cost);
     }
 
     public static abstract class AmmoEntry{
