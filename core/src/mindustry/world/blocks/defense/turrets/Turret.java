@@ -279,7 +279,7 @@ public class Turret extends ReloadTurret implements Upgradable {
 
             if (hasEnoughMaterials()) {
                 level++;
-                upgradeCost();
+                consumeMaterials(upgradeCost());
                 ui.showInfoFade("Upgraded this turret to level " + level + ".", 3);
                 if (level == 2 || level == 4)
                     ui.showInfoPopup("Increased max ammo to " + maxAmmo + ".", 3, 5, 500, 500, 500, 500);
@@ -293,14 +293,18 @@ public class Turret extends ReloadTurret implements Upgradable {
             ui.showInfoFade("Already on max level.", 3);
     }
 
-    //TODO: this method should calculate if the player has enough materials for the upgrade, i.e. materials - upgradeCost() > 0
+    //TODO: how to check the players mats?
     private boolean hasEnoughMaterials() {
-        return true;
+        return player.materials - upgradeCost() > 0;
     }
 
     @Override
-    public void upgradeCost() {
-        int cost = 2 + 10 * level / maxLevel();
+    public int upgradeCost() {
+        return 2 + 10 * level / maxLevel();
+    }
+
+    @Override
+    public void consumeMaterials(int cost) {
         consumeItem(Items.copper, cost);
     }
 

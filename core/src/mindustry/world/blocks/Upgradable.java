@@ -3,7 +3,9 @@ public interface Upgradable {
 
     void upgrade();
 
-    void upgradeCost();
+    int upgradeCost();
+
+    void consumeMaterials(int cost);
 
     int getLevel();
 
