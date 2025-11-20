@@ -288,6 +288,8 @@ public class Vars implements Loadable{
 
     public static @Nullable Player player;
 
+    public static int turretUpgradeLevel;
+
     @Override
     public void loadAsync(){
         loadSettings();
@@ -373,6 +375,8 @@ public class Vars implements Loadable{
 
         mods.load();
         maps.load();
+
+        turretUpgradeLevel = 0;
     }
 
     /** Checks if a launch failure occurred.
