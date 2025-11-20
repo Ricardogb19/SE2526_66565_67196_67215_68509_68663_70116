@@ -65,7 +65,7 @@ public class DesktopInput extends InputHandler{
 
     boolean showHint(){
         return ui.hudfrag.shown && Core.settings.getBool("hints") && selectPlans.isEmpty() && !player.dead() &&
-            (!isBuilding && !Core.settings.getBool("buildautopause") || player.unit().isBuilding() || !player.dead() && !player.unit().spawnedByCore());
+                (!isBuilding && !Core.settings.getBool("buildautopause") || player.unit().isBuilding() || !player.dead() && !player.unit().spawnedByCore());
     }
 
     @Override
@@ -85,8 +85,8 @@ public class DesktopInput extends InputHandler{
                         str.append(Core.bundle.format("enablebuilding", Binding.pauseBuilding.value.key.toString()));
                     }else if(player.unit().isBuilding()){
                         str.append(Core.bundle.format(isBuilding ? "pausebuilding" : "resumebuilding", Binding.pauseBuilding.value.key.toString()))
-                            .append("\n").append(Core.bundle.format("cancelbuilding", Binding.clearBuilding.value.key.toString()))
-                            .append("\n").append(Core.bundle.format("selectschematic", Binding.schematicSelect.value.key.toString()));
+                                .append("\n").append(Core.bundle.format("cancelbuilding", Binding.clearBuilding.value.key.toString()))
+                                .append("\n").append(Core.bundle.format("selectschematic", Binding.schematicSelect.value.key.toString()));
                     }
                     if(!player.dead() && !player.unit().spawnedByCore()){
                         str.append(str.length() != 0 ? "\n" : "").append(Core.bundle.format("respawn", Binding.respawn.value.key.toString()));
@@ -103,8 +103,8 @@ public class DesktopInput extends InputHandler{
             t.table(Styles.black6, b -> {
                 b.defaults().left();
                 b.label(() -> Core.bundle.format("schematic.flip",
-                    Binding.schematicFlipX.value.key.toString(),
-                    Binding.schematicFlipY.value.key.toString())).style(Styles.outlineLabel).visible(() -> Core.settings.getBool("hints"));
+                        Binding.schematicFlipX.value.key.toString(),
+                        Binding.schematicFlipY.value.key.toString())).style(Styles.outlineLabel).visible(() -> Core.settings.getBool("hints"));
                 b.row();
                 b.table(a -> {
                     a.button("@schematic.add", Icon.save, this::showSchematicSave).colspan(2).size(250f, 50f).disabled(f -> lastSchematic == null || lastSchematic.file != null);
@@ -116,7 +116,7 @@ public class DesktopInput extends InputHandler{
     @Override
     public void drawTop(){
         if(cursorType != SystemCursor.arrow && scene.hasMouse()){
-           graphics.cursor(cursorType = SystemCursor.arrow);
+            graphics.cursor(cursorType = SystemCursor.arrow);
         }
 
         Lines.stroke(1f);
@@ -436,15 +436,14 @@ public class DesktopInput extends InputHandler{
 
             /**
              * This block of code (441-450) implements the keybind to upgrade turrets.
-             * TODO: needs fixing, currently upgrades every turret, and not only an instance.
              */
             Tile selected = world.tileWorld(input.mouseWorldX(), input.mouseWorldY());
 
             if (selected == null) return;
 
-            Block block = selected.block();
+            Building build = selected.build;
 
-            if(block instanceof Turret t) {
+            if(build instanceof Turret.TurretBuild t) {
                 if (Core.input.keyTap(Binding.upgrade))
                     t.upgrade();
             }
@@ -472,7 +471,7 @@ public class DesktopInput extends InputHandler{
 
         //zoom camera
         if((!Core.scene.hasScroll() || Core.input.keyDown(Binding.diagonalPlacement)) && !ui.chatfrag.shown() && !ui.consolefrag.shown() && Math.abs(Core.input.axisTap(Binding.zoom)) > 0
-            && !Core.input.keyDown(Binding.rotatePlaced) && (Core.input.keyDown(Binding.diagonalPlacement) ||
+                && !Core.input.keyDown(Binding.rotatePlaced) && (Core.input.keyDown(Binding.diagonalPlacement) ||
                 !Binding.zoom.value.equals(Binding.rotate.value) || ((!player.isBuilder() || !isPlacing() || !block.rotate) && selectPlans.isEmpty()))){
             renderer.scaleCamera(Core.input.axisTap(Binding.zoom));
         }
@@ -706,7 +705,7 @@ public class DesktopInput extends InputHandler{
             }else if(!checkConfigTap() && selected != null && !tryRepairDerelict(selected)){
                 //only begin shooting if there's no cursor event
                 if(!tryTapPlayer(Core.input.mouseWorld().x, Core.input.mouseWorld().y) && !tileTapped(selected.build) && !player.unit().activelyBuilding() && !droppingItem
-                    && !(tryStopMine(selected) || (!settings.getBool("doubletapmine") || selected == prevSelected && Time.timeSinceMillis(selectMillis) < 500) && tryBeginMine(selected)) && !Core.scene.hasKeyboard()){
+                        && !(tryStopMine(selected) || (!settings.getBool("doubletapmine") || selected == prevSelected && Time.timeSinceMillis(selectMillis) < 500) && tryBeginMine(selected)) && !Core.scene.hasKeyboard()){
                     player.shooting = shouldShoot;
                 }
             }else if(!Core.scene.hasKeyboard()){ //if it's out of bounds, shooting is just fine
@@ -1002,8 +1001,8 @@ public class DesktopInput extends InputHandler{
             }
 
             if(Core.input.keyDown(Binding.pickupCargo)
-            && Time.timeSinceMillis(lastPayloadKeyHoldMillis) > 20
-            && Time.timeSinceMillis(lastPayloadKeyTapMillis) > 200){
+                    && Time.timeSinceMillis(lastPayloadKeyHoldMillis) > 20
+                    && Time.timeSinceMillis(lastPayloadKeyTapMillis) > 200){
                 tryPickupPayload();
                 lastPayloadKeyHoldMillis = Time.millis();
             }
@@ -1014,8 +1013,8 @@ public class DesktopInput extends InputHandler{
             }
 
             if(Core.input.keyDown(Binding.dropCargo)
-            && Time.timeSinceMillis(lastPayloadKeyHoldMillis) > 20
-            && Time.timeSinceMillis(lastPayloadKeyTapMillis) > 200){
+                    && Time.timeSinceMillis(lastPayloadKeyHoldMillis) > 20
+                    && Time.timeSinceMillis(lastPayloadKeyTapMillis) > 200){
                 tryDropPayload();
                 lastPayloadKeyHoldMillis = Time.millis();
             }
