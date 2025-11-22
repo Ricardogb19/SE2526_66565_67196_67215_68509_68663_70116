@@ -49,5 +49,21 @@ public class ConveyorLog {
         warnings.clear();
     }
 
+    public void printLog(){
+        if (warnings.isEmpty()) {
+            ui.showConveyorLog(IS_EMPTY);
+        } else {
+            String allWarnings = "";
+            int i = 0;
+            Iterator<Warning> it = warnings.iterator();
+            while(i++ < MAX_WARNINGS &&  it.hasNext()) {
+                Warning w = it.next();
+                allWarnings = allWarnings.concat(String.format(WARNING_INFO, w.getType(), w.getCoordinates(), w.isFixedToString()));
+            }
+            ui.showConveyorLog(allWarnings);
+
+        }
+    }
+
 }
 
