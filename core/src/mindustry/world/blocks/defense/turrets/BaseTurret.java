@@ -11,7 +11,6 @@ import mindustry.graphics.*;
 import mindustry.logic.*;
 import mindustry.world.*;
 import mindustry.world.blocks.*;
-import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.consumers.*;
 import mindustry.world.meta.*;
 
@@ -85,62 +84,8 @@ public class BaseTurret extends Block{
         stats.add(Stat.shootRange, range / tilesize, StatUnit.blocks);
     }
 
-    public class BaseTurretBuild extends Building implements Ranged, RotBlock, Upgradable{
+    public class BaseTurretBuild extends Building implements Ranged, RotBlock{
         public float rotation = 90;
-        /** This represents the turret's max level. */
-        public final static int MAX_LEVEL = 5;
-        /** This represents the turret's current level. */
-        public int level = 1;
-        /** This represents the turret's max ammunition. */
-        private int maxAmmunition = 30;
-
-
-        public int upgradeCost() {
-            return 2 + 10 * level / MAX_LEVEL;
-        }
-
-
-        public void upgrade() {
-            if (level < MAX_LEVEL) {
-                switch (level) {
-                    case 1 -> maxAmmunition+=5;
-                    case 2 -> maxAmmunition+=4;
-                    case 3 -> maxAmmunition+=3;
-                    case 4 -> maxAmmunition+=2;
-                }
-                int materialsNeededForUpgrade = upgradeCost();
-                if (hasEnoughMaterials(materialsNeededForUpgrade)) {
-                    level++;
-                    consumeMaterials(materialsNeededForUpgrade);
-                    ui.showInfoFade("Upgraded this turret to level " + level + ".", 4);
-                    ui.showInfoPopup("Increased max ammo to " + maxAmmunition + ".", 3, Align.top, 30, 0, 0, 0);
-                }
-                else
-                    ui.showInfoFade("Insufficient materials.");
-            }
-            else
-                ui.showInfoFade("Already on max level.", 3);
-        }
-
-        /**
-         * This method checks weather or not the player has enough copper to upgrade this turret.
-         * @param materialsNeeded - The amount of copper needed for this upgrade.
-         * @return True if the player has enough copper, False otherwise.
-         */
-        private boolean hasEnoughMaterials(int materialsNeeded) {
-            CoreBlock.CoreBuild core = player.core();
-            int coreCopper = core.items.get(Items.copper);
-            return coreCopper >= materialsNeeded;
-        }
-
-
-        public void consumeMaterials(int cost) {
-            if (state.rules.mode() != Gamemode.sandbox) {
-                CoreBlock.CoreBuild core = player.core();
-                if (core != null && core.items.has(Items.copper, cost))
-                    core.items.remove(Items.copper, cost);
-            }
-        }
 
         @Override
         public float range(){

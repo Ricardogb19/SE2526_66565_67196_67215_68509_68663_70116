@@ -405,35 +405,33 @@ public class Drill extends Block{
         }
 
         public int upgradeCost() {
-            return 2 + 10 * level / MAX_LEVEL;
+            return 2 + 20 * level / MAX_LEVEL;
         }
 
         public void upgrade() {
             if (level < MAX_LEVEL) {
                 switch (level) {
-                    case 1 -> drillTime += 40;
-                    case 2 -> drillTime += 30;
-                    case 3 -> drillTime += 20;
-                    case 4 -> drillTime += 10;
+                    case 1 -> drillTime -= 40;
+                    case 2 -> drillTime -= 30;
+                    case 3 -> drillTime -= 20;
+                    case 4 -> drillTime -= 10;
                 }
                 int materialsNeededForUpgrade = upgradeCost();
                 if (hasEnoughMaterials(materialsNeededForUpgrade)) {
                     level++;
                     consumeMaterials(materialsNeededForUpgrade);
                     ui.showInfoFade("Upgraded this drill to level " + level + ".", 4);
-                    ui.showInfoPopup("Increased drill time to " + drillTime + ".", 3, Align.top, 30, 0, 0, 0);
+                    ui.showInfoPopup("Decreased drill time to " + drillTime + ".", 3, Align.top, 30, 0, 0, 0);
                 } else
                     ui.showInfoFade("Insufficient materials.");
             }
         }
-
 
         private boolean hasEnoughMaterials(int materialsNeeded) {
             CoreBlock.CoreBuild core = player.core();
             int coreCopper = core.items.get(Items.copper);
             return coreCopper >= materialsNeeded;
         }
-
 
         public void consumeMaterials(int cost) {
             if (state.rules.mode() != Gamemode.sandbox) {
