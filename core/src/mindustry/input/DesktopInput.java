@@ -23,6 +23,10 @@ import mindustry.graphics.*;
 import mindustry.ui.*;
 import mindustry.world.*;
 import mindustry.world.blocks.defense.turrets.Turret;
+import mindustry.world.blocks.production.BeamDrill;
+import mindustry.world.blocks.production.BurstDrill;
+import mindustry.world.blocks.production.Drill;
+
 import static arc.Core.*;
 import static mindustry.Vars.*;
 import static mindustry.input.PlaceMode.*;
@@ -443,10 +447,15 @@ public class DesktopInput extends InputHandler{
 
             Building build = selected.build;
 
-            if (build instanceof Turret.TurretBuild t) {
+            if (build instanceof Turret.TurretBuild t ) {
                 if (Core.input.keyTap(Binding.upgrade))
                     t.upgrade();
             }
+            if (build instanceof  Drill.DrillBuild d){
+                 if (Core.input.keyTap(Binding.upgrade))
+                     d.upgrade();
+            }
+
 
             if(Core.input.keyTap(Binding.minimap)) ui.minimapfrag.toggle();
             if(Core.input.keyTap(Binding.planetMap) && state.isCampaign()) ui.planet.toggle();

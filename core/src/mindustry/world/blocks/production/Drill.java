@@ -18,7 +18,9 @@ import mindustry.logic.*;
 import mindustry.type.*;
 import mindustry.ui.*;
 import mindustry.world.*;
+import mindustry.world.blocks.Upgradable;
 import mindustry.world.blocks.environment.*;
+import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.consumers.*;
 import mindustry.world.meta.*;
 
@@ -235,7 +237,7 @@ public class Drill extends Block{
         return drops != null && drops.hardness <= tier && (blockedItems == null || !blockedItems.contains(drops));
     }
 
-    public class DrillBuild extends Building{
+    public class DrillBuild extends Building implements Upgradable {
         public float progress;
         public float warmup;
         public float timeDrilled;
@@ -243,6 +245,10 @@ public class Drill extends Block{
 
         public int dominantItems;
         public Item dominantItem;
+        /** This represents the drill's max level. */
+        public final static int MAX_LEVEL = 5;
+        /** This represents the drill's current level. */
+        public int level = 1;
 
         @Override
         public boolean shouldConsume(){
@@ -395,6 +401,45 @@ public class Drill extends Block{
             if(revision >= 1){
                 progress = read.f();
                 warmup = read.f();
+            }
+        }
+
+        public int upgradeCost() {
+            return 2 + 10 * level / MAX_LEVEL;
+        }
+
+        public void upgrade() {
+            if (level < MAX_LEVEL) {
+                switch (level) {
+                    case 1 -> drillTime += 40;
+                    case 2 -> drillTime += 30;
+                    case 3 -> drillTime += 20;
+                    case 4 -> drillTime += 10;
+                }
+                int materialsNeededForUpgrade = upgradeCost();
+                if (hasEnoughMaterials(materialsNeededForUpgrade)) {
+                    level++;
+                    consumeMaterials(materialsNeededForUpgrade);
+                    ui.showInfoFade("Upgraded this drill to level " + level + ".", 4);
+                    ui.showInfoPopup("Increased drill time to " + drillTime + ".", 3, Align.top, 30, 0, 0, 0);
+                } else
+                    ui.showInfoFade("Insufficient materials.");
+            }
+        }
+
+
+        private boolean hasEnoughMaterials(int materialsNeeded) {
+            CoreBlock.CoreBuild core = player.core();
+            int coreCopper = core.items.get(Items.copper);
+            return coreCopper >= materialsNeeded;
+        }
+
+
+        public void consumeMaterials(int cost) {
+            if (state.rules.mode() != Gamemode.sandbox) {
+                CoreBlock.CoreBuild core = player.core();
+                if (core != null && core.items.has(Items.copper, cost))
+                    core.items.remove(Items.copper, cost);
             }
         }
     }
