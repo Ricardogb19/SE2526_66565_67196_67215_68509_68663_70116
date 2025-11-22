@@ -545,6 +545,10 @@ public class DesktopInput extends InputHandler{
             ui.database.show();
         }).tooltip("@database");
 
+        table.button(Icon.file, Styles.clearNonei, () -> {
+            ui.conveyorLog.printLog();
+        }).tooltip("Warning Log");
+
         table.button(Icon.tree, Styles.clearNonei, () -> {
             ui.research.show();
         }).visible(() -> state.isCampaign()).tooltip("@research");
