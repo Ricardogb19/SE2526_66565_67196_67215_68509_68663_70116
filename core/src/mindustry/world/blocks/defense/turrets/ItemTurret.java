@@ -154,6 +154,11 @@ public class ItemTurret extends Turret{
             }
         }
 
+        public void display(Table table) {
+            super.display(table);
+            table.add("Level: " + level);
+        }
+
         @Override
         public void onProximityAdded(){
             super.onProximityAdded();
@@ -246,6 +251,7 @@ public class ItemTurret extends Turret{
         @Override
         public void write(Writes write){
             super.write(write);
+            write.i(level);
             write.b(ammo.size);
             for(AmmoEntry entry : ammo){
                 ItemEntry i = (ItemEntry)entry;
@@ -257,6 +263,7 @@ public class ItemTurret extends Turret{
         @Override
         public void read(Reads read, byte revision){
             super.read(read, revision);
+            level = read.i();
             ammo.clear();
             totalAmmo = 0;
             int amount = read.ub();

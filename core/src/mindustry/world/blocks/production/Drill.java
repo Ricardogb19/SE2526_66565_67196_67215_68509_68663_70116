@@ -4,6 +4,7 @@ import arc.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
+import arc.scene.ui.layout.Table;
 import arc.struct.*;
 import arc.util.*;
 import arc.util.io.*;
@@ -391,6 +392,7 @@ public class Drill extends Block{
         @Override
         public void write(Writes write){
             super.write(write);
+            write.i(level);
             write.f(progress);
             write.f(warmup);
         }
@@ -398,6 +400,7 @@ public class Drill extends Block{
         @Override
         public void read(Reads read, byte revision){
             super.read(read, revision);
+            level = read.i();
             if(revision >= 1){
                 progress = read.f();
                 warmup = read.f();
@@ -425,6 +428,8 @@ public class Drill extends Block{
                 } else
                     ui.showInfoFade("Insufficient materials.");
             }
+            else
+                ui.showInfoFade("Already on max level.", 3);
         }
 
         private boolean hasEnoughMaterials(int materialsNeeded) {
@@ -440,6 +445,10 @@ public class Drill extends Block{
                     core.items.remove(Items.copper, cost);
             }
         }
-    }
 
+        public void display (Table table) {
+            super.display(table);
+            table.add("Level: " + level);
+        }
+    }
 }
