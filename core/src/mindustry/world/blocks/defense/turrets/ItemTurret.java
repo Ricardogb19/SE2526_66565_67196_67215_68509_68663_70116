@@ -106,8 +106,6 @@ public class ItemTurret extends Turret{
         public final static int MAX_LEVEL = 5;
         /** This represents the turret's current level. */
         public int level = 1;
-        /** This represents the turret's max ammunition. */
-        private int maxAmmunition = 30;
 
         public int upgradeCost() {
             return 2 + 10 * level / MAX_LEVEL;
@@ -116,17 +114,17 @@ public class ItemTurret extends Turret{
         public void upgrade() {
             if (level < MAX_LEVEL) {
                 switch (level) {
-                    case 1 -> maxAmmunition+=5;
-                    case 2 -> maxAmmunition+=4;
-                    case 3 -> maxAmmunition+=3;
-                    case 4 -> maxAmmunition+=2;
+                    case 1 -> maxAmmo+=5;
+                    case 2 -> maxAmmo+=4;
+                    case 3 -> maxAmmo+=3;
+                    case 4 -> maxAmmo+=2;
                 }
                 int materialsNeededForUpgrade = upgradeCost();
                 if (hasEnoughMaterials(materialsNeededForUpgrade)) {
                     level++;
                     consumeMaterials(materialsNeededForUpgrade);
                     ui.showInfoFade("Upgraded this turret to level " + level + ".", 4);
-                    ui.showInfoPopup("Increased max ammo to " + maxAmmunition + ".", 3, Align.top, 30, 0, 0, 0);
+                    ui.showInfoPopup("Increased max ammo to " + maxAmmo + ".", 3, Align.top, 30, 0, 0, 0);
                 }
                 else
                     ui.showInfoFade("Insufficient materials.");
@@ -251,7 +249,7 @@ public class ItemTurret extends Turret{
         @Override
         public void write(Writes write){
             super.write(write);
-            write.i(level);
+            //write.i(level);
             write.b(ammo.size);
             for(AmmoEntry entry : ammo){
                 ItemEntry i = (ItemEntry)entry;
@@ -263,7 +261,7 @@ public class ItemTurret extends Turret{
         @Override
         public void read(Reads read, byte revision){
             super.read(read, revision);
-            level = read.i();
+            //level = read.i();
             ammo.clear();
             totalAmmo = 0;
             int amount = read.ub();
