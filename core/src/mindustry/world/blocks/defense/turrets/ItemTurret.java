@@ -103,9 +103,9 @@ public class ItemTurret extends Turret{
     public class ItemTurretBuild extends TurretBuild implements Upgradable {
 
         /** This represents the turret's max level. */
-        public final static int MAX_LEVEL = 5;
+        private final static int MAX_LEVEL = 5;
         /** This represents the turret's current level. */
-        public int level = 1;
+        private int level = 1;
 
         public int upgradeCost() {
             return 2 + 10 * level / MAX_LEVEL;
@@ -114,17 +114,29 @@ public class ItemTurret extends Turret{
         public void upgrade() {
             if (level < MAX_LEVEL) {
                 switch (level) {
-                    case 1 -> maxAmmo+=5;
-                    case 2 -> maxAmmo+=4;
-                    case 3 -> maxAmmo+=3;
-                    case 4 -> maxAmmo+=2;
+                    case 1 -> {
+                        maxHealth+=100;
+                        health +=100;
+                    }
+                    case 2 -> {
+                        maxHealth+=70;
+                        health+=70;
+                    }
+                    case 3 -> {
+                        maxHealth+=50;
+                        health+=50;
+                    }
+                    case 4 -> {
+                        maxHealth+=30;
+                        health+=30;
+                    }
                 }
                 int materialsNeededForUpgrade = upgradeCost();
                 if (hasEnoughMaterials(materialsNeededForUpgrade)) {
                     level++;
                     consumeMaterials(materialsNeededForUpgrade);
                     ui.showInfoFade("Upgraded this turret to level " + level + ".", 4);
-                    ui.showInfoPopup("Increased max ammo to " + maxAmmo + ".", 3, Align.top, 30, 0, 0, 0);
+                    ui.showInfoPopup("Increased hit points " + maxHealth + ".", 3, Align.top, 30, 0, 0, 0);
                 }
                 else
                     ui.showInfoFade("Insufficient materials.");
