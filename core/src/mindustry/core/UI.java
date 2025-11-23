@@ -28,6 +28,7 @@ import mindustry.logic.*;
 import mindustry.ui.*;
 import mindustry.ui.dialogs.*;
 import mindustry.ui.fragments.*;
+import mindustry.world.blocks.distribution.ConveyorLog;
 
 import static arc.scene.actions.Actions.*;
 import static mindustry.Vars.*;
@@ -83,9 +84,12 @@ public class UI implements ApplicationListener, Loadable{
     public Cursor drillCursor, unloadCursor, targetCursor, repairCursor;
 
     private @Nullable Element lastAnnouncement;
+    public static ConveyorLog conveyorLog;
 
     public UI(){
         Fonts.loadFonts();
+        this.conveyorLog = new ConveyorLog();
+        conveyorLog.removeAll();
     }
 
     public static void loadColors(){
@@ -429,6 +433,21 @@ public class UI implements ApplicationListener, Loadable{
             getCell(cont).growX();
             cont.margin(15).add(info).width(400f).wrap().get().setAlignment(Align.center, Align.center);
             buttons.button("@ok", this::hide).size(110, 50).pad(4);
+            keyDown(KeyCode.enter, this::hide);
+            closeOnBack();
+        }}.show();
+    }
+
+    public void showConveyorLog(String info) {
+        new Dialog("                      Conveyor Log\n"){{
+            getCell(cont).growX();
+            cont.margin(0).add(info).width(400f).get().setAlignment(Align.top, Align.center);
+            buttons.button("Exit Log", this::hide).size(110, 50).pad(4);
+            buttons.button("Clear Fixed", () ->{
+                ui.showInfoFade(conveyorLog.getNumberOfWarnings() == 0 ? ConveyorLog.NO_CLEARED_WARNINGS : ConveyorLog.CLEAR_MESSAGE);
+                conveyorLog.removeAll();
+                this.hide();
+            }).size(110, 50).pad(4);
             keyDown(KeyCode.enter, this::hide);
             closeOnBack();
         }}.show();
