@@ -29,6 +29,8 @@ import mindustry.ui.*;
 import mindustry.ui.dialogs.*;
 import mindustry.ui.fragments.*;
 import mindustry.world.blocks.distribution.ConveyorLog;
+import mindustry.world.blocks.distribution.Conveyor;
+
 
 import static arc.scene.actions.Actions.*;
 import static mindustry.Vars.*;
@@ -78,13 +80,13 @@ public class UI implements ApplicationListener, Loadable{
     public LogicDialog logic;
     public FullTextDialog fullText;
     public CampaignCompleteDialog campaignComplete;
+    public static ConveyorLog conveyorLog;
 
     public IntMap<Dialog> followUpMenus;
 
     public Cursor drillCursor, unloadCursor, targetCursor, repairCursor;
 
     private @Nullable Element lastAnnouncement;
-    public static ConveyorLog conveyorLog;
 
     public UI(){
         Fonts.loadFonts();
@@ -437,6 +439,22 @@ public class UI implements ApplicationListener, Loadable{
             closeOnBack();
         }}.show();
     }
+
+    public void showInfoWarning(String info, Conveyor.ConveyorBuild conveyor){
+        new Dialog(""){{
+            getCell(cont).growX();
+            cont.margin(15).add(info).width(400f).wrap().get().setAlignment(Align.center, Align.center);
+            buttons.button("@ok", () -> {
+                player.shooting = false;
+                state.set(GameState.State.playing);
+                this.hide();
+                conveyor.setFalse();
+
+            }).size(110, 50).pad(4);
+
+        }}.show();
+    }
+
 
     public void showConveyorLog(String info) {
         new Dialog("                      Conveyor Log\n"){{
