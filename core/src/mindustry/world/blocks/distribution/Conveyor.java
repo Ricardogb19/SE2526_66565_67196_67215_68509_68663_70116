@@ -78,6 +78,25 @@ public class Conveyor extends Block implements Autotiler{
         Draw.rect(region, plan.drawx(), plan.drawy(), region.width * bits[1] * region.scl(), region.height * bits[2] * region.scl(), plan.rotation * 90);
     }
 
+    private void showErrorSuggestion(Float x, Float y, Warning warning){
+        if (didPlayerClick(x,y) && !openMenu) {
+            openMenu = true;
+            state.set(GameState.State.paused);
+            switch(warning.getType()){
+                case (Warning.CONGESTED_TYPE):
+                    ui.showInfoWarning(Warning.CONGESTED_MESSAGE, this);
+                    break;
+                case (Warning.MISPLACED_TYPE):
+                    ui.showInfoWarning(Warning.MISPLACED_MESSAGE, this);
+                    break;
+            }
+        }
+    }
+
+    public void setFalse(){
+        openMenu = false;
+    }
+
     @Override
     public boolean blends(Tile tile, int rotation, int otherx, int othery, int otherrot, Block otherblock){
         return (otherblock.outputsItems() || (lookingAt(tile, rotation, otherx, othery, otherblock) && otherblock.hasItems))
@@ -479,6 +498,18 @@ public class Conveyor extends Block implements Autotiler{
             }
 
             len--;
+        }
+
+        private boolean didPlayerClick(float x , float y) {
+            return (
+                    Core.input.mouseWorldX() >= x - tilesize/2.0f
+                            && Core.input.mouseWorldX() <= x + tilesize/2.0f
+            )
+                    && (
+                    Core.input.mouseWorldY() >= y - tilesize/2.0f
+                            && Core.input.mouseWorldY() <= y + tilesize/2.0f
+            )
+                    && Core.input.keyTap(KeyCode.mouseLeft);
         }
 
         @Nullable
