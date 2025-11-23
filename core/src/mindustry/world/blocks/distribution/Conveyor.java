@@ -1,7 +1,9 @@
 package mindustry.world.blocks.distribution;
 
+import arc.Core;
 import arc.func.*;
 import arc.graphics.g2d.*;
+import arc.input.KeyCode;
 import arc.math.*;
 import arc.math.geom.*;
 import arc.struct.*;
@@ -9,6 +11,8 @@ import arc.util.*;
 import arc.util.io.*;
 import mindustry.annotations.Annotations.*;
 import mindustry.content.*;
+import mindustry.core.GameState;
+import mindustry.core.UI;
 import mindustry.ctype.*;
 import mindustry.entities.*;
 import mindustry.entities.units.*;
@@ -26,13 +30,13 @@ import static mindustry.Vars.*;
 public class Conveyor extends Block implements Autotiler{
     private static final float itemSpace = 0.4f;
     private static final int capacity = 3;
-
+    public ConveyorLog log;
     public @Load(value = "@-#1-#2", lengths = {7, 4}) TextureRegion[][] regions;
 
     public float speed = 0f;
     public float displayedSpeed = 0f;
     public boolean pushUnits = true;
-
+    private boolean openMenu;
     public @Nullable Block junctionReplacement, bridgeReplacement;
 
     public Conveyor(String name){
@@ -45,17 +49,18 @@ public class Conveyor extends Block implements Autotiler{
         priority = TargetPriority.transport;
         conveyorPlacement = true;
         underBullets = true;
-
+        log = UI.conveyorLog;
         ambientSound = Sounds.conveyor;
         ambientSoundVolume = 0.0022f;
         unloadable = false;
         noUpdateDisabled = false;
+        openMenu = false;
     }
 
     @Override
     public void setStats(){
         super.setStats();
-        
+
         //have to add a custom calculated speed, since the actual movement speed is apparently not linear
         stats.add(Stat.itemsMoved, displayedSpeed, StatUnit.itemsSecond);
     }
@@ -78,29 +83,13 @@ public class Conveyor extends Block implements Autotiler{
         Draw.rect(region, plan.drawx(), plan.drawy(), region.width * bits[1] * region.scl(), region.height * bits[2] * region.scl(), plan.rotation * 90);
     }
 
-    private void showErrorSuggestion(Float x, Float y, Warning warning){
-        if (didPlayerClick(x,y) && !openMenu) {
-            openMenu = true;
-            state.set(GameState.State.paused);
-            switch(warning.getType()){
-                case (Warning.CONGESTED_TYPE):
-                    ui.showInfoWarning(Warning.CONGESTED_MESSAGE, this);
-                    break;
-                case (Warning.MISPLACED_TYPE):
-                    ui.showInfoWarning(Warning.MISPLACED_MESSAGE, this);
-                    break;
-            }
-        }
-    }
 
-    public void setFalse(){
-        openMenu = false;
-    }
+
 
     @Override
     public boolean blends(Tile tile, int rotation, int otherx, int othery, int otherrot, Block otherblock){
         return (otherblock.outputsItems() || (lookingAt(tile, rotation, otherx, othery, otherblock) && otherblock.hasItems))
-            && lookingAtEither(tile, rotation, otherx, othery, otherrot, otherblock);
+                && lookingAtEither(tile, rotation, otherx, othery, otherrot, otherblock);
     }
 
     //stack conveyors should be bridged over, not replaced
@@ -194,6 +183,25 @@ public class Conveyor extends Block implements Autotiler{
                 Draw.z(layer + (ix / wwidth + iy / wheight) * scaling);
                 Draw.rect(item.fullIcon, ix, iy, itemSize, itemSize);
             }
+        }
+
+        private void showErrorSuggestion(Float x, Float y, Warning warning){
+            if (didPlayerClick(x,y) && !openMenu) {
+                openMenu = true;
+                state.set(GameState.State.paused);
+                switch(warning.getType()){
+                    case (Warning.CONGESTED_TYPE):
+                        ui.showInfoWarning(Warning.CONGESTED_MESSAGE, this);
+                        break;
+                    case (Warning.MISPLACED_TYPE):
+                        ui.showInfoWarning(Warning.MISPLACED_MESSAGE, this);
+                        break;
+                }
+            }
+        }
+
+        public void setFalse(){
+            openMenu = false;
         }
 
         @Override
