@@ -3300,7 +3300,6 @@ public class Blocks{
             health = 250;
             inaccuracy = 2f;
             rotateSpeed = 10f;
-            targetAir = false;
             coolant = consumeCoolant(0.1f);
             researchCostMultiplier = 0.05f;
 
@@ -3540,7 +3539,7 @@ public class Blocks{
             shoot.firstShotDelay = 40f;
 
             recoil = 2f;
-            reload = 80f;
+            reload = 8f;
             shake = 2f;
             shootEffect = Fx.lancerLaserShoot;
             smokeEffect = Fx.none;
@@ -3567,8 +3566,9 @@ public class Blocks{
                 drawSize = 400f;
                 collidesAir = false;
                 length = 173f;
-                ammoMultiplier = 1f;
+                ammoMultiplier = 20f;
                 pierceCap = 4;
+                damage = 500;
             }};
         }};
 
@@ -4305,7 +4305,7 @@ public class Blocks{
                             lifetime = 400f;
                             inaccuracy = 0f;
                             pierce = true;
-                            damage = 5f;
+                            damage = 0.1f;
                             hitSound = Sounds.none;
                         }};
                         fragBullets = 360;
@@ -4362,7 +4362,7 @@ public class Blocks{
 
             recoil = 0.5f;
             shootY = 3f;
-            reload = 80f;
+            reload = 800f;
             range = 160;
             shootCone = 15f;
             ammoUseEffect = Fx.casing1;

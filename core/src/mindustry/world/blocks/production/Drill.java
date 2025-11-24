@@ -392,7 +392,6 @@ public class Drill extends Block{
         @Override
         public void write(Writes write){
             super.write(write);
-            //write.i(level);
             write.f(progress);
             write.f(warmup);
         }
@@ -401,7 +400,6 @@ public class Drill extends Block{
         public void read(Reads read, byte revision){
             super.read(read, revision);
             if(revision >= 1){
-                //level = read.i();
                 progress = read.f();
                 warmup = read.f();
             }
