@@ -445,13 +445,16 @@ public class DesktopInput extends InputHandler{
 
             Building build = selected.build;
 
-            if (build instanceof ItemTurret.ItemTurretBuild t )
+            if (build instanceof ItemTurret.ItemTurretBuild t ){
                 if (Core.input.keyTap(Binding.upgrade))
-                    t.upgrade();
+                    t.upgrade();}
 
-            if (build instanceof  Drill.DrillBuild d)
+            else if (build instanceof  Drill.DrillBuild d){
                  if (Core.input.keyTap(Binding.upgrade))
-                     d.upgrade();
+                     d.upgrade();}
+            else if (Core.input.keyTap(Binding.upgrade))
+                ui.showInfoFade("Can't be upgraded", 4);
+
 
             if(Core.input.keyTap(Binding.minimap)) ui.minimapfrag.toggle();
             if(Core.input.keyTap(Binding.planetMap) && state.isCampaign()) ui.planet.toggle();
