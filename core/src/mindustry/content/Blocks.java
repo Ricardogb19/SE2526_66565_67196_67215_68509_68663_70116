@@ -38,6 +38,7 @@ import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 
 import static mindustry.Vars.*;
+import static mindustry.gen.Sounds.empZap;
 import static mindustry.type.ItemStack.*;
 
 public class Blocks{
@@ -3299,6 +3300,7 @@ public class Blocks{
             health = 250;
             inaccuracy = 2f;
             rotateSpeed = 10f;
+            targetAir = false;
             coolant = consumeCoolant(0.1f);
             researchCostMultiplier = 0.05f;
 
@@ -4288,12 +4290,28 @@ public class Blocks{
 
         vines = new ItemTurret("vines"){{
             requirements(Category.turret, with(Items.copper, 35));
-            ammo(
-                    Items.copper,  new BasicBulletType(2.5f, 9){{
+            ammo(Items.copper,  new BasicBulletType(){{
                         width = 7f;
                         height = 9f;
-                        lifetime = 60f;
-                        ammoMultiplier = 2;
+                        lifetime = 1f;
+                        speed = 0.01f;
+                        instantDisappear = true;
+                        shootSound = empZap;
+                        fragBullet  = new LaserBulletType(){{
+                            speed = 5.8f;
+                            width = 10f;
+                            status = StatusEffects.unmoving;
+                            frontColor = Pal.lancerLaser;
+                            lifetime = 400f;
+                            inaccuracy = 0f;
+                            pierce = true;
+                            damage = 5f;
+                            hitSound = Sounds.none;
+                        }};
+                        fragBullets = 360;
+                        fragRandomSpread = 0f;
+                        fragSpread = 1f;
+                        ammoMultiplier = 20;
 
                         hitEffect = despawnEffect = Fx.hitBulletColor;
                         hitColor = backColor = trailColor = Pal.copperAmmoBack;
@@ -4344,12 +4362,12 @@ public class Blocks{
 
             recoil = 0.5f;
             shootY = 3f;
-            reload = 20f;
+            reload = 80f;
             range = 160;
             shootCone = 15f;
             ammoUseEffect = Fx.casing1;
-            health = 250;
-            inaccuracy = 2f;
+            health = 25000;
+            inaccuracy = 0f;
             rotateSpeed = 10f;
             coolant = consumeCoolant(0.1f);
             researchCostMultiplier = 0.05f;
