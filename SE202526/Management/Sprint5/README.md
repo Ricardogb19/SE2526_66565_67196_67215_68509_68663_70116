@@ -1,41 +1,43 @@
-# Sprint 5
 
 ## Dates
 
-2025-11-10 - 2025-11-16
+2025-11-18 - 2025-11-25
 
 ## Scrum master
 
-Student name and number
+Guilherme Neto 68663
 
 ## Management info
 ### Sprint Planning Meeting: 
-*(This meeting is held at the beginning of the sprint to define the primary purpose and goal of the sprint. The Scrum team, comprising the product manager, development team, and Scrum Master, selects and commits to a set of product backlog items (PBIs) referred to as the sprint backlog. You can use this section to log what happened during this meeting. A few bullet points should be enough.)*
+-Dicussed asking the teachers for feedback.
+-Divided ourselves into smaller groups for each User Story.
+-Assigned soft deadlines for the implementation to be done.
 
 ### Sprint Review Meeting: 
-*(Held at the end of the sprint, this meeting is attended by all stakeholders to demo the completed work and validate if the sprint goal has been met.)*
+-The sprint's goal has been met.
 
 ### Sprint Retrospective Meeting: 
-*(This meeting happens after the sprint review and before the next sprint planning meeting. The team reflects on what went well, what needs improvement, and how to enhance their processes for future sprints.)*
+-We concluded that, in terms of hours put into this project and work done, this was one of our best sprints. We managed to communicate frequently and fluently.
 
 ## Relevant resources
+-No relevant resources to add for this sprint.
 
 ### Scrum Board at the beginning of the sprint
 
-Please add the scrumboard picture here.
+![Scrum Board at the beginning of the sprint](image.png)
 
 ### Scrum Board in the middle of the sprint
 
-Please add the scrumboard picture here.
+![Scrum Board in the middle of the sprint](image-1.png)
 
 ### Scrum Board at the end of the sprint
 
-Please add the scrumboard picture here.
+![Scrum Board at the end of the sprint](image-2.png)
 
 ### Burndown Chart for the sprint
 
-Please add the burndown chart here.
+![Burndown Chart for the sprint](image-3.png)
 
 ### Gantt Chart
 
-Please add the Gantt chart here.
+![Gantt Chart](image-4.png)
