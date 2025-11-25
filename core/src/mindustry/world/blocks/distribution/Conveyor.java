@@ -183,6 +183,7 @@ public class Conveyor extends Block implements Autotiler{
                 Draw.z(layer + (ix / wwidth + iy / wheight) * scaling);
                 Draw.rect(item.fullIcon, ix, iy, itemSize, itemSize);
             }
+            detectError();
         }
 
         private void showErrorSuggestion(Float x, Float y, Warning warning){
@@ -202,6 +203,33 @@ public class Conveyor extends Block implements Autotiler{
 
         public void setFalse(){
             openMenu = false;
+        }
+
+        private void detectError(){
+            Warning warning = new Warning(Warning.MISPLACED_TYPE, Warning.MISPLACED_MESSAGE, x, y);
+
+            if(!aligned && (nextc != null && !nextc.aligned)){
+                if(rotation != nextc.rotation){
+                    int orientation = rotation - nextc.rotation;
+                    if(orientation % 2 == 0 ){
+                        TextureRegion error = Core.atlas.find("error");
+                        float errorX =(x + nextc.x)/2;
+                        float errorY = (y + nextc.y)/2;
+                        showErrorSuggestion(errorX, errorY, warning);
+                        Draw.rect(error, errorX, errorY, tilesize, tilesize);
+                        log.addWarning(warning);
+                    }
+                }
+                return;
+            }
+            if(nextc == null && !shouldAmbientSound()){
+                warning = new Warning(Warning.CONGESTED_TYPE, Warning.CONGESTED_MESSAGE, x, y);
+
+                showErrorSuggestion(x, y, warning);
+                TextureRegion error = Core.atlas.find("error");
+                Draw.rect(error, x, y, tilesize, tilesize);
+                log.addWarning(warning);
+            }
         }
 
         @Override

@@ -437,21 +437,19 @@ public class DesktopInput extends InputHandler{
         if(state.isGame() && !scene.hasDialog() && !scene.hasField()) {
 
             /**
-             * This block of code (442-454) implements the keybind to upgrade base turrets and drills.
+             * This block of code (442-452) implements the keybind to upgrade item type turrets and drills.
              */
-            Tile selected = world.tileWorld(input.mouseWorldX(), input.mouseWorldY());
+            if (Core.input.keyTap(Binding.upgrade)) {
+                Tile selected = world.tileWorld(input.mouseWorldX(), input.mouseWorldY());
+                Building build = selected.build;
 
-            if (selected == null) return;
-
-            Building build = selected.build;
-
-            if (build instanceof ItemTurret.ItemTurretBuild t )
-                if (Core.input.keyTap(Binding.upgrade))
+                if (build instanceof ItemTurret.ItemTurretBuild t)
                     t.upgrade();
-
-            if (build instanceof  Drill.DrillBuild d)
-                 if (Core.input.keyTap(Binding.upgrade))
-                     d.upgrade();
+                else if (build instanceof Drill.DrillBuild d)
+                    d.upgrade();
+                else
+                    ui.showInfoFade("Can't be upgraded", 4);
+            }
 
             if(Core.input.keyTap(Binding.minimap)) ui.minimapfrag.toggle();
             if(Core.input.keyTap(Binding.planetMap) && state.isCampaign()) ui.planet.toggle();
