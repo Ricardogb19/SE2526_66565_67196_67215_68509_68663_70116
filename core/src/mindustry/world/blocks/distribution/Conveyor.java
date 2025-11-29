@@ -204,31 +204,28 @@ public class Conveyor extends Block implements Autotiler{
         public void setFalse(){
             openMenu = false;
         }
-
+        private void detectErrorAux(TextureRegion error, float x, float y, Warning warning) {
+            showErrorSuggestion(x, y, warning);
+            Draw.rect(error, x, y, tilesize, tilesize);
+            log.addWarning(warning);
+        }
         private void detectError(){
             Warning warning = new Warning(Warning.MISPLACED_TYPE, Warning.MISPLACED_MESSAGE, x, y);
-
+            TextureRegion error = Core.atlas.find("error");
             if(!aligned && (nextc != null && !nextc.aligned)){
                 if(rotation != nextc.rotation){
                     int orientation = rotation - nextc.rotation;
                     if(orientation % 2 == 0 ){
-                        TextureRegion error = Core.atlas.find("error");
                         float errorX =(x + nextc.x)/2;
                         float errorY = (y + nextc.y)/2;
-                        showErrorSuggestion(errorX, errorY, warning);
-                        Draw.rect(error, errorX, errorY, tilesize, tilesize);
-                        log.addWarning(warning);
+                        detectErrorAux(error, errorX, errorY, warning);
                     }
                 }
                 return;
             }
             if(nextc == null && !shouldAmbientSound()){
                 warning = new Warning(Warning.CONGESTED_TYPE, Warning.CONGESTED_MESSAGE, x, y);
-
-                showErrorSuggestion(x, y, warning);
-                TextureRegion error = Core.atlas.find("error");
-                Draw.rect(error, x, y, tilesize, tilesize);
-                log.addWarning(warning);
+                detectErrorAux(error, x, y, warning);
             }
         }
 
