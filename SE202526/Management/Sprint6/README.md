@@ -2,15 +2,17 @@
 
 ## Dates
 
-2025-11-17 - 2025-11-23
+2025-11-26 - 
 
 ## Scrum master
 
-Student name and number
+Raksana Udagedara 67196
 
 ## Management info
 ### Sprint Planning Meeting: 
-*(This meeting is held at the beginning of the sprint to define the primary purpose and goal of the sprint. The Scrum team, comprising the product manager, development team, and Scrum Master, selects and commits to a set of product backlog items (PBIs) referred to as the sprint backlog. You can use this section to log what happened during this meeting. A few bullet points should be enough.)*
+Discussion of the project status;
+Continuation of documentation and review;
+Analysis of the code of user stories already implemented for possible code improvements (code smells, etc.).
 
 ### Sprint Review Meeting: 
 *(Held at the end of the sprint, this meeting is attended by all stakeholders to demo the completed work and validate if the sprint goal has been met.)*
@@ -22,7 +24,7 @@ Student name and number
 
 ### Scrum Board at the beginning of the sprint
 
-Please add the scrumboard picture here.
+![alt text](sprint6_beginning.png)
 
 ### Scrum Board in the middle of the sprint
 
