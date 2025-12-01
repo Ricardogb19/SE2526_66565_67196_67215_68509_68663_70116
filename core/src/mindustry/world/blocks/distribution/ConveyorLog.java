@@ -15,10 +15,18 @@ public class ConveyorLog {
     private static final int MAX_WARNINGS = 15;
     private static final int TILE_SIZE = 8;
     private Set<Warning> warnings;
+    private static ConveyorLog instance = null;
 
 
     public ConveyorLog() {
         this.warnings = new HashSet<>();
+    }
+
+    public static ConveyorLog getInstance() {
+        if (instance == null) {
+            instance = new ConveyorLog();
+        }
+        return instance;
     }
 
     private boolean doesSimilarExistExist(Warning warning, Warning other) {

@@ -49,7 +49,7 @@ public class Conveyor extends Block implements Autotiler{
         priority = TargetPriority.transport;
         conveyorPlacement = true;
         underBullets = true;
-        log = UI.conveyorLog;
+        log = ConveyorLog.getInstance();
         ambientSound = Sounds.conveyor;
         ambientSoundVolume = 0.0022f;
         unloadable = false;

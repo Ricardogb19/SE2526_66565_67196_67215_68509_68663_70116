@@ -90,7 +90,7 @@ public class UI implements ApplicationListener, Loadable{
 
     public UI(){
         Fonts.loadFonts();
-        conveyorLog = new ConveyorLog();
+        conveyorLog = ConveyorLog.getInstance();
         conveyorLog.removeAll();
     }
 
