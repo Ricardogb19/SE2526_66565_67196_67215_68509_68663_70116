@@ -3,10 +3,12 @@
 ## *Observer*
 ### Location: `core\src\mindustry\world\Tile.java`
 `core/src/mindustry/graphics/BlockRenderer.java`
+`arc\Events.java`
+`arc/func/Cons.java`
 
 ### Analysis:
-Class Tile uses Events.fire() - this notifies changes (TileFloorChangeEvenet);
-Each observer uses Events.on. When a fire() is called there is an update in the design pattern.
+Class Tile (concrete subject) uses Events.fire() - this notifies changes;
+Each observer uses Events.on. So when a fire() is called there is an update in the design pattern.
 
 ### Code snippet:
 
@@ -19,89 +21,124 @@ Each observer uses Events.on. When a fire() is called there is an update in the 
         var prev = this.floor;
         this.floor = type;
 
-        (...)
+        if(!headless && !world.isGenerating() && !isEditorTile()){
+            renderer.blocks.removeFloorIndex(this);
+        }
+
+        recache();
+        if(build != null){
+            build.onProximityUpdate();
+        }
+        if(!world.isGenerating() && pathfinder != null && !state.isEditor()){
+            pathfinder.updateTile(this);
+        }
 
         if(!world.isGenerating()){
-            Events.fire(floorChange.set(this, prev, type)); 
+            Events.fire(floorChange.set(this, prev, type));
         }
+
+        if(this.floor != prev){
+            this.floor.floorChanged(this);
+        }
+        //(...)
     }
 ````
 
 `core/src/mindustry/graphics/BlockRenderer.java`
 
 ```java
-public class BlockRenderer {
-    public BlockRenderer(){ 
-        Events.on(TilePreChangeEvent.class, this::on);
-        Events.on(TileChangeEvent.class,     this::on);
+public BlockRenderer(){
+        Events.on(TilePreChangeEvent.class, event -> {
+            if(blockTree == null || floorTree == null) return;
+
+            if(indexBlock(event.tile)){
+                blockTree.remove(event.tile);
+                blockLightTree.remove(event.tile);
+            }
+            if(indexFloor(event.tile)) floorTree.remove(event.tile);
+        });
+        //(...)
+}        
+
+````
+`arc\Events.java`
+```java
+//(I navigated to this class using Ctrl + click in Events.fire in the Tile class)
+
+public class Events{
+    private static final ObjectMap<Object, Seq<Cons<?>>> events = new ObjectMap<>();
+
+    public static <T> void on(Class<T> type, Cons<T> listener){
+        events.get(type, () -> new Seq<>(Cons.class)).add(listener);
+    }
+    public static <T> boolean remove(Class<T> type, Cons<T> listener){
+        return events.get(type, () -> new Seq<>(Cons.class)).remove(listener);
+    }
+
+    public static <T> void fire(T type){
+        fire(type.getClass(), type);
+    }
+    //(...)
+}    
+````
+````java
+
+`arc/func/Cons.java`
+//(I navigated to this class using Ctrl + click in parameter Cons<T> listener in the Events class)
+
+```java
+package arc.func;
+
+public interface Cons<T>{
+    void get(T t);
 }
 ````
-
 ![alt text](Observer.png)
 
 ## *Factory Method*
-### Location: `core\src\mindustry\world\blocks\payloads\BlockProducer.java`
-`core\src\mindustry\world\blocks\payloads\Constructor.java`
-`core\src\mindustry\world\Block.java`
-`core\src\mindustry\world\blocks\distribution\MassDriver.java`
+### Location: `core/src/mindustry/world/Block.java`
+`core/src/mindustry/world/blocks/distribution/MassDriver.java`
+`core/build/generated/source/kapt/main/mindustry/gen/Building.java` //(I navigated to this class using Ctrl + click in Building listener in the method newBuilding of Block class)
 
 
 ### Analysis:
-**Creator**: BlockProducer.BlockProducerBuild
-**Concrete Creator**: Constructor.ConstructorBuild
-**Product**: Block
-**Concrete Product**: MassDriver
+**Creator**: Block (has the factory method)
+**Concrete Creator**: MassDriver (extends the creator)
+**Product**: Building (is used by creator)
+**Concrete Product**: MassDriver.MassDriverBuild (extends the product)
 
 
 ### Code snippet:
-`core\src\mindustry\world\blocks\payloads\BlockProducer.java`
+`core/src/mindustry/world/Block.java`
 
 ```java
-public abstract class BlockProducer extends PayloadBlock{
-    (...)
-    public abstract @Nullable Block recipe();
-        (...)
-        public void draw(){
-            Draw.rect(region, x, y);
-                Draw.rect(outRegion, x, y, rotdeg()); 
-                    var recipe = recipe();
-(...)
-        }
+
+ public final Building newBuilding(){
+        return buildType.get();
+    }
+````
+```java
+
+`core/src/mindustry/world/blocks/distribution/MassDriver.java`
+
+public class MassDriver extends Block{
+	(…)
+}
+````
+```java
+`core/src/mindustry/world/blocks/distribution/MassDriver.java`
+
+//(inner class of MassDriver)
+
+```java
+
+public class MassDriverBuild extends Building implements RotBlock{ {
+	(…)
 }
 ````
 
-`core\src\mindustry\world\blocks\payloads\Constructor.java`
+![alt text](FactoryMethod.png)
 
-```java
-public class Constructor extends BlockProducer {
-    public class ConstructorBuild extends BlockProducerBuild{
-        public @Nullable Block recipe;
-        public @Nullable Block recipe(){ 
-            return recipe;
-        }
-}
-````
-
-`core\src\mindustry\world\Block.java`
-
-```java
-public class Block extends UnlockableContent implements Senseable {
-    public ItemStack[] requirements = {};
-    public float buildTime = -1f;
-    public int size = 1;
-    public boolean rotate;
-    public TextureRegion[] getGeneratedIcons(){ ... }
-    ...
-}
-````
-
-core\src\mindustry\world\blocks\distribution\MassDriver.java
-
-```java
-public class MassDriver extends Block { ... }
-````
-
-![img.png](FactoryMethod.png)
 
 ## *Template Method*
 ### Location: `core\src\mindustry\world\draw\DrawBlock.java`
@@ -110,8 +147,7 @@ public class MassDriver extends Block { ... }
 `core\src\mindustry\world\draw\DrawBlurSpin.java`
 
 ### Analysis:
-The method finalIcons is the template method, marked with final. The subclasses override this method, not having specific implementations of it.
-
+The method finalIcons is the template method, marked with final. The template method defines the steps to obtain the icons. The subclasses can have specific implementations of icons method.
 
 ### Code snippet:
 
@@ -159,10 +195,4 @@ public TextureRegion[] icons(Block block){
 ````
 
 ![alt text](TemplateMethod.png)
-
-
-
-
-
-
 

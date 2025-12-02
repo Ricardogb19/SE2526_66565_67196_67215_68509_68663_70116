@@ -63,42 +63,34 @@ if(campRules().legacyLaunchPads){ ... }
 
 ## *Speculative Generality*
 
-### Location: `core\src\mindustry\world\blocks\payloads\PayloadBlock.java`
+### Location: `core/src/mindustry/entities/units/AIController.java`
 
-### Description: 
-The class has methods that are not used. 
+### Description: The class has methods that are not used. 
 
-### Analysis:
-In this class, there are some methods that are never used. This may be due to anticipated future features that were never implemented. However, keeping such methods can make the code harder to understand and maintain.
+### Analysis: In this class, there are some methods that are never used. This may be due to anticipated future features that were never implemented. However, keeping such methods can make the code harder to understand and maintain. 
 
 ### Ideal minimal refactoring:
 Remove the unused methods. Implement only what is currently needed (apply the Just-In-Time design principle).
 
 ```java
 
-//unused methods examples
-public void drawTeamTop(){
-    carried = false;
-}
+//unused methods
 
- 
-public Payload takePayload(){
-    T t = payload;
-    payload = null;
-    return t;
-}
+    public void stopShooting(){
+        for(var mount : unit.mounts){
+            mount.shoot = false;
+        }
+    }
 
+  public void faceMovement(){
+        if((unit.type.omniMovement || unit instanceof Mechc) && unit.moving()){
+            unit.lookAt(unit.vel().angle());
+        }
+    }
 
-public void onDestroyed(){
-    if(payload != null) payload.destroyed();
-    super.onDestroyed();
-}
+    public Vec2 alterPathfind(Vec2 vec){
+        return vec;
+    }
 
 ````
-
-
-
-
-
-
 
