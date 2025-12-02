@@ -3,6 +3,7 @@ package mindustry.content;
 import arc.*;
 import arc.graphics.*;
 import arc.math.*;
+import mindustry.entities.Effect;
 import mindustry.game.EventType.*;
 import mindustry.game.*;
 import mindustry.graphics.*;
@@ -53,12 +54,13 @@ public class StatusEffects{
         }};
 
         grounded = new StatusEffect("grounded"){{
-            color = Color.valueOf("6ecdec");
-
+            color = Pal.lighterOrange;
         }};
 
         unmoving = new StatusEffect("unmoving"){{
             color = Pal.gray;
+            effect = Fx.electrified;
+            effectChance = 1f;
             speedMultiplier = 0f;
         }};
 
