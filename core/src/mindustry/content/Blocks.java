@@ -4289,92 +4289,64 @@ public class Blocks{
         }};
 
         vines = new ItemTurret("vines"){{
-            requirements(Category.turret, with(Items.copper, 35));
-            ammo(Items.copper,  new BasicBulletType(){{
-                        width = 7f;
-                        height = 9f;
-                        lifetime = 1f;
-                        speed = 0.01f;
-                        instantDisappear = true;
-                        shootSound = empZap;
-                        fragBullet  = new LaserBulletType(){{
-                            speed = 5.8f;
-                            width = 10f;
-                            status = StatusEffects.unmoving;
-                            frontColor = Pal.lancerLaser;
-                            lifetime = 400f;
-                            inaccuracy = 0f;
-                            pierce = true;
-                            damage = 0.1f;
-                            hitSound = Sounds.none;
-                        }};
-                        fragBullets = 360;
-                        fragRandomSpread = 0f;
-                        fragSpread = 1f;
-                        ammoMultiplier = 20;
-
-                        hitEffect = despawnEffect = Fx.hitBulletColor;
-                        hitColor = backColor = trailColor = Pal.copperAmmoBack;
-                        frontColor = Pal.copperAmmoFront;
-                    }},
-                    Items.graphite, new BasicBulletType(3.5f, 18){{
-                        width = 9f;
-                        height = 12f;
-                        ammoMultiplier = 4;
-                        lifetime = 60f;
-                        rangeChange = 16f;
-
-                        hitEffect = despawnEffect = Fx.hitBulletColor;
-                        hitColor = backColor = trailColor = Pal.graphiteAmmoBack;
-                        frontColor = Pal.graphiteAmmoFront;
-                    }},
-                    Items.silicon, new BasicBulletType(3f, 12){{
-                        width = 7f;
-                        height = 9f;
-                        homingPower = 0.2f;
-                        reloadMultiplier = 1.5f;
-                        ammoMultiplier = 5;
-                        lifetime = 60f;
-
-                        trailLength = 5;
-                        trailWidth = 1.5f;
-
-                        hitEffect = despawnEffect = Fx.hitBulletColor;
-                        hitColor = backColor = trailColor = Pal.siliconAmmoBack;
-                        frontColor = Pal.siliconAmmoFront;
-                    }}
-            );
-
-            shoot = new ShootAlternate(3.5f);
-
-            recoils = 2;
-            drawer = new DrawTurret(){{
-                /*for(int i = 0; i < 2; i ++){
-                    int f = i;
-                    parts.add(new RegionPart("-barrel-" + (i == 0 ? "l" : "r")){{
-                        progress = PartProgress.recoil;
-                        recoilIndex = f;
-                        under = true;
-                        moveY = -1.5f;
-                    }});
-                }*/
-            }};
-
-            recoil = 0.5f;
+            requirements(Category.turret, with(Items.copper, 1600, Items.lead, 550, Items.graphite, 600, Items.surgeAlloy, 750, Items.silicon, 400));
+            recoil = 2f;
             shootY = 3f;
-            reload = 800f;
+            reload = 160f;
             range = 160;
-            shootCone = 15f;
+            shootCone = 5f;
             ammoUseEffect = Fx.casing1;
-            health = 25000;
-            inaccuracy = 0f;
+            scaledHealth = 250;
             rotateSpeed = 10f;
             coolant = consumeCoolant(0.1f);
-            researchCostMultiplier = 0.05f;
-
             size = 4;
+            targetGround = false;
+            drawer = new DrawTurret();
 
-            limitRange(5f);
+            ammo(Items.copper,  new BasicBulletType(2, 0){{
+                instantDisappear = true;
+                shootSound = empZap;
+                fragBullet  = new VineEmpBulletType(){{
+                    speed = 2;
+                    width = 5f;
+                    frontColor = Pal.lancerLaser;
+                    lifetime = 80f;
+                    pierce = true;
+                    damage = 0f;
+                    despawnEffect = Fx.none;
+                    collidesGround = false;
+                }};
+                fragBullets = 360;
+                fragRandomSpread = 0f;
+                fragSpread = 1f;
+                ammoMultiplier = 20;
+
+                hitEffect = despawnEffect = Fx.hitBulletColor;
+                hitColor = backColor = trailColor = Pal.copperAmmoBack;
+                frontColor = Pal.copperAmmoFront;
+            }},
+            Items.lead, new BasicBulletType(2f, 10){{
+                instantDisappear = true;
+                shootSound = empZap;
+                fragBullet  = new VineEmpBulletType(){{
+                    speed = 2;
+                    width = 5f;
+                    frontColor = Pal.lancerLaser;
+                    lifetime = 160f;
+                    pierce = true;
+                    damage = 0f;
+                    despawnEffect = Fx.none;
+                    collidesGround = false;
+                }};
+                fragBullets = 360;
+                fragRandomSpread = 0f;
+                fragSpread = 1f;
+                ammoMultiplier = 20;
+
+                hitEffect = despawnEffect = Fx.hitBulletColor;
+                hitColor = backColor = trailColor = Pal.copperAmmoBack;
+                frontColor = Pal.copperAmmoFront;
+            }});
         }};
 
         breach = new ItemTurret("breach"){{

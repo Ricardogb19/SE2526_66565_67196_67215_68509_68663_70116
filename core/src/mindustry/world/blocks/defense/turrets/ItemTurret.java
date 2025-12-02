@@ -166,7 +166,7 @@ public class ItemTurret extends Turret{
 
         public void display(Table table) {
             super.display(table);
-            table.add("Level: " + level + "\nCost: " + upgradeCost());
+            table.add("Level: " + level + "\nCost: " + upgradeCost() + " " + Items.copper);
         }
 
         @Override
