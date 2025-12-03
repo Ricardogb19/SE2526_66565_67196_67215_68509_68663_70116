@@ -2,7 +2,7 @@
 
 ## Dates
 
-2025-11-26 - 
+2025-11-26 - 2025-11-30
 
 ## Scrum master
 
@@ -11,16 +11,17 @@ Raksana Udagedara 67196
 ## Management info
 ### Sprint Planning Meeting: 
 Discussion of the project status;
-Continuation of documentation and review;
-Analysis of the code of user stories already implemented for possible code improvements (code smells, etc.).
+Discussion of possible code improvements in US1 and US3.
+Estabilish deadlines and plan the work until the final delivery.
 
 ### Sprint Review Meeting: 
-*(Held at the end of the sprint, this meeting is attended by all stakeholders to demo the completed work and validate if the sprint goal has been met.)*
+Sprints goals have been achieved.
 
 ### Sprint Retrospective Meeting: 
-*(This meeting happens after the sprint review and before the next sprint planning meeting. The team reflects on what went well, what needs improvement, and how to enhance their processes for future sprints.)*
+The team members were organized and the communication of possible problems due to academic schedule during the sprint was essential.
 
 ## Relevant resources
+None.
 
 ### Scrum Board at the beginning of the sprint
 
@@ -28,16 +29,16 @@ Analysis of the code of user stories already implemented for possible code impro
 
 ### Scrum Board in the middle of the sprint
 
-Please add the scrumboard picture here.
+![alt text](sprint6_middle.png)
 
 ### Scrum Board at the end of the sprint
 
-Please add the scrumboard picture here.
+![alt text](sprint6_final-1.png)
 
 ### Burndown Chart for the sprint
 
-Please add the burndown chart here.
+![alt text](burndown_chart.png)
 
 ### Gantt Chart
 
-Please add the Gantt chart here.
+![alt text](gant_chart.png)
