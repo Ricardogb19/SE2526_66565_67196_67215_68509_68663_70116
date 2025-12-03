@@ -4309,7 +4309,7 @@ public class Blocks{
                 fragBullet  = new VineEmpBulletType(){{
                     speed = 2;
                     width = 5f;
-                    frontColor = Pal.lancerLaser;
+                    frontColor = Pal.redSpark;
                     lifetime = 80f;
                     pierce = true;
                     damage = 0f;
