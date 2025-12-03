@@ -15,7 +15,7 @@ This addition has great potential, mainly because for new players, conveyor misp
 ![alt text](UCD2.png)
 ## Use case textual description
 
-Use Case: Place misplaced conveyor.
+## Use Case: Place misplaced conveyor.
 
 ID: 1
 
@@ -31,7 +31,7 @@ Postconditions:
 1. The system displays the error icon on the misplaced conveyors.
 Alternative scenarios: none.
 
-Use Case: Cause congestion.
+## Use Case: Cause congestion.
 
 ID: 2
 
@@ -47,7 +47,7 @@ Postconditions:
 1. The system displays the error icon at the location of the congestion.
 Alternative scenarios: none.
 
-Use Case: Obtain error details.
+## Use Case: Obtain error details.
 
 ID: 3
 
@@ -64,7 +64,7 @@ Postconditions:
 1. The player is in the window displaying the reason for the error and the suggested solution.
 Alternative scenarios: none.
 
-Use Case: Confirm error acknowledgment.
+## Use Case: Confirm error acknowledgment.
 
 ID: 4
 
@@ -84,7 +84,7 @@ Alternative scenarios: none.
 
 
 
-Use Case: Error resolution.
+## Use Case: Error resolution.
 
 ID: 5
 
@@ -100,7 +100,7 @@ Postconditions:
 1. The error icon disappears.
 Alternative scenarios: none.
 
-Use Case: Consult log.
+## Use Case: Consult log.
 
 ID: 6
 
@@ -117,7 +117,7 @@ Postconditions:
 1. The player is in the log window.
 Alternative scenarios: none.
 
-Use Case: Clear fixed warnings.
+## Use Case: Clear fixed warnings.
 
 ID: 7
 
@@ -134,7 +134,7 @@ Postconditions:
 1. Log is updated.
 Alternative scenarios: No fixed warnings.
 
-Alternative scenario: No fixed warnings.
+## Alternative scenario: No fixed warnings.
 
 ID: 8
 
@@ -149,7 +149,7 @@ Main scenario:
 Postconditions: none.
 Alternative scenarios: none.
 
-Use Case: Close log.
+## Use Case: Close log.
 
 ID: 9
 
@@ -164,6 +164,7 @@ Main scenario:
 Postconditions:
 1. The game resumes.
 Alternative scenarios: none.
+
 ### Review
 *(Please add your use case review here)*
 ## Implementation documentation
@@ -172,8 +173,11 @@ Alternative scenarios: none.
 (*Summary description of the implementation.*)
 #### Review
 *(Please add your implementation summary review here)*
-### Class diagrams
-(*Class diagrams and their discussion in natural language.*)
+
+### Class diagram
+
+![alt text](US_classDiagram.png)
+
 ### Review
 *(Please add your class diagram review here)*
 ### Sequence diagrams
