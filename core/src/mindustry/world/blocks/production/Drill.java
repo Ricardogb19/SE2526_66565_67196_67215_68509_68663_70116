@@ -432,9 +432,9 @@ public class Drill extends Block{
 
         private boolean hasEnoughMaterials(int materialsNeeded) {
             CoreBlock.CoreBuild core = player.core();
-            int coreCopper = core.items.get(Items.copper);
-            return coreCopper >= materialsNeeded;
+            return core.items.has(Items.copper,materialsNeeded);
         }
+
 
         public void consumeMaterials(int cost) {
             if (state.rules.mode() != Gamemode.sandbox) {
