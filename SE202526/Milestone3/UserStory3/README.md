@@ -169,7 +169,8 @@ However, this user story could be clearer in the concept of veteran player: it i
 1. The turret doesn't get upgraded.
 2. The player doesn't lose any materials.
 ### Review
-*(Please add your use case review here)*
+The use cases are good, as they offer clear, direct and factual explanations for each scenario. Their use of conditions and alternative flows is solid. However, in a good amount of use cases, they lack to mention what the system does in response to the player's action; they end up just mentioning what the player does.
+
 ## Implementation documentation
 ### Relevant classes to the implementation of User Story 3
 ![code_evolution_diagram.png](simple_class_diagram.png)
@@ -306,7 +307,9 @@ An important takeaway from this diagram is just how important and interconnected
 
 
 ### Review
-*(Please add your class diagram review here)*
+
+The class diagram is solid. While I agree with my colleagues when they say it seems daunting at first, it actually makes sense after some looking and understanding of the game and our implementation. I must highlight the excellent textual support for the diagram.
+
 ### Sequence diagrams
 
 #### Sequence diagram 1: PlaceVinesTurret
