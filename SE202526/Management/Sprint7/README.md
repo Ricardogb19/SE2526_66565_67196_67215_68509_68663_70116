@@ -28,16 +28,16 @@ Ricardo Batista 68509
 
 ### Scrum Board in the middle of the sprint
 
-Please add the scrumboard picture here.
+![middle of sprint](middleOfSprint.png)
 
 ### Scrum Board at the end of the sprint
 
-Please add the scrumboard picture here.
+![end of sprint](endOfSprint.png)
 
 ### Burndown Chart for the sprint
 
-Please add the burndown chart here.
+![burndown Chart](burndownChart.png)
 
 ### Gantt Chart
 
-Please add the Gantt chart here.
+![gantt chart](ganttChart.png)

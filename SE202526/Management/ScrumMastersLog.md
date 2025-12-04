@@ -5,6 +5,6 @@
 4. Afonso Rodriguez (66565)
 5. Guilherme Neto 68663
 6. Raksana Udagedara (67196)
-7. gggg gggg (ggggg)
+7. Ricardo Batista (68509)
 
 
