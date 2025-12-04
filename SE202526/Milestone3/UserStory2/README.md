@@ -576,8 +576,48 @@ The class diagram represents the implementation done in the source code, summari
 
 ### Review
 *(Please add your class diagram review here)*
+
 ### Sequence diagrams
-(*Sequence diagrams and their discussion in natural language.*)
+
+![Sequence Diagram #1: Misplace a Conveyor](sequence_diagram_1.png)
+
+#### The sequence diagram above describes the user misplaying a conveyor: the player places the conveyor, specifically a misplaced one, as labeled by the condition, which creates a warning and draws the error. The latter cannot be interrupted.
+
+
+![Sequence Diagram #2: Cause Congestion in a Conveyor](sequence_diagram_2.png)
+
+#### The sequence diagram above describes the user misplaying a conveyor: the player places the conveyor, specifically a misplaced one, as labeled by the condition, which creates a warning and draws the error. The latter cannot be interrupted.
+
+
+![Sequence Diagram #3: Obtain Error Details](sequence_diagram_3.png)
+
+#### The sequence diagram above describes the user clicking on a warning's icon to obtain more information about it: by doing so, the player interacts with the `ConveyorBuild`, which in turn makes a call to `UI`. The action cannot be interrupted.
+
+
+![Sequence Diagram #4: Confirm Error Acknowledgement](sequence_diagram_4.png)
+
+#### The sequence diagram above describes the user clicking on the OK button while on the warning screen: The player directly interacts with the UI, which hides the menu and changes a flag that represents whether the menu is open.
+
+
+![Sequence Diagram #5: Solve an Error](sequence_diagram_5.png)
+
+#### The sequence diagram above describes the user fixing an existing error/warning in the conveyors, either by following the suggested solutions or by simply removing the conveyor. The Conveyor is always destroyed or updated.
+
+
+![Sequence Diagram #6: Consult Log](sequence_diagram_6.png)
+
+#### The sequence diagram above describes the user clicking on the log button in the menu in order to consult it. This consists in a simple showing action from the UI.
+
+
+![Sequence Diagram #7: Clear Fixed Warnings](sequence_diagram_7.png)
+
+#### The sequence diagram above describes the user clearing all the existing warnings in the Conveyor Log. The message shown depends on whether the player has any warnings in the log at the time the button is pressed.
+
+
+![Sequence Diagram #8: Close Log](sequence_diagram_8.png)
+
+#### The sequence diagram above describes the user exiting the Conveyor Log. It simply consists in the UI being hidden due to an interaction from a the player.
+
 #### Review
 *(Please add your sequence diagram review here)*
 ## Test specifications
