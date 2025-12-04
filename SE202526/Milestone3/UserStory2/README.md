@@ -571,13 +571,9 @@ The following commits were made to the repository:
 
 - commit (94731b5): refers to the addition to the Conveyor class (core/src/mindustry/world/blocks/distribution/Conveyor.java), more precisely to the inner class ConveyorBuild of the showErrorSuggestion, didPlayerClick, and setFalse methods. These methods allow the player to click on the error and see a message identifying the cause of the error as well as a suggested solution.
 
-- commit (ab7f320): refers to the UI class (core/src/mindustry/core/UI.java) and is associated with the previous commit. It consists of adding the showInfoWarning method, which allows the information to be displayed, as well as the “OK” buttTo achieve the goal, the team encountered the following requirements: 
-- identification of misplacing errors/congestion and draw the icon in the correct places;
-- add a new button to the interface for the conveyor log; 
-- add the warnings associated with the errors identified in the log;
-- allow the player to interact with the log by creating mechanisms for it.on, which allows the player to exit the window showing the information/suggestion associated with the error.
+- commit (ab7f320): refers to the UI class (core/src/mindustry/core/UI.java) and is associated with the previous commit. It consists of adding the showInfoWarning method, which allows the information to be displayed, as well as the “OK” button that allows the player to exit the window showing the information/suggestion associated with the error.
 
-- commit (ce79037): refers to the Conveyor class, more specifically ConveyorBuild, and consists of adding the detectError method, used in the draw method of the same class, which allows us to draw and display the error icon in the associated locations. This method uses others previously mentioned, maintaining a logical alignment of the identification process and associated display.
+- commit (ce79037): refers to the Conveyor class, more specifically ConveyorBuild and consists of adding the detectError method used in the draw method of the same class, which allows us to draw and display the error icon in the associated locations. This method uses others previously mentioned, maintaining a logical alignment of the identification process and associated display.
 
 The commits done later were associated with the code smells identified in ConveyorBuild class and the existence of a singleton pattern in our ConveyorLog class.
 
