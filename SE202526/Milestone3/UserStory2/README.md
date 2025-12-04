@@ -636,6 +636,284 @@ The interaction between the player and the interface begins when the player sele
 #### Review
 *(Please add your sequence diagram review here)*
 ## Test specifications
-(*Test cases specification and pointers to their implementation, where adequate.*)
+
+### USER STORY #2 : TESTS
+
+To test all of these functionalities, the player must be (or have been) in a gamemode that supports conveyors (either Campaign in Serpulo or Sandbox in any map). Although the log works on Erekir, no warnings will be shown, as there are no conveyors in said planet.
+
+### TEST #1:
+
+This test is meant to check if the conveyor log is present.
+
+#### Pre-Condition: the player opens a save file (sector) in any built-in gamemode or map.
+#### Test Case ID: Conveyor log exists
+
+#### Steps:
+
+1.  Launch Mindustry.
+2.  Open the game in any sector/save file/map.
+
+#### Expected Results:
+
+1.  The player sees a new icon, labeled Warning Log, on the bottom right, together with Schematics, Core Database, Research and Planet Map.
+
+
+
+### TEST #2:
+
+This test is meant to check if a misplaced conveyor successfully outputs a warning.
+
+#### Pre-Condition: the player is in a save file that supports conveyors, and has met the resources/requirements to build at least two conveyors.
+#### Test Case ID: Misplacement exists
+
+#### Steps:
+
+1.  Open the Building menu.
+2.  Choose a Conveyor.
+3.  Place a conveyor in any direction and position.
+4.  Place another conveyor in an adjacent position to the built conveyor, but in the opposite direction.
+
+#### Expected Results:
+
+1.  One conveyor is now misplaced. The player should see a warning (a yellow triangle with a ! in the middle) between the two conveyors, indicating a misplacement.
+
+
+
+### TEST #3:
+
+This test is meant to check if a congested conveyor successfully outputs a warning.
+
+#### Pre-Condition: the player is in a save file that supports conveyors, and has met the resources/requirements to build at least one conveyor and a drill.
+#### Test Case ID: Congestion exists
+
+#### Steps:
+
+1.  Open the Building menu.
+2.  Choose a Drill.
+3.  Place a drill in any position, as long as it is above a valid ore that said drill can interact with.
+4.  Choose Conveyor.
+5.  Place a conveyor in any valid direction, adjacent to the drill, without any destination.
+6.  Wait for said conveyor to become filled with ores.
+
+#### Expected Results:
+
+1.  One conveyor is now misplaced. The player should see a warning (a yellow triangle with a ! in the middle) on top of the conveyor, indicating a congestion.
+
+
+
+### TEST #4:
+
+This test is meant to check if an existing warning outputs an error message.
+
+#### Pre-Condition: the player is in a save file that supports conveyors, and has at least one conveyor warning (misplacement or congestion).
+#### Test Case ID: Warning output exists
+
+#### Steps:
+
+1.  Click on any conveyor warning sign (a yellow triangle with a ! in the middle).
+
+#### Expected Results:
+
+1.  The game should be paused, and the player should see a text label explaining what caused the warning and some suggestions on how to possibly fix it (both of which depend on the type of warning).
+
+
+
+### TEST #5:
+
+This test is meant to check the player can confirm an error message it just read.
+
+#### Pre-Condition* the player is in a save file that supports conveyors, and is on a screen that shows further details about the conveyor warning.
+#### Test Case ID: Warning confirmation exists
+
+#### Steps:
+
+1.  Click on the OK button on the screen.
+
+#### Expected Results:
+
+1.  The game should be unpaused, and the player should no longer see the warning screen, although the warning is still there.
+
+
+
+### TEST #6:
+
+This test is meant to check if fixed misplacement warnings successfully update themselves in the game.
+
+#### Pre-Condition: the player is in a save file that supports conveyors, and has at least one conveyor misplacement warning.
+#### Test Case ID: Misplacement fix exists
+
+#### Steps:
+
+1.  Right click on at least one of the conveyors that are involved in the misplacement to remove it/them.
+
+#### Expected Results:
+
+1.  The selected conveyor(s) must be removed, and the warning sign (a yellow triangle with a ! in the middle) should no longer be present at that region.
+
+
+
+### TEST #7:
+
+This test is meant to check if a congestion warning is successfully fixed, by routing the congested conveyor to the core.
+
+#### Pre-Condition: the player is in a save file that supports conveyors, and has at least one conveyor congestion warning, as well as enough resources to build several conveyors.
+
+#### Test Case ID: Core route exists
+
+#### Steps:
+
+1.  Go to the Building Menu.
+2.  Click on Conveyor.
+3.  Build several adjacent conveyors (in the correct directions) until one of them points to the core.
+
+#### Expected Results:
+
+1.  There should now be a route from the previously congested conveyor to the core, the items should start to flow, and the warning's icon should disappear from said conveyor.
+
+
+
+### TEST #8
+
+This test is meant to check if a congestion warning is successfully fixed, by adding a turret.
+
+#### Pre-Condition: the player is in a save file that supports conveyors, and has at least one conveyor congestion warning, as well as enough resources to build a turret (whose ammo type matches the congested resource(s)). The congested conveyor(s) should not be pointing to a wall.
+#### Test Case ID: Turret fix exists
+
+#### Steps:
+
+1.  Go to the Building Menu.
+2.  Click on any turret.
+3.  Build one turret near the congested conveyor.
+
+#### Expected Results:
+
+1.  There should now be a route from the previously congested conveyor to the turret, the items should start to flow while the turret has ammo, and the warning's icon should disappear from said conveyor.
+
+
+
+### TEST #9:
+
+This test is meant to check if a misplacement warning is successfully fixed, by removing one of the misplaced conveyors.
+
+#### Pre-Condition: the player is in a save file that supports conveyors, and has at least one conveyor misplacement warning.
+#### Test Case ID: Remove misplacement exists
+
+#### Steps:
+
+1.  Go to the misplaced conveyor.
+2.  Right click on the misplaced conveyor to remove it.
+
+#### Expected Results:
+
+1.  The misplaced conveyor should be removed from the map, and the warning sign should disappear.
+
+
+
+### TEST #10:
+
+This test is meant to check if a misplacement warning is successfully fixed, by rerouting one of the misplaced conveyors.
+
+#### Pre-Condition*: the player is in a save file that supports conveyors, and has at least one conveyor misplacement warning, as well as enough resources to build at least one conveyor.
+#### Test Case ID: Reroute misplacement exists
+
+#### Steps:
+
+1.  Go to the misplaced conveyor.
+2.  Go to the Building menu.
+3.  Choose a Conveyor.
+4.  Build the Conveyor on top of the misplaced conveyor, in any direction other than the direction the misplaced conveyor is in.
+
+#### Expected Results:
+
+1.  The misplaced conveyor should be in a different direction, and the warning sign should disappear.
+
+
+
+### TEST #11:
+
+This test is meant to check if the conveyor log opens when the player clicks on its icon.
+
+#### Pre-Condition: the player is in a save file that supports conveyors, and sees the Warning Log icon on the bottom right.
+#### Test Case ID: Conveyor log exists
+
+#### Steps:
+
+1.  Click on the icon with the label "Warning Log" on the bottom right menu.
+
+#### Expected Results:
+
+1.  The game should remain unpaused, and the player should see a log showing every warning it has had on any conveyor, showing its position and type, as well as two buttons, named "Exit Log" and "Clear Fixed", respectively.
+
+
+
+### TEST #12:
+
+This test is meant to check if the conveyor log exits successfully.
+
+#### Pre-Condition: the player is in a save file that supports conveyors, and is on the Warning Log screen.
+#### Test Case ID: Log exit exists
+
+#### Steps:
+
+1.  Click on the button that says "Exit Log".
+
+#### Expected Results:
+
+1.  The game should remain unpaused, and the player should no longer see the Warning Log screen.
+
+
+
+### TEST #13:
+
+This test is meant to check if the conveyor log successfully shows a message if the player tries to clear all fixed warnings when there are none.
+
+#### Pre-Condition: the player is in a save file that supports conveyors, is on the Warning Log screen, and has no warnings.
+#### Test Case ID: Clear none message exists
+
+#### Steps:
+
+1.  Click on the button that says "Clear fixed warnings".
+
+#### Expected Results:
+
+1.  The game should remain unpaused, and the player should no longer see the Warning Log screen, and the message "There are no warnings to be cleared!" should be momentarily seen on the top center of the screen.
+
+
+
+### TEST #14:
+
+This test is meant to check if the conveyor log successfully clears all the fixed warnings.
+
+#### Pre-Condition: the player is in a save file that supports conveyors, is on the Warning Log screen, and has at least one warning.
+#### Test Case ID: Clear none message exists
+
+#### Steps:
+
+1.  Click on the button that says "Clear fixed warnings".
+
+#### Expected Results:
+
+1.  The game should remain unpaused, and the player should no longer see the Warning Log screen, and the message "There are no warnings to be cleared!" should be momentarily seen on the top center of the screen.
+
+
+
+### TEST #15:
+
+This test is meant to check if the conveyor log successfully shows a message if the player tries to clear all fixed warnings when there is at least one.
+
+#### Pre-Condition: the player is in a save file that supports conveyors, is on the Warning Log screen, and has at least one warnings.
+#### Test Case ID: Clear warning message exists
+
+#### Steps:
+
+1.  Fix at least one warning in the conveyor, according to the suggestions present in its details.
+2.  Open the Warning Log.
+3.  Click on the Clear Fixed Warnings button.
+4.  Reopen the Warning Log.
+
+#### Expected Results:
+
+1.  The player should now see the conveyor log without the warning(s) it fixed.
+
 ### Review
 *(Please add your test specification review here)*
