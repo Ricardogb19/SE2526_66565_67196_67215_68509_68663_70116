@@ -165,7 +165,10 @@ public class ItemTurret extends Turret{
 
         public void display(Table table) {
             super.display(table);
-            table.add("Level: " + level + "\nCost: " + upgradeCost() + " " + Items.copper);
+            if (level < MAX_LEVEL)
+                table.add("Level: " + level + "\nCost: " + upgradeCost() + " " + Items.copper);
+            else
+                table.add("Level: " + level);
         }
 
         @Override

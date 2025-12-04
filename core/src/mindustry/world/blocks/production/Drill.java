@@ -446,11 +446,10 @@ public class Drill extends Block{
 
         public void display (Table table) {
             super.display(table);
-            if (level == MAX_LEVEL) {
+            if (level < MAX_LEVEL)
+                table.add("Level: " + level + "\nCost: " + upgradeCost() + " " + Items.copper);
+            else
                 table.add("Level: " + level);
-            } else {
-                table.add("Level: " + level + "\nCost: " + upgradeCost());
-            }
         }
     }
 }

@@ -50,9 +50,8 @@ public class VineEmpBulletType extends BasicBulletType{
             Events.fire(new EventType.UnitBulletDestroyEvent(unit, b));
         }
         if(entity instanceof Unit unit){
-            unit.reloadMultiplier(50);
             if(unit.isFlying()){
-                unit.apply(StatusEffects.unmoving, 500f);
+                unit.apply(StatusEffects.grounded, 500f);
                 unit.apply(StatusEffects.disarmed, 500f);
                 unit.elevation = 0.0f;
             }

@@ -12,7 +12,7 @@ import mindustry.type.*;
 import static mindustry.Vars.*;
 
 public class StatusEffects{
-    public static StatusEffect none, burning, freezing, unmoving, slow, fast, wet, muddy, melting, sapped, tarred, overdrive, overclock, shielded, shocked, blasted, corroded, boss, sporeSlowed, disarmed, electrified, invincible, dynamic;
+    public static StatusEffect none, burning, freezing, unmoving, slow, fast, grounded, wet, muddy, melting, sapped, tarred, overdrive, overclock, shielded, shocked, blasted, corroded, boss, sporeSlowed, disarmed, electrified, invincible, dynamic;
 
     public static void load(){
 
@@ -53,10 +53,15 @@ public class StatusEffects{
             });
         }};
 
-        unmoving = new StatusEffect("unmoving"){{
+        grounded = new StatusEffect("grounded"){{
             color = Pal.gray;
             effect = Fx.electrified;
             effectChance = 1f;
+            speedMultiplier = 0f;
+        }};
+
+        unmoving = new StatusEffect("unmoving"){{
+            color = Pal.gray;
             speedMultiplier = 0f;
         }};
 
