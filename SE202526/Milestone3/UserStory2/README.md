@@ -641,12 +641,13 @@ The interaction between the player and the interface begins when the player sele
 
 To test all of these functionalities, the player must be (or have been) in a gamemode that supports conveyors (either Campaign in Serpulo or Sandbox in any map). Although the log works on Erekir, no warnings will be shown, as there are no conveyors in said planet.
 
-**NOTE: A spreadsheet containing all of these tests is available:**
-[File here](./US2_Test_Cases.xlsx)
+
 
 **NOTE: Each test's title is a clickable link to a YouTube video containing a visual explanation.**
 
 ### [TEST #1:](https://youtu.be/PCIbglmwM6s)
+
+![alt text](image.png)
 
 This test is meant to check if the conveyor log is present.
 
@@ -665,6 +666,8 @@ This test is meant to check if the conveyor log is present.
 
 
 ### [TEST #2:](https://youtu.be/qNW3VyAqnb4)
+
+![alt text](image-1.png)
 
 This test is meant to check if a misplaced conveyor successfully outputs a warning.
 
@@ -685,6 +688,8 @@ This test is meant to check if a misplaced conveyor successfully outputs a warni
 
 
 ### [TEST #3:](https://youtu.be/oSAdbiRx2eI)
+
+![alt text](image-2.png)
 
 This test is meant to check if a congested conveyor successfully outputs a warning.
 
@@ -708,6 +713,8 @@ This test is meant to check if a congested conveyor successfully outputs a warni
 
 ### [TEST #4:](https://youtu.be/nkS-yWTufCk)
 
+![alt text](image-3.png)
+
 This test is meant to check if an existing warning outputs an error message.
 
 #### Pre-Condition: the player is in a save file that supports conveyors, and has at least one conveyor warning (misplacement or congestion).
@@ -725,6 +732,8 @@ This test is meant to check if an existing warning outputs an error message.
 
 ### [TEST #5:](https://youtu.be/fPFkRLS6eP0)
 
+![alt text](image-4.png)
+
 This test is meant to check the player can confirm an error message it just read.
 
 #### Pre-Condition: the player is in a save file that supports conveyors, and is on a screen that shows further details about the conveyor warning.
@@ -741,6 +750,8 @@ This test is meant to check the player can confirm an error message it just read
 
 
 ### [TEST #6:](https://youtu.be/2kO2RC1uVhQ)
+
+![alt text](image-5.png)
 
 This test is meant to check if a congestion warning is successfully fixed, by routing the congested conveyor to the core.
 
@@ -762,6 +773,8 @@ This test is meant to check if a congestion warning is successfully fixed, by ro
 
 ### [TEST #7](https://youtu.be/3hiW-2BEp-U)
 
+![alt text](image-6.png)
+
 This test is meant to check if a congestion warning is successfully fixed, by adding a turret.
 
 #### Pre-Condition: the player is in a save file that supports conveyors, and has at least one conveyor congestion warning, as well as enough resources to build a turret (whose ammo type matches the congested resource(s)). The congested conveyor(s) should not be pointing to a wall.
@@ -779,7 +792,9 @@ This test is meant to check if a congestion warning is successfully fixed, by ad
 
 
 
-### [TEST #8:]()
+### [TEST #8:](https://youtu.be/fOdjCkS4LQE)
+
+![alt text](image-7.png)
 
 This test is meant to check if a misplacement warning is successfully fixed, by removing one of the misplaced conveyors.
 
@@ -799,9 +814,11 @@ This test is meant to check if a misplacement warning is successfully fixed, by 
 
 ### [TEST #9:](https://youtu.be/pS9aXQgob-I)
 
+![alt text](image-8.png)
+
 This test is meant to check if a misplacement warning is successfully fixed, by rerouting one of the misplaced conveyors.
 
-#### Pre-Condition*: the player is in a save file that supports conveyors, and has at least one conveyor misplacement warning, as well as enough resources to build at least one conveyor.
+#### Pre-Condition: the player is in a save file that supports conveyors, and has at least one conveyor misplacement warning, as well as enough resources to build at least one conveyor.
 #### Test Case ID: Reroute misplacement exists
 
 #### Steps:
@@ -818,6 +835,8 @@ This test is meant to check if a misplacement warning is successfully fixed, by 
 
 
 ### [TEST #10:](https://youtu.be/a-nF2FqwC2w)
+
+![alt text](image-9.png)
 
 This test is meant to check if the conveyor log opens when the player clicks on its icon.
 
@@ -836,6 +855,8 @@ This test is meant to check if the conveyor log opens when the player clicks on 
 
 ### [TEST #11:](https://youtu.be/vZnEYUEw3eA)
 
+![alt text](image-10.png)
+
 This test is meant to check if the conveyor log exits successfully.
 
 #### Pre-Condition: the player is in a save file that supports conveyors, and is on the Warning Log screen.
@@ -853,9 +874,13 @@ This test is meant to check if the conveyor log exits successfully.
 
 ### [TEST #12:](https://youtu.be/9PFPIE3k2eI)
 
+![alt text](image-11.png)
+
 This test is meant to check if the conveyor log successfully shows a message if the player tries to clear all fixed warnings when there are none.
 
-#### Pre-Condition: the player is in a save file that supports conveyors, is on the Warning Log screen, and has no warnings.
+
+#### Pre-Condition: the player is in a save file that supports conveyors, is on the Warning 
+Log screen, and has no warnings.
 #### Test Case ID: Clear none message exists
 
 #### Steps:
@@ -870,10 +895,12 @@ This test is meant to check if the conveyor log successfully shows a message if 
 
 ### [TEST #13:](https://youtu.be/BYZ-08bV8Eo)
 
+![alt text](image-12.png)
+
 This test is meant to check if the conveyor log successfully clears all the fixed warnings.
 
 #### Pre-Condition: the player is in a save file that supports conveyors, is on the Warning Log screen, and has at least one warning.
-#### Test Case ID: Clear none message exists
+#### Test Case ID: Clear fixed message exists
 
 #### Steps:
 
@@ -881,10 +908,12 @@ This test is meant to check if the conveyor log successfully clears all the fixe
 
 #### Expected Results:
 
-1.  The game should remain unpaused, and the player should no longer see the Warning Log screen, and the message "There are no warnings to be cleared!" should be momentarily seen on the top center of the screen.
+1.  The game should remain unpaused, and the player should no longer see the Warning Log screen, and the message "All fixed warnings cleared" should be momentarily seen on the top center of the screen.
 
 
 ### [TEST #14:](https://youtu.be/EqEF6zbh7tQ)
+
+![alt text](image-13.png)
 
 This test is meant to check if the conveyor log successfully shows a message if the player tries to clear all fixed warnings when there is at least one.
 
