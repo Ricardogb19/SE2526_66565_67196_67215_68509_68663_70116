@@ -250,7 +250,7 @@ Followed by:
 *(Please add your implementation summary review here)*
 ### Class diagrams
 
-![ClassDiagram.png]!(ClassDiagram.png)
+![ClassDiagram.png](ClassDiagram.png)
 
 This class diagram represents the changes we made in the code and how the classes interact.
 In this class diagram are represented the classes that we actually made changes to and the classes that we needed to make everything functional.
