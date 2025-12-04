@@ -86,7 +86,9 @@ Post conditions: None
 
 
 ### Review
-*(Please add your use case review here)*
+**Reviewed by Rafael Soares 70116**
+
+These use case diagrams exhibit a concise description of how the user story should play out and its deviations from the main flow in very complete fashion. A minor disagreement however, would be the use of the term 'U key', as the player is given the option to alter the key bound to the "upgrade" function.
 ## Implementation documentation
 ![ClassDiagram.png](ClassDiagram.png)
 
@@ -247,7 +249,9 @@ Followed by:
 
 
 #### Review
-*(Please add your implementation summary review here)*
+**Reviewed by Rafael Soares 70116**
+
+The class diagram of the implementation illustrates how the user story was implemented, even though it is a bit cluttered, it is to be expected from a somewhat large diagram. The code snippets allude vividly to the thought process behind the implementation. The summary is brief and grants a good overview of the process, accompanied by relevant git commits that walk the reader through all of the course of action.
 ### Class diagrams
 
 ![ClassDiagram.png](ClassDiagram.png)
@@ -265,7 +269,9 @@ If so, the method upgrade is called from either class; if not, the class UI is c
 * We have the 2 different alt fragments, which represent the alternative paths the program can follow depending on whether the selected build is upgradable or not and has enough copper or not.
 * There is also a seq fragment that obliges the flow to happen in that specific order.
 #### Review
-*(Please add your sequence diagram review here)*
+**Reviewed by Rafael Soares 70116**
+
+The core concept of the user story is finely depicted in this sequence diagram, it shows the main flow of events as well as the alternatives that might happen to said flow. I do think that the sequence fragment is a bit redundant, but I might be wrong.
 ## Test specifications
 ![test1.png](test1.png)
 ![test2.png](test2.png)
