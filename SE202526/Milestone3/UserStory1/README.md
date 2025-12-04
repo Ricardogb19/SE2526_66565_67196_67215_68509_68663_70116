@@ -88,7 +88,8 @@ Post conditions: None
 ### Review
 *(Please add your use case review here)*
 ## Implementation documentation
-![ClassDiagram.png](img.png)
+![ClassDiagram.png](ClassDiagram.png)
+
 
 The team started by creating and then implementing the interface Upgradable in the Turret, and that and the keyBind were the starting point of the implementation of this user story.
 After that, it was important to develop the consumption of the copper when upgrading the machine, which relies on the ItemModule class to check and consume the items.
@@ -197,7 +198,6 @@ public void consumeMaterials(int cost) {
 ````
 
 ### Implementation summary
-(*Summary description of the implementation.*)
 
 The US1 was developed, so that the player can upgrade the machines - Drill and ItemTurret -
 while playing, it does not save the upgraded version of the machine, this way the player, when in difficulty,
@@ -223,7 +223,7 @@ Followed by:
 *(Please add your implementation summary review here)*
 ### Class diagrams
 
-![ClassDiagram.png](img.png)
+![ClassDiagram.png]!(ClassDiagram.png)
 
 This class diagram represents the changes we made in the code and how the classes interact.
 In this class diagram are represented the classes that we actually made changes to and the classes that we needed to make everything functional.
@@ -240,7 +240,6 @@ If so, the method upgrade is called from either class; if not, the class UI is c
 #### Review
 *(Please add your sequence diagram review here)*
 ## Test specifications
-(*Test cases specification and pointers to their implementation, where adequate.*)
 ![test1.png](test1.png)
 ![test2.png](test2.png)
 ![test3.png](test3.png)
@@ -251,6 +250,6 @@ confirming that the upgrade process, the copper consumption, and the user feedba
 This video serves as evidence that the user story was fully implemented and validated through practical testing.
 
 
-link:https://youtu.be/UwZAu2JqxG8
+link: https://youtu.be/Ea53YZtPJes
 ### Review
 *(Please add your test specification review here)*
