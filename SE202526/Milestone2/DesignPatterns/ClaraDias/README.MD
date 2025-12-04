@@ -1,14 +1,14 @@
 # **Design Patterns Analysis**
 
 ## *Command*
-### Location: `core/src/mindustry/service/achievement`
+### Location: `core/src/mindustry/core/NetClient`
 
 
 ### Analysis: 
-Achievement is an enum that allows to encapsulate an operation as an object, allowing it to be triggered in a decoupled manner.
+NetClient is an enum that allows to encapsulate an operation as an object, allowing it to be triggered in a decoupled manner.
 
 
-![command](command.png)
+![img.png](img.png)
 
 ## *Template Method*
 ### Location: `core/src/mindustry/World/production/ Drill`
