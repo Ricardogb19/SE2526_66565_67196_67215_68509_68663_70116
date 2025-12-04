@@ -20,7 +20,7 @@ Name: Upgrade machines- Drill && Turret
 
 ### ID: UC1
 
-Description: This use case checks if the player has enough copper to upgrade its machines that have to be a drill or a double turret
+Description: This use case checks if the player has enough copper to upgrade its machines that have to be a Drill or an ItemTurret
 Actors: Player
 
 Primary Actors: Player
@@ -48,7 +48,7 @@ Alternative flow:
 
 Description: The machine that was selected can't be upgraded because it doesn't have that capacity.
 
-Preconditions: The player didn't select a double Turret nor a drill
+Preconditions: The player didn't select an ItemTurret nor a drill
 
 Alternative Scenario:
 1. The alternative scenario starts after the third step of the main scenario
@@ -59,13 +59,13 @@ Alternative Scenario:
 
 #### ID: UC 1.2
 
-Description: The machine that was selected can't be upgraded because it doesn't have that capacity.
+Description: The machine that was selected can't be upgraded because it does not have that capacity.
 
-Preconditions: The player  selected a Double turret or a drill that have been totally upgradede
+Preconditions: The player  selected an ItemTurret or a drill that have been totally upgrade.
 
 Alternative Scenario:
 1. The alternative scenario starts after the third step of the main scenario
-2. The system informs the player that the selected machine is alredy at its best
+2. The system informs the player that the selected machine is already at its best
 
 Post conditions: None
 
@@ -199,7 +199,7 @@ public void consumeMaterials(int cost) {
 ### Implementation summary
 (*Summary description of the implementation.*)
 
-The US1 was developed, so that the player can upgrade the machines - drill and double turret -
+The US1 was developed, so that the player can upgrade the machines - Drill and ItemTurret -
 while playing, it does not save the upgraded version of the machine, this way the player, when in difficulty,
 can upgrade this machines and leading to better outputs. We implemented the code in the following classes:
 - Drill
@@ -216,6 +216,7 @@ Followed by:
 - Implementing the upgrade in the Drill class, that corresponds to the following commit (a93109e);
 - Added the graphic part, that reveals to the player what's the level that the machine is on, that corresponds to the following commit (2d710a2);
 - Added small outputs so the user always as feedback, that corresponds to the following commit (d750a2b).
+- The last commit (b6c5272) corresponds to small corrections when it comes to the method hasEnoughMaterials, present in both DrillBuild and ItemTurretBuild Classes
 
 
 #### Review
