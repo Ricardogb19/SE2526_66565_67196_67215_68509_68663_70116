@@ -1,6 +1,7 @@
 # Software Engineering Project
 
-(Add Mindustry project short intro (e.g., a short paragraph) here.)
+A 6-person group project, using a 7 sprint SCRUM framework, with the goal of implementing three new features on the RTS game Mindustry. This project is part of the Software Engineering course, from NOVA FCT, with the key aspects being:
+Exploring an already established code-base; Identifying both code smells and design patterns already present; Designing and discussing UML Diagrams. The new features built by our team were an introduction of an upgrade feature on some buildings, a warning log and a new defensive turret.  
 
 ## Authors
 - 66565 - Afonso Rodriguez - [@Afonso-Rodriguez](https://github.com/Afonso-Rodriguez)
