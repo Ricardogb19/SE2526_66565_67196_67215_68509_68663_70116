@@ -252,24 +252,13 @@ Extension Point: Clear fixed warnings.
 
 For the implementation of user story 2, the subgroup held meetings to plan and develop the code associated with the proposed extension. During this process, we created two new classes: Warning and ConveyorLog, and added and/or changed methods in the classes: UI, DesktopInput, Conveyor.ConveyorBuild.
 
-### Implementation summary
-The first commit (792e508) made in the repository concerns the Warning class (implemented in core/src/mindustry/world/blocks/distribution/Warning.java). This class is used to represent a Warning type object that stores information about conveyor congestion/misplacing errors, namely the position where the error occurs.
+To achieve the goal, the team encountered the following requirements: 
+- identification of misplacing errors/congestion and draw the icon in the correct places;
+- add a new button to the interface for the conveyor log; 
+- add the warnings associated with the errors identified in the log;
+- allow the player to interact with the log by creating mechanisms for it.
 
-The second commit (363bd59) refers to the ConveyorLog class (core/src/mindustry/world/blocks/distribution/ConveyorLog.java), which represents the object that stores warnings in the game i.e., errors not yet resolved by the player and the ones that were fixed but not cleared (it is like a browser history).
-
-The third commit (ae81754) consists of an addition to the ConveyorLog class (printLog method) that allows us to display the warnings present in the log.
-
-The fourth commit (0bd07d0) refers to the addition of a new button to the game interface, more precisely in the menu area, where we now have a button to access the Log. For this, we changed the buildPlacementUI method of the DesktopInput class (core/src/mindustry/input/DesktopInput.java).
-
-The fifth commit (02ff140) is related to the third commit, which allows us to display the warnings present in the log. To achieve this goal, the showConveyorLog method was added to the UI class (core/src/mindustry/core/UI.java).
-
-The sixth commit (94731b5) refers to the addition to the Conveyor class (core/src/mindustry/world/blocks/distribution/Conveyor.java), more precisely to the inner class ConveyorBuild of the showErrorSuggestion, didPlayerClick, and setFalse methods. These methods allow the player to click on the error and see a message identifying the cause of the error as well as a suggested solution.
-
-The seventh commit (ab7f320) again refers to the UI class (core/src/mindustry/core/UI.java) and is associated with the previous commit. It consists of adding the showInfoWarning method, which allows the information to be displayed, as well as the “OK” button, which allows the player to exit the window showing the information/suggestion associated with the error.
-
-The last commit (ce79037) refers to the Conveyor class, more specifically ConveyorBuild, and consists of adding the detectError method, used in the draw method of the same class, which allows us to draw and display the error icon in the associated locations. This method uses others previously mentioned, maintaining a logical alignment of the identification process and associated display.
-
-The commits done later were associated with the code smells identified in ConveyorBuild class and the existence of a singleton pattern in our ConveyorLog class.
+Below we present the associated code snippets, and in the implementation summary section we explain each one in more detail, associating them with the commits made in the repository.
 
 ## Code snippets
 
@@ -565,6 +554,34 @@ public void buildPlacementUI(Table table){
 
 ````
 
+### Implementation summary
+As mentioned earlier, our implementation involved creating two new classes (Warning and ConveyorLog) and modifying existing classes (UI, DesktopInput, and Conveyor).
+
+The following commits were made to the repository:
+
+- commit (792e508): concerns the Warning class (implemented in core/src/mindustry/world/blocks/distribution/Warning.java). This class is used to represent a Warning type object that stores information about conveyor congestion/misplacing errors, namely the position where the error occurs.
+
+- commit (363bd59): refers to the ConveyorLog class (core/src/mindustry/world/blocks/distribution/ConveyorLog.java), which represents the object that stores warnings in the game i.e., errors not yet resolved by the player and the ones that were fixed but not cleared (it is like a browser history).
+
+- commit (ae81754): consists of an addition to the ConveyorLog class (printLog method) that allows us to display the warnings present in the log.
+
+- commit (0bd07d0): refers to the addition of a new button to the game interface, more precisely in the menu area, where we now have a button to access the Log. For this, we changed the buildPlacementUI method of the DesktopInput class (core/src/mindustry/input/DesktopInput.java).
+
+- commit (02ff140): allows us to display the warnings present in the log. To achieve this goal, the showConveyorLog method was added to the UI class (core/src/mindustry/core/UI.java).
+
+- commit (94731b5): refers to the addition to the Conveyor class (core/src/mindustry/world/blocks/distribution/Conveyor.java), more precisely to the inner class ConveyorBuild of the showErrorSuggestion, didPlayerClick, and setFalse methods. These methods allow the player to click on the error and see a message identifying the cause of the error as well as a suggested solution.
+
+- commit (ab7f320): refers to the UI class (core/src/mindustry/core/UI.java) and is associated with the previous commit. It consists of adding the showInfoWarning method, which allows the information to be displayed, as well as the “OK” buttTo achieve the goal, the team encountered the following requirements: 
+- identification of misplacing errors/congestion and draw the icon in the correct places;
+- add a new button to the interface for the conveyor log; 
+- add the warnings associated with the errors identified in the log;
+- allow the player to interact with the log by creating mechanisms for it.on, which allows the player to exit the window showing the information/suggestion associated with the error.
+
+- commit (ce79037): refers to the Conveyor class, more specifically ConveyorBuild, and consists of adding the detectError method, used in the draw method of the same class, which allows us to draw and display the error icon in the associated locations. This method uses others previously mentioned, maintaining a logical alignment of the identification process and associated display.
+
+The commits done later were associated with the code smells identified in ConveyorBuild class and the existence of a singleton pattern in our ConveyorLog class.
+
+
 #### Review
 *(Please add your implementation summary review here)*
 
@@ -573,6 +590,8 @@ public void buildPlacementUI(Table table){
 The class diagram represents the implementation done in the source code, summarizing it and illustrating the classes where the changes were made, as well as the ones that were important for the implementation.
 
 ![alt text](US_classDiagram.png)
+
+The interaction between the player and the interface begins when the player selects to place a conveyor on the map (drawn using the rect method of the Draw class). If an error occurs (detected by the detectError method), a new icon is drawn. In addition, a warning is created and added to the game log. A new button has been added to the menu to allow the player to access the log through the interface.
 
 ### Review
 *(Please add your class diagram review here)*
