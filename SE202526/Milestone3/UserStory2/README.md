@@ -653,7 +653,10 @@ Overall, the class diagram demonstrates well the implementation structure.
 #### The sequence diagram above describes the user exiting the Conveyor Log. It simply consists in the UI being hidden due to an interaction from a the player.
 
 #### Review
-*(Please add your sequence diagram review here)*
+The sequence diagrams are well designed, easy to understand, and overall well described. The captions were fundamental for the understanding of the diagrams.
+I think that a sequence diagram of the user story would be a great plus to the existing sequence diagrams, because it would make it easier to understand the user story as a whole. 
+
+
 ## Test specifications
 
 ### USER STORY #2 : TESTS
