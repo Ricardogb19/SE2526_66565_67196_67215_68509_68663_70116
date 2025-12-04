@@ -291,7 +291,10 @@ Our implementation began by incorporating a custom turret sprite obtained from t
 A new turret block, vines, was added inside Blocks.java using ItemTurret.java as the base class. Most of its core parameters were configured to our desired goal. The turret supports two ammo types, both mapped to fragmentation bullets. 
 These fragments are the ones that generate the actual effect using a custom bullet type we created. The key feature of the bullet is the ability to force airborne units to the ground, disabling their mobility for a specific duration. This combination temporarily suppresses and disarms flying units, making them vulnerable to ground-based defenses.
 ### Review
-*(Please add your implementation summary review here)*
+The fact that the introduction to the implementation summary addresses the main challenges highlights the needs identified and associated with implementation.
+The section associated with commits explains the changes made and the ideas developed during implementation in a very simple way. It provides a quick and informative overview of what was happening.
+
+**Reviewed by Raksana Udagedara 67196.**
 ### Class diagrams
 The following image is referent to the class diagram, which consists of the classes directly related to our implementation of the user story 3
 
@@ -321,7 +324,9 @@ The following sequence diagram represents the load ammo use case, where the user
 
 Lastly, this sequence diagram shows the upgrade turret use case, where the user upgrades the turret, and also the alternative flow, where the user tries to upgrade something that isn't the turret
 #### Review
-*(Please add your sequence diagram review here)*
+The analysis of the sequence diagrams is consistent with their textual description. I consider it to be a concise and highly informative way to understand what actually happens in the system and how things occur.
+
+**Reviewed by Raksana Udagedara 67196.**
 ## Test specifications
 
 Each test image has an embedded link to a video example
@@ -329,4 +334,6 @@ Each test image has an embedded link to a video example
 [![test2](test_case_3.png)](https://youtu.be/kn7uTUjkd-I)
 [![test3](test_case_2.png)](https://youtu.be/Rk-FimCNTfs)
 ### Review
-*(Please add your test specification review here)*
+The tests are in accordance with the scenario-based test template and the videos follow the associated instructions.
+
+**Reviewed by Raksana Udagedara 67196.**
