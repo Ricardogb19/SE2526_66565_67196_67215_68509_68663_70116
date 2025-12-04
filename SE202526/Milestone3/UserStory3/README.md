@@ -297,7 +297,21 @@ These fragments are the ones that generate the actual effect using a custom bull
 ### Review
 *(Please add your class diagram review here)*
 ### Sequence diagrams
-(*Sequence diagrams and their discussion in natural language.*)
+
+#### Sequence diagram 1: PlaceVinesTurret
+![place_turret](placeTurretSequence.png)
+
+This sequence diagram represents the use case where the player places a turret, alongside both its alternative flows, where the user changes their intention to place it and cancels their plan, or, if they try to place a turret in an invalid position (such as over already built blocks)
+
+#### Sequence diagram 2: ManuallyLoadAmmo
+![load_turret](loadAmmoSequence.png)
+
+The following sequence diagram represents the load ammo use case, where the user manually adds ammunition to a turret by dragging some materials into the turret, as well as the alternative flow, where the user drags the materials somewhere that isn't the turret 
+
+#### Sequence diagram 3: UpgradeVinesTurret
+![upgrade_turret](upgradeSequence.png)
+
+Lastly, this sequence diagram shows the upgrade turret use case, where the user upgrades the turret, and also the alternative flow, where the user tries to upgrade something that isn't the turret
 #### Review
 *(Please add your sequence diagram review here)*
 ## Test specifications
