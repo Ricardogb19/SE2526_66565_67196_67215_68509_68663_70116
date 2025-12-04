@@ -173,38 +173,118 @@ However, this user story could be clearer in the concept of veteran player: it i
 ## Implementation documentation
 ### Relevant classes to the implementation of User Story 3
 ![code_evolution_diagram.png](simple_class_diagram.png)
-The main challenges were figuring out how to create a new turret block that could be placed by the players, and how to make it target only air units and force them into the ground. To overcome this problem we had to create a new type of bullet, and make it so that if any of the bullets fired collides with air units, they become grounded.
+
+The main challenges were figuring out how to create a new turret block that could be placed by the players, and how to make it target only air units and force them into the ground.
+To overcome this problem we had to create a new type of bullet, and make it so that if any of the bullets fired collides with air units, they become grounded.
+### Relevant git commits
+Commit `385eb0e` - This was the first commit relative to this user story, focused on the front-end part, this is because to start testing our new turret we had to first be able to deploy it. For that we added our desired turret sprite and added a new block, our logical rationale was to add our turret after the last turret used by the game `meltdown` and it worked, our new turret was being displayed as the last in the turrets sub-menu. We also created a new turret class dedicated to it since we intended to give different upgrades, this class was later removed.
+
+Commit `8b728ad` - This commit was simply adding a new custom sound for our turret.
+
+Commit `a2105de` - After having our turret and a custom sound, it was time to choose a bullet type and give it our desired functionality, we decided to go with laser type bullets for now. Since our original idea had the turret shoot in a radius around it, we implemented its bullet as fragment bullets, this means that shooting only once allows multiple fragmented bullets to appear. We changed a few of the turrets properties for better debugging. After the turret was shooting as intended we implemented its desired feature.
+
+Commit `f42aa8c` - Some simple value tweaks for better debugging.
+
+Commit `69bbcc8` - With everything working as intended, we finally decided to change the bullet type, laser was just not what we wanted and after trying several, we decided to go with a simple bullet, we then created a new bullet type that extends the simple bullet but with our desired features. We also changed the status effect applied to enemy units to our liking.
+
+Commit `5215469` - After the turret working as intended, it was time to actually personalize it to our liking, things like the required materials to build it, etc. This can all be seen in the info page of the turret in-game.
+
+Commit `9d03170` - Since our turret has 2 different ammo types, we decided to change their colour to easily identify them.
+
+Commit `c2cc1c7` - Removed the earlier added class for the new turret, as time was short and previously intended upgrades weren't able to be implemented.
+
+Commit `1fd1133` - Previously bad change, we altered an already implemented status effect for our intentions, affecting other parts of the game without intention, changed it to our own status effect.
 ### Relevant code snippets
-`core/src/mindustry/content.Blocks.java`
+Location: `core/src/mindustry/content.Blocks.java`
 ```java
 vines = new ItemTurret("vines"){{
     requirements(Category.turret, with(Items.copper, 1600, Items.lead, 550, Items.graphite, 600, Items.surgeAlloy, 750, Items.silicon, 400));
-    targetGround = false;     
-    .
-    .
-    .
+    recoil = 2f;
+    shootY = 3f;
+    reload = 160f;
+    range = 160;
+    shootCone = 5f;
+    ammoUseEffect = Fx.casing1;
+    scaledHealth = 250;
+    rotateSpeed = 10f;
+    coolant = consumeCoolant(0.1f);
+    size = 4;
+    targetGround = false;
+    drawer = new DrawTurret();
+
     ammo(Items.copper,  new BasicBulletType(2, 0){{
-            instantDisappear = true;
-            shootSound = empZap;
-            fragBullet = new VineEmpBulletType() {{
-                collidesGround = false;
-            .   
-            .
-            .
-            }};
-    }};
-    .
-    .
-    .
-}}
+                instantDisappear = true;
+                shootSound = empZap;
+                fragBullet  = new VineEmpBulletType(){{
+                    speed = 2;
+                    width = 5f;
+                    frontColor = Pal.redSpark;
+                    lifetime = 80f;
+                    pierce = true;
+                    damage = 0f;
+                    despawnEffect = Fx.none;
+                    collidesGround = false;
+                }};
+                fragBullets = 360;
+                fragRandomSpread = 0f;
+                fragSpread = 1f;
+                ammoMultiplier = 20;
+
+                hitEffect = despawnEffect = Fx.hitBulletColor;
+                hitColor = backColor = trailColor = Pal.copperAmmoBack;
+                frontColor = Pal.copperAmmoFront;
+            }},
+            Items.lead, new BasicBulletType(2f, 10){{
+                instantDisappear = true;
+                shootSound = empZap;
+                fragBullet  = new VineEmpBulletType(){{
+                    speed = 2;
+                    width = 5f;
+                    frontColor = Pal.lancerLaser;
+                    lifetime = 160f;
+                    pierce = true;
+                    damage = 0f;
+                    despawnEffect = Fx.none;
+                    collidesGround = false;
+                }};
+                fragBullets = 360;
+                fragRandomSpread = 0f;
+                fragSpread = 1f;
+                ammoMultiplier = 20;
+
+                hitEffect = despawnEffect = Fx.hitBulletColor;
+                hitColor = backColor = trailColor = Pal.copperAmmoBack;
+                frontColor = Pal.copperAmmoFront;
+            }});
+}};
 ```
-`core/src/mindustry/entities/bullet.VineEmpBulletType.java`
+Location: `core/src/mindustry/entities/bullet.VineEmpBulletType.java`
 ```java
-if(unit.isFlying()){
-    unit.apply(StatusEffects.unmoving, 500f);
-    unit.apply(StatusEffects.disarmed, 500f);
-    unit.elevation = 0.0f;
+public class VineEmpBulletType extends BasicBulletType{
+    
+    @Override
+    public void hitEntity(Bullet b, Hitboxc entity, float health){
+        //(...)
+        
+        if(entity instanceof Unit unit){
+            if(unit.isFlying()){
+                unit.apply(StatusEffects.grounded, 500f);
+                unit.apply(StatusEffects.disarmed, 500f);
+                unit.elevation = 0.0f;
+            }
+        }
+        handlePierce(b, health, entity.x(), entity.y());
+    }
 }
+```
+Location: `core/src/mindustry/content/StatusEffects.java`
+```java
+grounded = new StatusEffect("grounded"){{
+            color = Pal.gray;
+            effect = Fx.electrified;
+            effectChance = 1f;
+            speedMultiplier = 0f;
+        }};
 ```
 ### Implementation summary
 Our implementation began by incorporating a custom turret sprite obtained from the official Mindustry spriting community discord. Additionally, a custom firing sound (empZap) was introduced and linked to the turret's shooting behavior. 
