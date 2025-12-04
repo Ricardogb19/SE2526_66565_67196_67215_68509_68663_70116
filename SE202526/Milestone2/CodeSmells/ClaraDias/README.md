@@ -2,7 +2,7 @@
 
 ## *Speculative Generality*
 
-### Location: `ore\src\mindustry\ui\Menus.java`
+### Location: `core/src/mindustry/ui/Menus.java`
 
 ### Description: 
 The whole class is not used.

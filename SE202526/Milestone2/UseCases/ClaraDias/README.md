@@ -1,8 +1,8 @@
 # Use Cases
-## Use case: Encontrar objetos.
+## Use case: Find Objects.
 ID:UC11
 
-Description: The player's current file is saved.
+Description: The player wants to find a specific object/ machine.
 
 Main Actor: Player
 
@@ -15,9 +15,29 @@ Main Flow:
 
 3. The player checks whether it is the object they intended to find.
 
-Post-conditions: none.
+Post-conditions: The player has found the object.
 
-Alternative Flows: The player doesn't find the object
+Alternative Flows: 
+
+
+ID:UC11.1
+
+Description: The player doesn't find the object
+
+Main Actor: Player
+
+Secondary Actors: None
+
+Main Flow:
+1. The use case begins when the player doesn't find the object they intended to find.
+
+2. The player keeps looking for other objects
+
+3. The player doesn't find the wanted object 
+
+4. the player quits looking.
+
+Post-conditions: The player has not found the object.
 
 
 ## Use case: Remove objects
@@ -35,7 +55,7 @@ Main Flow:
 
 1. The use case begins when the player selects a drill on their map.
 
-2. The player emits “rays” toward the targeted drill.
+2. The player emits “rays” toward the targeted drill, by clicking on the right mouse button.
 
 3. The system removes the drill.
 
@@ -93,14 +113,16 @@ Main Flow:
 
 3. Before building, the system indicates the position and range of the turret.
 
-4. The defenses are built.
+4. The player decides where and how far to build the defenses.
+
+5. The defenses are build.
 
 Postconditions: The player has a turret placed at the chosen position, if the position is valid.
 
 Alternative Flows: None.
 
 
-## Use case: Energy criation
+## Use case: Energy creation
 ID:UC15
 
 Description: Energy.
@@ -123,7 +145,7 @@ Main Flow:
 
 5. The energy is transferred to the electrical network.
 
-Postconditions:
+Post conditions:
 
 Increased available energy.
 
