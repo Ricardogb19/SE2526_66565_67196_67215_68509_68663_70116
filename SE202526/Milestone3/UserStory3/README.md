@@ -171,6 +171,8 @@ However, this user story could be clearer in the concept of veteran player: it i
 ### Review
 The use cases are good, as they offer clear, direct and factual explanations for each scenario. Their use of conditions and alternative flows is solid. However, in a good amount of use cases, they lack to mention what the system does in response to the player's action; they end up just mentioning what the player does.
 
+review by guilherme neto
+
 ## Implementation documentation
 ### Relevant classes to the implementation of User Story 3
 ![code_evolution_diagram.png](simple_class_diagram.png)
@@ -305,6 +307,7 @@ Although daunting at first sight, most of the classes consist of attributes dire
 
 An important takeaway from this diagram is just how important and interconnected everything is, due to the high amount of compositions present, e.g., removing the **Block** would *brick* the entire system, rendering it useless.  
 
+review by guilherme neto
 
 ### Review
 
