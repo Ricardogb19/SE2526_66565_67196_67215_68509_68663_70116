@@ -179,7 +179,26 @@ public void consumeMaterials(int cost) {
 * Code Snippet: Drill
 
 ```java
-
+public void upgrade() {
+            if (level < MAX_LEVEL) {
+                switch (level) {
+                    case 1 -> drillTime -= 40;
+                    case 2 -> drillTime -= 30;
+                    case 3 -> drillTime -= 20;
+                    case 4 -> drillTime -= 10;
+                }
+                int materialsNeededForUpgrade = upgradeCost();
+                if (hasEnoughMaterials(materialsNeededForUpgrade)) {
+                    level++;
+                    consumeMaterials(materialsNeededForUpgrade);
+                    ui.showInfoFade("Upgraded this drill to level " + level + ".", 4);
+                    ui.showInfoPopup("Decreased drill time to " + drillTime + ".", 3, Align.top, 30, 0, 0, 0);
+                } else
+                    ui.showInfoFade("Insufficient materials.");
+            }
+            else
+                ui.showInfoFade("Already on max level.", 3);
+        }
   ````
 * Code Snippet: DesktopInput
 
