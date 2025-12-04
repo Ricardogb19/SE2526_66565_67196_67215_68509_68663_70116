@@ -262,7 +262,9 @@ The action starts in the Input class, which senses if the 'U' key has been press
 If so, then the DesktopInput checks if the build selected — the build is selected through the method tileWorld from the World class with the X and Y coordinates (Input class) — is an instance of either an ItemTurretBuild or a DrillBuild.
 If so, the method upgrade is called from either class; if not, the class UI is called with the mission to tell the user that the build selected is not upgradable.
 ### Review
-*(Please add your class diagram review here)*
+**Reviewed by Afonso Rodriguez 66565.**
+
+The discussion in natural language fully explains what's going on in the diagram, and it seems to be correct on many aspects, however I would disagree with some decisions, like having a dependency from DesktopInput to Core, I don't believe this to be true, since what communicates to the Core are the build classes, like DrillBuild etc. 
 ### Sequence diagrams
 ![SeqDiagram.png](seqDiagram.png)
 * This sequence diagram represents the use story 1, and in which order this actions occur.
@@ -285,4 +287,6 @@ This video serves as evidence that the user story was fully implemented and vali
 
 link: https://youtu.be/Ea53YZtPJes
 ### Review
-*(Please add your test specification review here)*
+**Reviewed by Afonso Rodriguez 66565.**
+
+The provided video fully depicts what is to be expected by the user story, every possible scenario and their outcomes. The scenario-based tests could get some minor improvements to match the correct template, like fully accompanying the viewer through the whole process.
