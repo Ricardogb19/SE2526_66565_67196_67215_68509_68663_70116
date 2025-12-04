@@ -932,4 +932,5 @@ This test is meant to check if the conveyor log successfully shows a message if 
 1.  The player should now see the conveyor log without the warning(s) it fixed.
 
 ### Review
-*(Please add your test specification review here)*
+Overall, the tests were well developed, short, and concise. The tester knows exactly what to do.
+In my opinion, the expected results for each step are missing. When executing a test, a person must be able to know if what he/she is doing is correct.
