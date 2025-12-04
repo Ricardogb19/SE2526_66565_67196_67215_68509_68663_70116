@@ -247,7 +247,15 @@ Extension Point: Clear fixed warnings.
 **Alternative flows:** none.
 
 ### Review
-*(Please add your use case review here)*
+
+The use cases seem to cover the user story's requirements and they describe clear interactions between the user and the system.
+
+Also, the alternative flow showed in 7.1 demonstrates a nice handling of the edge case.
+
+After review, I would not improve anything.
+
+(Reviewed by Ricardo Batista , 68509)
+
 ## Implementation documentation
 
 For the implementation of user story 2, the subgroup held meetings to plan and develop the code associated with the proposed extension. During this process, we created two new classes: Warning and ConveyorLog, and added and/or changed methods in the classes: UI, DesktopInput, Conveyor.ConveyorBuild.
@@ -579,7 +587,12 @@ The commits done later were associated with the code smells identified in Convey
 
 
 #### Review
-*(Please add your implementation summary review here)*
+
+The commit organization is very good, well sequenced and well structured. There is a nice description of all the changes made, including even documentation.
+
+Overall, it effectively explains the implementation of the User Story.
+
+(Reviewed by Ricardo Batista , 68509)
 
 ### Class diagram
 
@@ -590,7 +603,16 @@ The class diagram represents the implementation done in the source code, summari
 The interaction between the player and the interface begins when the player selects to place a conveyor on the map (drawn using the rect method of the Draw class). If an error occurs (detected by the detectError method), a new icon is drawn. In addition, a warning is created and added to the game log. A new button has been added to the menu to allow the player to access the log through the interface.
 
 ### Review
-*(Please add your class diagram review here)*
+
+At first the class diagram seems complex but it is very detailed in the sense that it shows every method used, modified and created.
+
+The singleton pattern could be highlited in the diagram
+
+Some visual indicators would be useful to distinguish what was created, modified and used.
+
+Overall, the class diagram demonstrates well the implementation structure.
+
+(Reviewed by Ricardo Batista , 68509)
 
 ### Sequence diagrams
 
@@ -637,6 +659,8 @@ The interaction between the player and the interface begins when the player sele
 
 The sequence diagrams are well designed, easy to understand, and overall well described. The captions were fundamental for the understanding of the diagrams.
 I think that a sequence diagram of the user story would be a great plus to the existing sequence diagrams, because it would make it easier to understand the user story as a whole.
+
+(Reviewed by Clara Dias, 67215)
 
 ## Test specifications
 
@@ -937,3 +961,5 @@ This test is meant to check if the conveyor log successfully shows a message if 
 ### Review
 Overall, the tests were well developed, short, and concise. The tester knows exactly what to do.
 In my opinion, the expected results for each step are missing. When executing a test, a person must be able to know if what he/she is doing is correct.
+
+(Reviewed by Clara Dias, 67215)
