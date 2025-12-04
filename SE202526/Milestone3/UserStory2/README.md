@@ -918,7 +918,6 @@ This test is meant to check if the conveyor log successfully clears all the fixe
 1.  The game should remain unpaused, and the player should no longer see the Warning Log screen, and the message "There are no warnings to be cleared!" should be momentarily seen on the top center of the screen.
 
 
-
 ### TEST #15:
 
 This test is meant to check if the conveyor log successfully shows a message if the player tries to clear all fixed warnings when there is at least one.
