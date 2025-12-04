@@ -93,7 +93,7 @@ public interface Cons<T>{
     void get(T t);
 }
 ````
-![alt text](Observer.png)
+![alt text](Observer-1.png)
 
 ## *Factory Method*
 ### Location: `core/src/mindustry/world/Block.java`
