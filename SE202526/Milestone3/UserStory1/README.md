@@ -200,6 +200,14 @@ public void upgrade() {
                 ui.showInfoFade("Already on max level.", 3);
         }
   ````
+
+* Code Snippet: Binding
+
+```java
+public class Binding{
+    public static final KeyBind
+    upgrade = KeyBind.add("upgrade", KeyCode.u),
+  ````
 * Code Snippet: DesktopInput
 
 ```java
