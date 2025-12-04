@@ -247,14 +247,7 @@ Extension Point: Clear fixed warnings.
 **Alternative flows:** none.
 
 ### Review
-
-The use cases seem to cover the user story's requirements and they describe clear interactions between the user and the system.
-
-Also, the alternative flow showed in 7.1 demonstrates a nice handling of the edge case.
-
-After review, I would not improve anything.
-
-
+*(Please add your use case review here)*
 ## Implementation documentation
 
 For the implementation of user story 2, the subgroup held meetings to plan and develop the code associated with the proposed extension. During this process, we created two new classes: Warning and ConveyorLog, and added and/or changed methods in the classes: UI, DesktopInput, Conveyor.ConveyorBuild.
@@ -586,11 +579,7 @@ The commits done later were associated with the code smells identified in Convey
 
 
 #### Review
-
-The commit organization is very good, well sequenced and well structured. There is a nice description of all the changes made, including even documentation.
-
-Overall, it effectively explains the implementation of the User Story.
-
+*(Please add your implementation summary review here)*
 
 ### Class diagram
 
@@ -601,15 +590,7 @@ The class diagram represents the implementation done in the source code, summari
 The interaction between the player and the interface begins when the player selects to place a conveyor on the map (drawn using the rect method of the Draw class). If an error occurs (detected by the detectError method), a new icon is drawn. In addition, a warning is created and added to the game log. A new button has been added to the menu to allow the player to access the log through the interface.
 
 ### Review
-
-At first the class diagram seems complex but it is very detailed in the sense that it shows every method used, modified and created.
-
-The singleton pattern could be highlited in the diagram
-
-Some visual indicators would be useful to distinguish what was created, modified and used.
-
-Overall, the class diagram demonstrates well the implementation structure.
-
+*(Please add your class diagram review here)*
 
 ### Sequence diagrams
 
@@ -653,17 +634,19 @@ Overall, the class diagram demonstrates well the implementation structure.
 #### The sequence diagram above describes the user exiting the Conveyor Log. It simply consists in the UI being hidden due to an interaction from a the player.
 
 #### Review
-The sequence diagrams are well designed, easy to understand, and overall well described. The captions were fundamental for the understanding of the diagrams.
-I think that a sequence diagram of the user story would be a great plus to the existing sequence diagrams, because it would make it easier to understand the user story as a whole. 
-
-
+*(Please add your sequence diagram review here)*
 ## Test specifications
 
 ### USER STORY #2 : TESTS
 
 To test all of these functionalities, the player must be (or have been) in a gamemode that supports conveyors (either Campaign in Serpulo or Sandbox in any map). Although the log works on Erekir, no warnings will be shown, as there are no conveyors in said planet.
 
-### TEST #1:
+**NOTE: A spreadsheet containing all of these tests is available:**
+[File here](./US2_Test_Cases.xlsx)
+
+**NOTE: Each test's title is a clickable link to a YouTube video containing a visual explanation.**
+
+### [TEST #1:](https://youtu.be/PCIbglmwM6s)
 
 This test is meant to check if the conveyor log is present.
 
@@ -681,7 +664,7 @@ This test is meant to check if the conveyor log is present.
 
 
 
-### TEST #2:
+### [TEST #2:](https://youtu.be/qNW3VyAqnb4)
 
 This test is meant to check if a misplaced conveyor successfully outputs a warning.
 
@@ -701,7 +684,7 @@ This test is meant to check if a misplaced conveyor successfully outputs a warni
 
 
 
-### TEST #3:
+### [TEST #3:](https://youtu.be/oSAdbiRx2eI)
 
 This test is meant to check if a congested conveyor successfully outputs a warning.
 
@@ -723,7 +706,7 @@ This test is meant to check if a congested conveyor successfully outputs a warni
 
 
 
-### TEST #4:
+### [TEST #4:](https://youtu.be/nkS-yWTufCk)
 
 This test is meant to check if an existing warning outputs an error message.
 
@@ -740,11 +723,11 @@ This test is meant to check if an existing warning outputs an error message.
 
 
 
-### TEST #5:
+### [TEST #5:](https://youtu.be/fPFkRLS6eP0)
 
 This test is meant to check the player can confirm an error message it just read.
 
-#### Pre-Condition* the player is in a save file that supports conveyors, and is on a screen that shows further details about the conveyor warning.
+#### Pre-Condition: the player is in a save file that supports conveyors, and is on a screen that shows further details about the conveyor warning.
 #### Test Case ID: Warning confirmation exists
 
 #### Steps:
@@ -757,24 +740,7 @@ This test is meant to check the player can confirm an error message it just read
 
 
 
-### TEST #6:
-
-This test is meant to check if fixed misplacement warnings successfully update themselves in the game.
-
-#### Pre-Condition: the player is in a save file that supports conveyors, and has at least one conveyor misplacement warning.
-#### Test Case ID: Misplacement fix exists
-
-#### Steps:
-
-1.  Right click on at least one of the conveyors that are involved in the misplacement to remove it/them.
-
-#### Expected Results:
-
-1.  The selected conveyor(s) must be removed, and the warning sign (a yellow triangle with a ! in the middle) should no longer be present at that region.
-
-
-
-### TEST #7:
+### [TEST #6:](https://youtu.be/2kO2RC1uVhQ)
 
 This test is meant to check if a congestion warning is successfully fixed, by routing the congested conveyor to the core.
 
@@ -794,7 +760,7 @@ This test is meant to check if a congestion warning is successfully fixed, by ro
 
 
 
-### TEST #8
+### [TEST #7](https://youtu.be/3hiW-2BEp-U)
 
 This test is meant to check if a congestion warning is successfully fixed, by adding a turret.
 
@@ -813,7 +779,7 @@ This test is meant to check if a congestion warning is successfully fixed, by ad
 
 
 
-### TEST #9:
+### [TEST #8:]()
 
 This test is meant to check if a misplacement warning is successfully fixed, by removing one of the misplaced conveyors.
 
@@ -831,7 +797,7 @@ This test is meant to check if a misplacement warning is successfully fixed, by 
 
 
 
-### TEST #10:
+### [TEST #9:](https://youtu.be/pS9aXQgob-I)
 
 This test is meant to check if a misplacement warning is successfully fixed, by rerouting one of the misplaced conveyors.
 
@@ -851,7 +817,7 @@ This test is meant to check if a misplacement warning is successfully fixed, by 
 
 
 
-### TEST #11:
+### [TEST #10:](https://youtu.be/a-nF2FqwC2w)
 
 This test is meant to check if the conveyor log opens when the player clicks on its icon.
 
@@ -868,7 +834,7 @@ This test is meant to check if the conveyor log opens when the player clicks on 
 
 
 
-### TEST #12:
+### [TEST #11:](https://youtu.be/vZnEYUEw3eA)
 
 This test is meant to check if the conveyor log exits successfully.
 
@@ -885,7 +851,7 @@ This test is meant to check if the conveyor log exits successfully.
 
 
 
-### TEST #13:
+### [TEST #12:](https://youtu.be/9PFPIE3k2eI)
 
 This test is meant to check if the conveyor log successfully shows a message if the player tries to clear all fixed warnings when there are none.
 
@@ -902,7 +868,7 @@ This test is meant to check if the conveyor log successfully shows a message if 
 
 
 
-### TEST #14:
+### [TEST #13:](https://youtu.be/BYZ-08bV8Eo)
 
 This test is meant to check if the conveyor log successfully clears all the fixed warnings.
 
@@ -918,7 +884,7 @@ This test is meant to check if the conveyor log successfully clears all the fixe
 1.  The game should remain unpaused, and the player should no longer see the Warning Log screen, and the message "There are no warnings to be cleared!" should be momentarily seen on the top center of the screen.
 
 
-### TEST #15:
+### [TEST #14:](https://youtu.be/EqEF6zbh7tQ)
 
 This test is meant to check if the conveyor log successfully shows a message if the player tries to clear all fixed warnings when there is at least one.
 
