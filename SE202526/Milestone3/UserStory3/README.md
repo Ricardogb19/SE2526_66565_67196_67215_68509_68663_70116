@@ -293,7 +293,15 @@ These fragments are the ones that generate the actual effect using a custom bull
 ### Review
 *(Please add your implementation summary review here)*
 ### Class diagrams
-(*Class diagrams and their discussion in natural language.*)
+The following image is referent to the class diagram, which consists of the classes directly related to our implementation of the user story 3
+
+![class_diagram](class_diagram.png)
+
+Although daunting at first sight, most of the classes consist of attributes directly mutated to obtain the desired functionality of our turret. Naturally, most of the shooting and targeting logic have been abstracted from this diagram, since these were already implemented in the base version of the game. Adding these classes and methods *ad nauseam* would just clutter an already enormous diagram.
+
+An important takeaway from this diagram is just how important and interconnected everything is, due to the high amount of compositions present, e.g., removing the **Block** would *brick* the entire system, rendering it useless.  
+
+
 ### Review
 *(Please add your class diagram review here)*
 ### Sequence diagrams
